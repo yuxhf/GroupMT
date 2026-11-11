@@ -263,7 +263,7 @@
         "Figure 2 · 总体架构",
         "Figure 5 · 原文检索案例"
       ],
-      "boundary_note": "依据 Figures 2 / 5 与 §3 重构。实体关系按原段落概括，不是导出的完整知识图谱；不编造 PPR 传播分数或时序。原图返回列表仍有无关段落。",
+      "boundary_note": "按 Figures 2 / 5 与 §3 / 附录 G 重构。节点布局是教学子图，NY 仅示意同义边，不是原例实测检出；传播色深和路径不冒充 PPR 分数或真实运行轨迹。种子权重与返回段落沿用原例；噪声段落保留。",
       "checked_on": "2026-11-11",
       "canonical_stage": "not_promoted",
       "formal_experiment_ran": false
@@ -722,7 +722,7 @@
     {
       "number": 6,
       "id": "benchmark-focus",
-      "title": "MemoryAgentBench：分数如何产生",
+      "title": "MemoryAgentBench：增量交互中的四种能力",
       "speaker_note": "保留原报告的机制、数值与边界；结合该页来源讲解。",
       "origin": "extracted_original"
     },
@@ -743,7 +743,7 @@
     {
       "number": 9,
       "id": "hippo-focus",
-      "title": "HippoRAG 2：沿关联找到出生地所属的县",
+      "title": "HippoRAG 2：从联合图索引到关联检索",
       "speaker_note": "",
       "origin": "authored_seminar"
     },

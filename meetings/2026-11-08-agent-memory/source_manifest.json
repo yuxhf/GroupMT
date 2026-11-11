@@ -4,6 +4,16 @@
   "formal_experiment_ran": false,
   "files": [
     {
+      "path": "assets/compact-report.css",
+      "sha256": "cf1f5a91bb23781412e9234ce415c0ab0d42491c454ed5047e8f9e802a7f1112",
+      "role": "approved_task_reader_or_shell_asset"
+    },
+    {
+      "path": "assets/hippo-mechanism.css",
+      "sha256": "8b4a94a3fc39a128638d2819dd6b269408d7f52a231f7da9dbb1731bf06836fc",
+      "role": "approved_task_reader_or_shell_asset"
+    },
+    {
       "path": "assets/pptx/image2.png",
       "sha256": "e4dabdc8a55cd6b027e87a6e9a955261c87fff1b32dddef271b2e29b4ca08873"
     },
@@ -56,18 +66,13 @@
       "sha256": "ef0a4d5ec8ad1eea2ac44942c8621729353b18c9bc02e6d4e1f11f993103e2f6"
     },
     {
-      "path": "assets/step-animation.js",
-      "sha256": "bf13ee95e0a208e654d75ed701518f6a6e9b508f2a1228f637ef7eadc87f3fb4",
-      "role": "derived_legacy_runtime_svg_visibility_fix"
-    },
-    {
       "path": "assets/task-reader.css",
-      "sha256": "56c4bde6ab70f495ca949d5d1170b135140c3a24f046e81ca0a7e8cb44ba131b",
+      "sha256": "9269cf22dc44721f3cc63f32421c32071a0cef5fe298b62df568b2b57c50a09c",
       "role": "approved_task_reader_or_shell_asset"
     },
     {
       "path": "assets/task-reader.mjs",
-      "sha256": "18127c13ad105cdd50f3e033cc7bd4331d3804f8a091c6f9806a87cb4a0c249f",
+      "sha256": "c32e0d1db532ff224d74671fe0ff251fd7e612123a457a2c0f460983b1888d22",
       "role": "approved_task_reader_or_shell_asset"
     },
     {
@@ -176,6 +181,13 @@
       "source_url": "https://arxiv.org/html/2508.19828v5/figure2_pipeline.png"
     },
     {
+      "path": "figures/papers/memoryagentbench_competencies_v4.png",
+      "sha256": "cfb04ff21e6704113c906b2195e404b5fef3d11b010d3a3e32e8f0b41fcd00a9",
+      "role": "primary_source_task_case_figure",
+      "source_url": "https://arxiv.org/html/2507.05257v4/figures/intro2.png",
+      "figure": "MemoryAgentBench Figure 1"
+    },
+    {
       "path": "figures/papers/memr3_case_v1.png",
       "sha256": "0be934d3def246505f19391aaa55e14dbcec216ec35cfe06dbf4ff68a3248c46",
       "role": "primary_focus_paper_figure_download",
@@ -270,7 +282,7 @@
     },
     {
       "path": "report_sources.json",
-      "sha256": "d301ceb69d12f63b0b338b6443a1463bb3bc7c913ef41c2cfceb5cfc09b2d26c"
+      "sha256": "4d828c98b266554f8cd519667ab177685d94f4150a8b8963f5627be6b1ee048c"
     },
     {
       "path": "sources/focus_method_evidence.json",

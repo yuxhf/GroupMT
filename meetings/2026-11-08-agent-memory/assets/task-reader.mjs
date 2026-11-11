@@ -24,10 +24,25 @@ document.querySelectorAll('[data-task-reader]').forEach(root=>{
       $('[data-case-title]').textContent=s.title;$('[data-case-description]').textContent=s.description;
       $('[data-case-takeaway]').textContent=s.takeaway;$('[data-case-formula]').textContent=s.formula||'该步按原图任务讲解，不增加未给出的数值。';
       if(spec.key==='hippo'){
-        $$('.triple-row').forEach((row,i)=>$('small',row).textContent=index<2?'候选':i<2?'保留':'过滤');
-        if(index===4&&!motion.matches){
-          const probe=$('[data-graph-probe]');
-          animations.push(probe.animate([{transform:'translate(140px,130px)',opacity:0},{transform:'translate(435px,130px)',opacity:1,offset:.5},{transform:'translate(735px,130px)',opacity:0}],{duration:1600,easing:'ease-in-out'}));
+        const nodes=$$('[data-h-node]');
+        nodes.forEach(n=>n.classList.remove('is-seed','is-active','is-returned','is-noise'));
+        const flag=(ids,cls)=>ids.forEach(id=>$(`[data-h-node="${id}"]`)?.classList.add(cls));
+        if(index>=6)flag(['erik','monte','ny','erikdoc','hortondoc','hertsdoc','montedoc','other1','other2','other3','other4'],'is-seed');
+        if(index===7)flag(['erik','monte','ny','alias'],'is-active');
+        if(index>=8)flag(['erik','monte','county','erikdoc','montedoc'],'is-active');
+        if(index>=9){flag(['erikdoc','hortondoc','montedoc'],'is-returned');flag(['hortondoc'],'is-noise');}
+        if(index===7&&!motion.matches){
+          const paths=[[[695,270],[810,244]],[[820,362],[865,180]],[[810,244],[720,414]]];
+          $$('[data-h-pulse]').forEach((pulse,i)=>animations.push(pulse.animate([
+            {transform:`translate(${paths[i][0][0]}px,${paths[i][0][1]}px)`,opacity:0},
+            {transform:`translate(${paths[i][0][0]}px,${paths[i][0][1]}px)`,opacity:1,offset:.12},
+            {transform:`translate(${paths[i][1][0]}px,${paths[i][1][1]}px)`,opacity:1,offset:.85},
+            {transform:`translate(${paths[i][1][0]}px,${paths[i][1][1]}px)`,opacity:0}],
+            {duration:1600,delay:i*250,easing:'ease-in-out'})));
+        }
+        if(index===8&&!motion.matches){
+          const pulse=$('[data-h-pulse="0"]');
+          animations.push(pulse.animate([{transform:'translate(810px,244px)',opacity:0},{transform:'translate(810px,244px)',opacity:1,offset:.1},{transform:'translate(810px,525px)',opacity:1,offset:.9},{transform:'translate(810px,525px)',opacity:0}],{duration:1700,easing:'ease-in-out'}));
         }
       }
       if(spec.key==='memr3'){
@@ -76,7 +91,7 @@ document.querySelectorAll('[data-task-reader]').forEach(root=>{
     $$('[data-case-figure]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
   }));
   workbench.addEventListener('keydown',event=>{
-    if(view!=='demo'||event.defaultPrevented||event.altKey||event.ctrlKey||event.metaKey||event.target.closest('input,select,textarea,a,summary,[data-case-view]'))return;
+    if(view!=='demo'||event.defaultPrevented||event.altKey||event.ctrlKey||event.metaKey||event.target.closest('input,select,textarea,a,summary,[data-case-view],[data-graph-scroll]'))return;
     const actions={ArrowLeft:()=>go(player.state().index-1),ArrowRight:()=>go(player.state().index+1),Home:()=>go(0),End:()=>go(steps.length-1)};
     if(actions[event.key]){event.preventDefault();actions[event.key]();}
     if(event.key===' '&&!event.target.closest('button')){event.preventDefault();play();}
