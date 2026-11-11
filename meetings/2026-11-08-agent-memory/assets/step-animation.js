@@ -2,7 +2,7 @@
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const controllers = [];
 
-      document.querySelectorAll('[data-step-animation]').forEach((root) => {
+      document.querySelectorAll('[data-step-animation]:not([data-custom-player])').forEach((root) => {
         const specNode = root.querySelector('[data-step-spec]');
         if (!specNode) return;
         let steps;

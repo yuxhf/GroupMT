@@ -120,6 +120,32 @@
       "boundary_note": "Report-local figure integration; no registry or Research Memory changes."
     },
     {
+      "source_id": "approved-rfmem-top10-reader",
+      "source_url": "https://arxiv.org/html/2603.09250v1",
+      "checked_on": "2026-11-11",
+      "scope": "Figure 18 actual IDs and branch layout; human approved reader",
+      "final_ids": [
+        47,
+        7,
+        70,
+        36,
+        69,
+        9,
+        4,
+        44,
+        45,
+        41
+      ],
+      "round_totals": [
+        4,
+        6,
+        9,
+        10
+      ],
+      "evidence_class": "human_approved_teaching_reconstruction",
+      "boundary_note": "Chinese summaries and within-round display order are explanatory, not global similarity ranks; no new experiment."
+    },
+    {
       "paper_id": "arxiv:2510.18866",
       "title": "LightMem",
       "canonical_stage": "not_linked_in_registry",
@@ -685,7 +711,7 @@
     {
       "number": 10,
       "id": "rfmem-focus",
-      "title": "RF-Mem：一次 Recollection 如何逐轮形成 Top-10",
+      "title": "RF-Mem：逐轮选出完整 Top-10",
       "speaker_note": "保留原报告的机制、数值与边界；结合该页来源讲解。",
       "origin": "extracted_original"
     },

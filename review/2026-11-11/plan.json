@@ -1,0 +1,549 @@
+{
+  "date": "2026-11-11",
+  "scope": "30 pages: source content, figures and animation-state review; only RF-Mem changes implemented",
+  "implemented_pages": [
+    10
+  ],
+  "proposal_only_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "animation_plan": {
+    "current": 11,
+    "approved_keep": 1,
+    "task_redesign_proposed": 3,
+    "remove_autoplay_proposed": 7
+  },
+  "standards": [
+    "一个具体任务，可追踪的输入、证据与结果。",
+    "动画要改变条目、关系、查询或决策；只有框/圆点高亮则用静态原图。",
+    "overview 与任务演示可切换；原图、来源和示意边界保留。",
+    "具名步骤、重置、调速、手动切步与专注模式；终态可完整读懂。",
+    "不编奖励、相似度、内部激活或论文未给出的数字。",
+    "每页仅一条主结论，辅助公式与长说明默认收起。"
+  ],
+  "rows": [
+    {
+      "page": 1,
+      "id": "agent-intro",
+      "title": "从 Agent 开始：围绕目标持续行动",
+      "action": "静态简化",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [],
+      "problem": "开场例子有效，但任务、三步列表与收尾重复占版面。",
+      "proposal": "保留准备组会这个任务，压成“观察 → 行动 → 检查”的短行；用第二天恢复任务的一个问题收尾。",
+      "boundary": "不新增动画，开场要迅速讲清 Agent。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#agent-intro"
+    },
+    {
+      "page": 2,
+      "id": "harness-intro",
+      "title": "Harness：让 Agent 能执行、能恢复、能检查",
+      "action": "静态简化",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [],
+      "problem": "两块大容器把 Agent 与 Harness 拉得过散。",
+      "proposal": "保持概念边界，用一个任务配三行运行支持；工具、上下文、恢复分别一句，不做跳框。",
+      "boundary": "Harness 是运行支持，不能把模型内部记忆全部归到外部 Harness。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#harness-intro"
+    },
+    {
+      "page": 3,
+      "id": "human-memory-intro",
+      "title": "从人类记忆获得启发，也区分实现机制",
+      "action": "静态原图",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/lecture/brain_memory_yux.png"
+      ],
+      "problem": "人脑大图有引入价值，下方两个编号卡重复制造边框。",
+      "proposal": "原图为主；图后只留“借鉴问题”与“实现不同”两句，删 01/02 大卡。",
+      "boundary": "不把脑区示意与 Agent 模块作一一对应。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#human-memory-intro"
+    },
+    {
+      "page": 4,
+      "id": "memory-palace",
+      "title": "记忆宫殿：组织信息，也组织回忆路径",
+      "action": "删除旧动画",
+      "current_animations": 1,
+      "current_steps": [
+        6
+      ],
+      "current_images": [
+        "figures/lecture/memory_palace_grocery.png",
+        "figures/lecture/method_loci_frontiers_figure1.webp",
+        "figures/lecture/IMG_5989.jpg"
+      ],
+      "problem": "六步主要是高亮位置、移动标记，输入—操作—输出又重复同一信息。",
+      "proposal": "取消自动播放与状态账本，保留完整六位置图和一句“位置提供线索，路线组织回忆”；补充照片仍可展开。",
+      "boundary": "这页只作认知启发，不模拟人脑活动。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#memory-palace"
+    },
+    {
+      "page": 5,
+      "id": "three-memory-roles",
+      "title": "Agent 的三类记忆：当前使用、长期保留与经验复用",
+      "action": "保持现状",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/papers/codex_compaction_yux_session.png",
+        "figures/lecture/chatgpt_memory_yux.png"
+      ],
+      "problem": "三类定义配三个默认收起的具体例子，篇幅和操作已经合适。",
+      "proposal": "保留 Codex、ChatGPT 与出行经验三个示例；只统一图片等比缩放和展开按钮样式。",
+      "boundary": "不把经验记录说成已训练入参数。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#three-memory-roles"
+    },
+    {
+      "page": 6,
+      "id": "benchmark-focus",
+      "title": "MemoryAgentBench：分数如何产生",
+      "action": "删除旧动画",
+      "current_animations": 1,
+      "current_steps": [
+        6
+      ],
+      "current_images": [],
+      "problem": "现在的六步切换主要突出四个能力框，没有完整执行任务或算出分数。",
+      "proposal": "改为静态增量评测流程，加四行“历史 → 问题 → 应答要求”小例子；不再播放框的变化。",
+      "boundary": "例子仍标教学情境，不能冒充 benchmark 原题或官方得分。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#benchmark-focus"
+    },
+    {
+      "page": 7,
+      "id": "research-question",
+      "title": "什么是好的 Memory：从 Benchmark 看能力与代价",
+      "action": "静态精简",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [],
+      "problem": "四项能力与上一页重复，真正新增的成本视角被压在下面。",
+      "proposal": "能力名称简短引用上一页，本页突出正确性、当前有效性、跨历史整合与写入/检索代价；保留一条结论。",
+      "boundary": "额外成本维度与官方四项得分分开。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#research-question"
+    },
+    {
+      "page": 8,
+      "id": "lifecycle-map",
+      "title": "Query：找什么、怎么找、什么时候继续找",
+      "action": "静态简化",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [],
+      "problem": "关联、深度、控制只是导航概念，编号大卡无助于理解。",
+      "proposal": "压为一行三列短导读，分别链接 HippoRAG 2、RF-Mem、MemR³；不新增动画。",
+      "boundary": "三种关注点可以交叉，不是互斥分类。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#lifecycle-map"
+    },
+    {
+      "page": 9,
+      "id": "hippo-focus",
+      "title": "HippoRAG 2：通过关联结构检索分散信息",
+      "action": "重做任务动画",
+      "current_animations": 1,
+      "current_steps": [
+        6
+      ],
+      "current_images": [
+        "assets/pptx/image2.png"
+      ],
+      "problem": "现版只是沿 overview 移动标记，没展示关联检索怎样改变证据集合。",
+      "proposal": "保留英文 Figure 2；另做一条可核对的具体查询：片段/实体 → 局部关联 → 检索种子 → 关联扩展 → 取回原始证据。节点须有真实短内容与来源，不能只画模块框。",
+      "boundary": "优先取论文原例；缺少可核对的传播数值时不捏造 PPR 分数。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#hippo-focus"
+    },
+    {
+      "page": 10,
+      "id": "rfmem-focus",
+      "title": "RF-Mem：逐轮选出完整 Top-10",
+      "action": "已合入正文",
+      "current_animations": 1,
+      "current_steps": [
+        8
+      ],
+      "current_images": [
+        "figures/papers/rfmem_architecture.png",
+        "figures/papers/rfmem_personamem_case_figure18.png"
+      ],
+      "problem": "已确认的样页此前独立，正文仍是旧七步动画。",
+      "proposal": "本次已合入八步版本、真实十个 ID、4→6→9→10 累计、原图切换、专注模式、重置与调速；保留原图与示意边界。",
+      "boundary": "同轮按图中版面顺序展示，序号不是全局相似度排名。",
+      "status": "已完成",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#rfmem-focus"
+    },
+    {
+      "page": 11,
+      "id": "rfmem-case",
+      "title": "RF-Mem Figure 18：检索案例分析",
+      "action": "建议合并",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/papers/rfmem_personamem_case_figure18.png"
+      ],
+      "problem": "第 10 页已经包含 Figure 18 原图和十条 ID，这页再讲一遍形成过程会重复。",
+      "proposal": "建议把完整原图与必要的成功/失败边界并入第 10 页可选说明，取消独立主讲页；关于复现排序的技术细节收起。",
+      "boundary": "保留“慢路径也可能漂移”的限制；合并尚未实施。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#rfmem-case"
+    },
+    {
+      "page": 12,
+      "id": "memr3-focus",
+      "title": "MemR³：围绕信息缺口主动检索",
+      "action": "重做任务动画",
+      "current_animations": 1,
+      "current_steps": [
+        5
+      ],
+      "current_images": [
+        "figures/papers/memr3_overview_v1.png",
+        "figures/papers/memr3_case_v1.png"
+      ],
+      "problem": "虽有领养案例，但动画仍在系统模块间走线，已知/未知证据没有真正变动。",
+      "proposal": "用原图 Toby/Buddy 的领养事件：先查到什么 → 缺哪次领养时间 → 据缺口改查 → 补到日期 → 计算时间差；证据与缺口同屏更新，原图始终可对照。",
+      "boundary": "只使用原图日期与片段；不能把 Answer 动作当正确性保证。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#memr3-focus"
+    },
+    {
+      "page": 13,
+      "id": "readwrite-focus",
+      "title": "增删改：让记忆反映变化，而不是只会追加",
+      "action": "静态保留",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [],
+      "problem": "四操作的同一场景表很清楚，下面三个编号卡与下一页导航重复。",
+      "proposal": "保留 ADD/UPDATE/DELETE/NOOP 对照表，三个方法缩成一行导读；不做操作名依次变色的动画。",
+      "boundary": "示例是教学情境，真正删除与仅停止使用要区分。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#readwrite-focus"
+    },
+    {
+      "page": 14,
+      "id": "lightmem-focus",
+      "title": "LightMem：分阶段整理与离线巩固",
+      "action": "删除旧动画",
+      "current_animations": 1,
+      "current_steps": [
+        5
+      ],
+      "current_images": [
+        "figures/papers/lightmem_overview_v4.png"
+      ],
+      "problem": "现版只有高亮框和五段输入—操作—输出，没有可核验的条目变化。",
+      "proposal": "保留 Figure 2 完整 overview，图下只讲“先筛/分段 → 批量记下 → 离线巩固”；去掉播放条、覆盖层和重复账本。",
+      "boundary": "不将离线巩固当免费成本；现有证据不足以画真实压缩率变化。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#lightmem-focus"
+    },
+    {
+      "page": 15,
+      "id": "memory-r1-focus",
+      "title": "Memory-R1：以任务反馈学习记忆操作",
+      "action": "重做任务动画",
+      "current_animations": 1,
+      "current_steps": [
+        5
+      ],
+      "current_images": [
+        "figures/papers/memory_r1_overview_v5.png"
+      ],
+      "problem": "现版两阶段只是模块高亮，ADD/UPDATE/DELETE/NOOP 没有展示实际记录变化。",
+      "proposal": "原图与任务模式切换：旧记忆＋新输入 → 选择操作 → 记录真实增删改/不改 → 当前问题检索 → 选用相关记忆。每步给出记录 ID、变更前后与为何改变。",
+      "boundary": "优先采用论文可核对案例；训练反馈留在 overview 解释，不伪造参数学习过程。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#memory-r1-focus"
+    },
+    {
+      "page": 16,
+      "id": "evolver-focus",
+      "title": "EvolveR：从交互轨迹提炼经验原则",
+      "action": "删除旧动画",
+      "current_animations": 1,
+      "current_steps": [
+        6
+      ],
+      "current_images": [
+        "figures/papers/evolver_overview_v3.png"
+      ],
+      "problem": "在线/离线循环已由原图完整表达，移动原则标记没有展示某条经验如何修订。",
+      "proposal": "保留 Figure 2；用短句区分轨迹、原则与经验库维护，保留现有有范围的消融证据，取消自动播放。",
+      "boundary": "外部经验库变化与策略参数变化分开。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#evolver-focus"
+    },
+    {
+      "page": 17,
+      "id": "complementary-rl-focus",
+      "title": "Complementary RL：经验提取器与 Actor 共同演化",
+      "action": "删除旧动画",
+      "current_animations": 1,
+      "current_steps": [
+        5
+      ],
+      "current_images": [
+        "figures/papers/complementary_rl_overview_v2.png"
+      ],
+      "problem": "Actor、Extractor、环境之间走线，没有一条经验被后续使用的可追踪任务。",
+      "proposal": "保留 Figure 2 对照上下两种训练组织；用一行“谁更新、反馈来自哪里”突出共同演化，不强做流程动画。",
+      "boundary": "后续任务成功不能直接归因于某条经验，不能展示虚构 reward。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#complementary-rl-focus"
+    },
+    {
+      "page": 18,
+      "id": "empo2-focus",
+      "title": "EMPO²：概率混合三种采样与更新模式",
+      "action": "删除旧动画",
+      "current_animations": 1,
+      "current_steps": [
+        5
+      ],
+      "current_images": [
+        "figures/papers/empo2_modes_v2.png",
+        "figures/papers/empo2_memory_v2.png"
+      ],
+      "problem": "三种训练条件本质是对照关系，轮流高亮并不说明采样/更新条件差别。",
+      "proposal": "保留 Figure 5 与 Figure 4，配三行“采样是否有 tips / 更新是否有 tips”的静态对照；p/q 用原文符号，不编默认百分比。",
+      "boundary": "正文、算法与附录符号口径有差异，明确采用正文 §4.2。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#empo2-focus"
+    },
+    {
+      "page": 19,
+      "id": "edge-focus",
+      "title": "EDGE：按经验增益决定是否蒸馏",
+      "action": "删除旧动画",
+      "current_animations": 1,
+      "current_steps": [
+        5
+      ],
+      "current_images": [
+        "figures/papers/edge_overview_v2.png"
+      ],
+      "problem": "当前五步依旧是 overview 上走线，没有可观察的增益门控后果。",
+      "proposal": "先保留 Figure 1 与“增益为正才蒸馏”的结论；可选增加正/非正两种条件切换，直接显示蒸馏开/关，取消自动播放。",
+      "boundary": "可选交互仅演示门控规则；没有真实 rollout 数据就不编奖励数字。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#edge-focus"
+    },
+    {
+      "page": 20,
+      "id": "method-synthesis",
+      "title": "方法对照：记忆库更新不等于策略学习",
+      "action": "静态精简",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/lecture/IMG_5894.jpg"
+      ],
+      "problem": "方法对照表有用，When/Where/How 又变成三张大卡。",
+      "proposal": "保留方法表；When/Where/How 改成三行短问题，讲座原照片默认收起。",
+      "boundary": "不横比不同任务、预算下的性能数值。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#method-synthesis"
+    },
+    {
+      "page": 21,
+      "id": "survey-taxonomy",
+      "title": "总结：从具体方法回到记忆系统的设计空间",
+      "action": "静态原图",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/papers/survey_second_half_taxonomy_v4.png"
+      ],
+      "problem": "分类总览本身信息密集，不适合逐个框高亮。",
+      "proposal": "保留英文 Figure 2，给出三条阅读主轴；作为可选综述图组的主入口，不新增动画。",
+      "boundary": "分类用于定位设计空间，不是方法排名。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#survey-taxonomy"
+    },
+    {
+      "page": 22,
+      "id": "survey-forms-functions",
+      "title": "Agent Memory：形式、功能与动态过程",
+      "action": "静态原图",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/papers/survey_age_agents_overview_v2.png"
+      ],
+      "problem": "Forms/Functions/Dynamics 与上一图互补，但不宜逐个分支讲论文名单。",
+      "proposal": "保留第二篇英文 overview，只提形式、功能与动态三轴；可与第 21 页用图组切换，仍能逐张放大。",
+      "boundary": "两套分类不强行一一对应。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#survey-forms-functions"
+    },
+    {
+      "page": 23,
+      "id": "survey-operations",
+      "title": "记忆操作：从存储、检索到更新与遗忘",
+      "action": "建议收起",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/papers/survey_second_half_operations_v4.png"
+      ],
+      "problem": "操作总览与前面 Query/增删改及第 20 页比较重复。",
+      "proposal": "保留 Figure 6，建议收进综述图组的可选展开区，不再独占主讲页；不做分类框动画。",
+      "boundary": "原图与引用不删除；仅减少主讲层级，尚未实施。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#survey-operations"
+    },
+    {
+      "page": 24,
+      "id": "survey-policies",
+      "title": "记忆策略：从提示控制到可学习的管理",
+      "action": "建议收起",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/papers/survey_second_half_policies_v4.png"
+      ],
+      "problem": "策略总览又重复 Prompting/FT/RL，连续四页综述拖长收尾。",
+      "proposal": "保留 Figure 7，放入第 20 页/综述图组的可选对照；不再独占主讲页，不新增动画。",
+      "boundary": "原图与引用不删除；并页方案待审核。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#survey-policies"
+    },
+    {
+      "page": 25,
+      "id": "memory-forms-structures",
+      "title": "记忆的载体与组织结构",
+      "action": "静态原图",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/papers/survey_memory_structures_1d_2d_3d_v2.png"
+      ],
+      "problem": "1D/2D/3D 分类图很适合作拓展，下面三张大卡重复原图。",
+      "proposal": "保留完整 Figure 3；三种结构压成三行图注，突出“载体与组织结构是两条轴”。",
+      "boundary": "维度不是向量维数，层次更多不意味着性能更好。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#memory-forms-structures"
+    },
+    {
+      "page": 26,
+      "id": "ocr-memory-focus",
+      "title": "OCR-Memory：视觉历史与原文回取",
+      "action": "静态原图",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/papers/ocr_memory_overview_v1.png"
+      ],
+      "problem": "目前只核对 overview 与摘要，没有足够证据制作可追踪的原任务动画。",
+      "proposal": "保留 OCR-Memory Figure 1；三张编号卡改成一条“视觉保存 → 定位片段 → 回取原文”的图注，不新增动画。",
+      "boundary": "不要把占位截图滑动或框选效果伪装为检索机制执行。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#ocr-memory-focus"
+    },
+    {
+      "page": 27,
+      "id": "rpmem-focus",
+      "title": "RPMem：跨会话记忆与 LoRA 适配",
+      "action": "静态原图",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/papers/rpmem_overview_v2.png"
+      ],
+      "problem": "训练三阶段与推理结构已在原图表达；模拟 LoRA 权重变化缺少可解释依据。",
+      "proposal": "保留 RPMem Figure 1，多阶段用图上 (a)/(b)/(c) 对照的短句解释，删重复大卡；不做虚拟参数流动。",
+      "boundary": "LoRA 由前向计算生成，不画成每轮重新梯度微调。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#rpmem-focus"
+    },
+    {
+      "page": 28,
+      "id": "memt-focus",
+      "title": "MemT-1.0：模型内生记忆",
+      "action": "静态原图",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [
+        "figures/papers/memt_native_memory_overview_v2.png"
+      ],
+      "problem": "内部状态与门控不宜用无数值依据的矩形涨缩来演示。",
+      "proposal": "保留 MemT Figure 4，简短区分 Local/Hyper Memory 与在线状态变化；去掉三张编号卡，不新增动画。",
+      "boundary": "不把内生记忆称为 LoRA，也不虚构内部数值或激活。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#memt-focus"
+    },
+    {
+      "page": 29,
+      "id": "personal-agent",
+      "title": "Personal Agent：长期协作中的记忆管理",
+      "action": "静态收尾",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [],
+      "problem": "同一出行例子有价值，但三张大卡与前面的操作场景又重复。",
+      "proposal": "保留两次用户消息和最终请求；用三行检查项收束有效信息、更新和可控性，不再自动播放或新造流程。",
+      "boundary": "是应用展望与教学例子，不是产品实测。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#personal-agent"
+    },
+    {
+      "page": 30,
+      "id": "sources",
+      "title": "主要来源",
+      "action": "静态保留",
+      "current_animations": 0,
+      "current_steps": [],
+      "current_images": [],
+      "problem": "来源完整，只有检索需要，不承担主讲叙事。",
+      "proposal": "保留完整年份/会议/题名，分组排版并统一链接样式；不做动画。",
+      "boundary": "未确认发表状态继续保持准确的未核实标注。",
+      "status": "待审核",
+      "report_link": "../../meetings/2026-11-08-agent-memory/#sources"
+    }
+  ],
+  "formal_experiment_ran": false,
+  "workflow_or_skills_modified": false,
+  "git_commit": "not_available"
+}

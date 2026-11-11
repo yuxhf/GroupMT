@@ -18,6 +18,21 @@
       "role": "approved_blue_white_renderer"
     },
     {
+      "path": "assets/rfmem-player-state.mjs",
+      "sha256": "35d18dc42a98945069eb32389ce5b550be21c5deb84c17cbf36cd60aea8337ee",
+      "role": "approved_rfmem_player_state"
+    },
+    {
+      "path": "assets/rfmem-reader.css",
+      "sha256": "ad167efa2bd13a25c3ee9164b7d6503c27de426d4904a89cc6eebafa1113231a",
+      "role": "derived_human_approved_rfmem_runtime"
+    },
+    {
+      "path": "assets/rfmem-reader.mjs",
+      "sha256": "53321e24bc9198e9f18cb99060c27fb1e2f5c45316389a79ab9cfc9731da634c",
+      "role": "derived_human_approved_rfmem_runtime"
+    },
+    {
       "path": "assets/seminar.css",
       "sha256": "dbf2be8e870db5bbf5bee2436cebd7e23992ef2906d9a53d7a88f23c68eb63aa"
     },
@@ -27,7 +42,7 @@
     },
     {
       "path": "assets/step-animation.js",
-      "sha256": "d088860cb4c3785b6ce8293207eaaf0f24570c12fdc43e50f78b639dae0e889d",
+      "sha256": "bf13ee95e0a208e654d75ed701518f6a6e9b508f2a1228f637ef7eadc87f3fb4",
       "role": "derived_legacy_runtime_svg_visibility_fix"
     },
     {
@@ -157,10 +172,7 @@
     {
       "path": "figures/papers/rfmem_intro_figure1.png",
       "sha256": "74e547bb610a30e61917efd1d0eefaf4d7b3c3dd15c6aca3f1c375d49e6625c2",
-      "role": "primary_paper_overview_download",
-      "source_url": "https://arxiv.org/html/2603.09250v1/Intro.png",
-      "paper_version": "2603.09250v1",
-      "figure": 1
+      "role": "approved_rfmem_reference_figure"
     },
     {
       "path": "figures/papers/rfmem_personamem_case_figure18.png",
@@ -219,7 +231,7 @@
     },
     {
       "path": "report_sources.json",
-      "sha256": "995ad8630b80e37b126399bc496e980d8c6b87cbd9a130313c8fa037b308657d"
+      "sha256": "a486f5318c2db8d21931ea63a4b31bab3a82bcedd0e0ca59be3e8ed223fd7820"
     },
     {
       "path": "sources/focus_method_evidence.json",
