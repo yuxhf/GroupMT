@@ -263,7 +263,8 @@
         "Figure 2 · 总体架构",
         "Figure 5 · 原文检索案例"
       ],
-      "boundary_note": "按 Figures 2 / 5 与 §3 / 附录 G 重构。节点布局是教学子图，NY 仅示意同义边，不是原例实测检出；传播色深和路径不冒充 PPR 分数或真实运行轨迹。种子权重与返回段落沿用原例；噪声段落保留。",
+      "boundary_note": "本页为原创中文教学情境，人名与地名均为虚构；机制按 Figure 2 与 §3 讲解，不是 Figure 5 原例的翻译或实验复现。候选、同义连接和传播为示意，不编造编码器/PPR 分数；论文原图与英文案例保留。",
+      "case_kind": "authored_chinese_teaching_case",
       "checked_on": "2026-11-11",
       "canonical_stage": "not_promoted",
       "formal_experiment_ran": false
@@ -276,7 +277,8 @@
         "Figure 2 · 总体架构",
         "Figure 1 · 原文领养案例"
       ],
-      "boundary_note": "按 v1 Figures 1 / 2 重构，会议版与旧题的对应沿用已核对记录。10/19 是消息和命名日期，并非已确认的 Buddy 精确领养日；原图最终给出 3 months，精确日期缺口仍在。",
+      "boundary_note": "按 v1 Figures 1 / 2、§3 与 Algorithm 1 重构；A/B/C 是讲解标签，不是论文给出的片段 ID，调用顺序不冒充执行日志。10/19 是命名消息日期，并非已确认的 Buddy 精确领养日；原图输出 3 months，精确日期缺口仍在。Router 的预算阈值不虚构；会议版对应沿用已核对记录。",
+      "case_kind": "source_case_overview_reconstruction",
       "checked_on": "2026-11-11",
       "canonical_stage": "not_promoted",
       "formal_experiment_ran": false
@@ -289,7 +291,8 @@
         "Figure 2 · 两阶段架构",
         "Figure 1 · 原文两只狗案例"
       ],
-      "boundary_note": "依据 Figures 1 / 2 与附录 A.1 重构，记录中文为概括。“60→1”为 Figure 1 的候选选择示意，不给未知候选编造内容或 ID；两个阶段不表示在线同步联合训练。",
+      "boundary_note": "依据 Figures 1 / 2 与附录 A.1 重构，中文记录为概括；记录标签不是论文 ID。错误 DELETE+ADD 只作对照，不写入当前记忆库。“60→1”沿用 Figure 1，只展示数量，不编造其余候选内容。演示训练后策略的任务行为，不模拟在线联合训练或奖励数值。",
+      "case_kind": "source_case_two_stage_reconstruction",
       "checked_on": "2026-11-11",
       "canonical_stage": "not_promoted",
       "formal_experiment_ran": false
@@ -743,7 +746,7 @@
     {
       "number": 9,
       "id": "hippo-focus",
-      "title": "HippoRAG 2：从联合图索引到关联检索",
+      "title": "HippoRAG 2：用“看熊猫”解释关联检索",
       "speaker_note": "",
       "origin": "authored_seminar"
     },
@@ -764,7 +767,7 @@
     {
       "number": 12,
       "id": "memr3-focus",
-      "title": "MemR³：围绕领养时间的证据缺口继续检索",
+      "title": "MemR³：围绕证据缺口控制检索与反思",
       "speaker_note": "",
       "origin": "authored_seminar"
     },
@@ -785,7 +788,7 @@
     {
       "number": 15,
       "id": "memory-r1-focus",
-      "title": "Memory-R1：第二只狗不应覆盖第一只狗",
+      "title": "Memory-R1：记忆怎样更新，又怎样进入回答",
       "speaker_note": "",
       "origin": "authored_seminar"
     },

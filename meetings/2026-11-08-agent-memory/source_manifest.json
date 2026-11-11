@@ -10,7 +10,12 @@
     },
     {
       "path": "assets/hippo-mechanism.css",
-      "sha256": "8b4a94a3fc39a128638d2819dd6b269408d7f52a231f7da9dbb1731bf06836fc",
+      "sha256": "d741ec39d72699ca72f7f430b474773ca77a150dae66121a3d8cbee3985bd578",
+      "role": "approved_task_reader_or_shell_asset"
+    },
+    {
+      "path": "assets/pipeline-mechanism.css",
+      "sha256": "fb5e9d526ebbb7d0e9e5fc20c345a3cc4fbf0ac0d3348632a4802580c5e68236",
       "role": "approved_task_reader_or_shell_asset"
     },
     {
@@ -67,12 +72,12 @@
     },
     {
       "path": "assets/task-reader.css",
-      "sha256": "9269cf22dc44721f3cc63f32421c32071a0cef5fe298b62df568b2b57c50a09c",
+      "sha256": "035435da8eea37b05b4dc456bb7cb0525b60bac930ce6b35c579ad854e05c611",
       "role": "approved_task_reader_or_shell_asset"
     },
     {
       "path": "assets/task-reader.mjs",
-      "sha256": "c32e0d1db532ff224d74671fe0ff251fd7e612123a457a2c0f460983b1888d22",
+      "sha256": "ca1eb9c5b0d56d65845201ba31e40d0c70b997912d72dd1e572f08ba1217d000",
       "role": "approved_task_reader_or_shell_asset"
     },
     {
@@ -282,7 +287,7 @@
     },
     {
       "path": "report_sources.json",
-      "sha256": "4d828c98b266554f8cd519667ab177685d94f4150a8b8963f5627be6b1ee048c"
+      "sha256": "be2e5d83999b5f9cff025c9b24b3bc1ea754a2087e8e88d33678b80acc178743"
     },
     {
       "path": "sources/focus_method_evidence.json",

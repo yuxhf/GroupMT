@@ -182,7 +182,7 @@
     {
       "page": 9,
       "id": "hippo-focus",
-      "title": "HippoRAG 2：从联合图索引到关联检索",
+      "title": "HippoRAG 2：用“看熊猫”解释关联检索",
       "action": "已细化任务动画",
       "current_animations": 1,
       "current_steps": [
@@ -192,7 +192,7 @@
         "assets/pptx/image2.png"
       ],
       "problem": "原七步案例已按 Figure 2 的联合图机制进一步重做。",
-      "proposal": "11 步、10 个短语节点与 8 个段落节点、三种边、两类种子、PPR 机制示意和原例返回证据；非实际运行轨迹。",
+      "proposal": "11 步中文看熊猫情境、18 节点、三种边、两类种子、关联传播与三段原文；不借用论文原例分数。",
       "boundary": "关系图按返回段落作教学概括，不冒充原始 KG/PPR 执行轨迹。",
       "status": "已完成",
       "report_link": "../../meetings/2026-11-08-agent-memory/#hippo-focus"
@@ -235,17 +235,17 @@
     {
       "page": 12,
       "id": "memr3-focus",
-      "title": "MemR³：围绕领养时间的证据缺口继续检索",
-      "action": "已重做任务动画",
+      "title": "MemR³：围绕证据缺口控制检索与反思",
+      "action": "已细化闭环任务动画",
       "current_animations": 1,
       "current_steps": [
-        7
+        12
       ],
       "current_images": [
         "figures/papers/memr3_overview_v1.png"
       ],
-      "problem": "已将模块走线替换为 Toby/Buddy 证据与缺口的七步变化。",
-      "proposal": "首次检索 → 识别未知 → 缺口驱动改查 → 补命名线索 → 近似推断 3 months；确切领养日期到最后仍标未知。原 overview 与案例图保留。",
+      "problem": "原七步时间线已改为与 Figure 2 对应的完整闭环。",
+      "proposal": "12 步：输入/存储、检索、E/G、动作内容、Router 规则、查询细化、片段屏蔽、反思和回答；精确日期缺口保留。",
       "boundary": "10/19 是消息与命名线索，不能改写为确切领养日；原例输出不等于证据完整。",
       "status": "已完成",
       "report_link": "../../meetings/2026-11-08-agent-memory/#memr3-focus"
@@ -283,17 +283,17 @@
     {
       "page": 15,
       "id": "memory-r1-focus",
-      "title": "Memory-R1：第二只狗不应覆盖第一只狗",
-      "action": "已重做任务动画",
+      "title": "Memory-R1：记忆怎样更新，又怎样进入回答",
+      "action": "已细化两阶段任务动画",
       "current_animations": 1,
       "current_steps": [
-        8
+        12
       ],
       "current_images": [
         "figures/papers/memory_r1_overview_v5.png"
       ],
-      "problem": "已将两阶段高亮替换为 Buddy 与 Scout 的实际记录变化。",
-      "proposal": "八步呈现错误 DELETE+ADD 与正确 UPDATE 的对照、保留两只狗、检索 60 条后选用 1 条，以及回答 2 dogs；Figure 1/2 原图可切换。",
+      "problem": "原八步局部记录变化已改为与 Figure 2 对应的两个阶段。",
+      "proposal": "12 步：对话、提取、查旧记录、错误对照、选择 UPDATE、写回、问题、60 候选、增强提示、蒸馏 1 条与回答；错误分支不写入当前库。",
       "boundary": "60 个槽位是数量示意；不虚构候选 ID、其他 59 条内容或参数训练轨迹。",
       "status": "已完成",
       "report_link": "../../meetings/2026-11-08-agent-memory/#memory-r1-focus"
