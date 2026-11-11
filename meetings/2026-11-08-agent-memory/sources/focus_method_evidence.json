@@ -1,0 +1,117 @@
+{
+  "scope": "Report-local selected method reading; no canonical registry promotion",
+  "git_commit": "not_available",
+  "formal_experiment_ran": false,
+  "records": [
+    {
+      "paper_id": "arxiv:2510.18866",
+      "title": "LightMem",
+      "canonical_stage": "not_linked_in_registry",
+      "report_evidence_stage": "deep_reading_selected_mechanism",
+      "admission": "overview_grounded_walkthrough",
+      "source_url": "https://arxiv.org/html/2510.18866v4",
+      "scope": "Figure 2; §3.1–3.3; §5.3–5.6",
+      "mechanism_trace": [
+        "压缩与话题分段进入 sensory buffer；不是直接将所有对话写成长期记忆。",
+        "STM 达阈值后按话题总结，保留 topic、summary 和来源 turn。",
+        "LTM 在线先插入；更新队列按相似度及时间约束选候选，sleep-time 并行更新。"
+      ],
+      "boundary_note": "压缩和分段仍会丢失信息；离线巩固不是免费操作，不能把在线低延迟当作总成本为零。",
+      "reading_gate": {
+        "method_traced": true,
+        "source_anchors_retained": true,
+        "limitations_checked": true,
+        "canonical_registry_modified": false
+      },
+      "checked_on": "2026-10-25"
+    },
+    {
+      "paper_id": "arxiv:2512.20237",
+      "title": "MemR³",
+      "canonical_stage": "not_linked_in_registry",
+      "report_evidence_stage": "deep_reading_selected_mechanism",
+      "admission": "overview_grounded_walkthrough",
+      "source_url": "https://arxiv.org/html/2512.20237v1",
+      "scope": "Figures 1–3; §3.2–3.5; Algorithm 1; Appendix B.4",
+      "mechanism_trace": [
+        "全局状态区分当前 evidence 与尚缺 gap，由 router 决定 Retrieve / Reflect / Answer。",
+        "细化 query 后取新片段，已检索 ID 屏蔽；Reflect 重整当前证据与缺口。",
+        "预算耗尽可强制回答；空 gap 不等于真实证据完整，理想化保证不直接适用于 LLM 摘要。"
+      ],
+      "boundary_note": "反思和证据摘要可能出错；提前停止与预算强制停止不同，不能将 Answer 动作解释为正确性保证。",
+      "reading_gate": {
+        "method_traced": true,
+        "source_anchors_retained": true,
+        "limitations_checked": true,
+        "canonical_registry_modified": false
+      },
+      "checked_on": "2026-10-25"
+    },
+    {
+      "paper_id": "arxiv:2603.17621",
+      "title": "Complementary RL",
+      "canonical_stage": "finalized",
+      "report_evidence_stage": "deep_reading_selected_mechanism",
+      "admission": "overview_grounded_walkthrough",
+      "source_url": "https://arxiv.org/html/2603.17621v2",
+      "scope": "Figure 2; §2.2–2.3; §3.2–3.3; Appendix B.2",
+      "mechanism_trace": [
+        "Extractor 从目标、轨迹和结果提出 Add / Update / Return；经验库定期 Merge。",
+        "Actor 以带经验／无经验两子组训练，组内分别计算优势；两模型异步独立调度优化。",
+        "经验奖励来自后续被引导 episode 的成败，多次使用按经验项聚合；不是严格反事实因果贡献。"
+      ],
+      "boundary_note": "经验奖励与 actor 本身能力及任务难度混杂；不能直接把后续成功归因于某条经验。",
+      "reading_gate": {
+        "method_traced": true,
+        "source_anchors_retained": true,
+        "limitations_checked": true,
+        "canonical_registry_modified": false
+      },
+      "checked_on": "2026-10-25"
+    },
+    {
+      "paper_id": "arxiv:2602.23008",
+      "title": "EMPO²",
+      "canonical_stage": "quicklook_done",
+      "report_evidence_stage": "deep_reading_selected_mechanism",
+      "admission": "overview_grounded_walkthrough",
+      "source_url": "https://arxiv.org/html/2602.23008v2",
+      "scope": "Figures 4–5; §4.1–4.2; Algorithm 1; Appendix F.1 / G.2",
+      "mechanism_trace": [
+        "同一策略从自身轨迹生成 tips；tips 用于引导之后的探索。",
+        "§4.2 以 p 定义有 memory rollout 概率；有 memory 轨迹以 q 选择 off-policy 更新。",
+        "三模式：无 tips→无 tips；有 tips→有 tips；有 tips→去 tips。最后一种是奖励引导的行为学习。"
+      ],
+      "boundary_note": "正文、算法及附录存在概率符号口径差异；演示仅采用 §4.2 的 p/q 定义，不宣称统一默认比例或精确复现。",
+      "reading_gate": {
+        "method_traced": true,
+        "source_anchors_retained": true,
+        "limitations_checked": true,
+        "canonical_registry_modified": false
+      },
+      "checked_on": "2026-10-25"
+    },
+    {
+      "paper_id": "arxiv:2608.21946",
+      "title": "EDGE",
+      "canonical_stage": "not_linked_in_registry",
+      "report_evidence_stage": "deep_reading_selected_mechanism",
+      "admission": "overview_grounded_walkthrough",
+      "source_url": "https://arxiv.org/html/2608.21946v2",
+      "scope": "Figure 1; §3.1–3.3; §4.3; Appendix A.1 / A.4",
+      "mechanism_trace": [
+        "同一策略、同任务组等分 teacher（带经验）与 student（无经验）rollouts，估计收益差 Δe。",
+        "Δe>0 才启用蒸馏；Δe≤0 排除 teacher 对 RL 组基线的影响。",
+        "在 student 自采样 token 上对照 teacher 分布作 reverse-KL；经验库按失败模式扩展并按 EMA 效用裁剪。"
+      ],
+      "boundary_note": "有限 rollout 的收益差有噪声；同组比较不是对每条经验长期、全任务有效性的证明。",
+      "reading_gate": {
+        "method_traced": true,
+        "source_anchors_retained": true,
+        "limitations_checked": true,
+        "canonical_registry_modified": false
+      },
+      "checked_on": "2026-10-25"
+    }
+  ]
+}

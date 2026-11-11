@@ -1,0 +1,237 @@
+{
+  "schema": "portable-meeting-snapshot/v1",
+  "git_commit": "not_available",
+  "formal_experiment_ran": false,
+  "files": [
+    {
+      "path": "assets/pptx/image2.png",
+      "sha256": "e4dabdc8a55cd6b027e87a6e9a955261c87fff1b32dddef271b2e29b4ca08873"
+    },
+    {
+      "path": "assets/report-runtime.js",
+      "sha256": "1d4e571e2425fad31373c51d85bd479c6780029b8e0f505f23ed65c97c84ee25",
+      "role": "approved_blue_white_renderer"
+    },
+    {
+      "path": "assets/report-theme.css",
+      "sha256": "d6c7acfd39b56f1b986ed6cd26d4d0255c54932e4d06c0bbb4d44ad569b0d213",
+      "role": "approved_blue_white_renderer"
+    },
+    {
+      "path": "assets/seminar.css",
+      "sha256": "dbf2be8e870db5bbf5bee2436cebd7e23992ef2906d9a53d7a88f23c68eb63aa"
+    },
+    {
+      "path": "assets/seminar.js",
+      "sha256": "ef0a4d5ec8ad1eea2ac44942c8621729353b18c9bc02e6d4e1f11f993103e2f6"
+    },
+    {
+      "path": "assets/step-animation.js",
+      "sha256": "d088860cb4c3785b6ce8293207eaaf0f24570c12fdc43e50f78b639dae0e889d",
+      "role": "derived_legacy_runtime_svg_visibility_fix"
+    },
+    {
+      "path": "figures/lecture/IMG_5894.jpg",
+      "sha256": "e855c61c268b345b5cf6c5db5069ce2a7244fa0c01fdb6b9c78a522f51da9d86",
+      "role": "lecture_figure_or_recovered_original",
+      "source_url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/photos_afternoon/preview/IMG_5894.jpg",
+      "source_page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/06_memory_rsi_agi/report.md"
+    },
+    {
+      "path": "figures/lecture/IMG_5989.jpg",
+      "sha256": "e4a804afbe1b5382fd6c6f8d7e4d27bc37c6881a3918635dbd5ff4dd2fdf83c8",
+      "role": "lecture_figure_or_recovered_original",
+      "source_url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/photos/preview/IMG_5989.jpg",
+      "source_page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md"
+    },
+    {
+      "path": "figures/lecture/brain_memory_yux.png",
+      "sha256": "9310a640f1e14eafdd25b61534fd52539b12d5b3a365d0c25cb10d4ba64c72b0",
+      "role": "lecture_figure_or_recovered_original",
+      "source_url": "human_attachment:codex-clipboard-cb30ccd9-6658-4da1-85c4-2997ec723c01.png",
+      "source_page": "figures/lecture/brain_memory_yux.png"
+    },
+    {
+      "path": "figures/lecture/chatgpt_memory_yux.png",
+      "sha256": "7d525b8fe61c8464e193fac3417473f2af586422b52cf286be7c31d4b68e7b13",
+      "role": "lecture_figure_or_recovered_original",
+      "source_url": "human_attachment:codex-clipboard-ef42a582-121c-432c-a3c7-77c18e57ae9f.png",
+      "source_page": "figures/lecture/chatgpt_memory_yux.png"
+    },
+    {
+      "path": "figures/lecture/memory_palace_grocery.png",
+      "sha256": "1d8bbf9953f1a2c9e53566bf3f060c86d580276837f8c6dac8e32bbebfa3b201",
+      "role": "lecture_figure_or_recovered_original",
+      "source_url": "https://www.memletics.com/images/malm/method-loci-grocery-list.png",
+      "source_page": "https://www.memletics.com/techniques-association-method-loci-mnemonic"
+    },
+    {
+      "path": "figures/lecture/method_loci_frontiers_figure1.webp",
+      "sha256": "bf9638e7c5e4edd07967674a3a5ac9ed6382ca4de544ac33a83f4114e17c6c60",
+      "role": "lecture_figure_or_recovered_original",
+      "source_url": "https://www.frontiersin.org/files/Articles/612681/xml-images/fpsyg-12-612681-g0001.webp",
+      "source_page": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.612681/full"
+    },
+    {
+      "path": "figures/papers/codex_compaction_yux_session.png",
+      "sha256": "e840ddba1556599a1c2e7ee4e16644717b6a7ed0e60ac0f066841b8a2b8bcac0",
+      "role": "application_screenshot_or_outlook_figure",
+      "source_url": "human_attachment:codex-clipboard-1560c54f-fe4a-4416-9362-0377d161fdc0.png",
+      "source_page": "figures/papers/codex_compaction_yux_session.png"
+    },
+    {
+      "path": "figures/papers/complementary_rl_overview_v2.png",
+      "sha256": "ef5260f4e1b60753d743f674a6e263cf8ed97916ed59aa409dcbf8e020471fc1",
+      "role": "primary_focus_paper_figure_download",
+      "source_url": "https://arxiv.org/html/2603.17621v2/overview.png"
+    },
+    {
+      "path": "figures/papers/edge_overview_v2.png",
+      "sha256": "01fd0a3f81a3c686d6c03c1375885254eaae97e4b3914da9c4d684dfa3fb0d4f",
+      "role": "primary_focus_paper_figure_download",
+      "source_url": "https://arxiv.org/html/2608.21946v2/overview-v6.png"
+    },
+    {
+      "path": "figures/papers/empo2_memory_v2.png",
+      "sha256": "5f2a4773dc8e6c6de8faaa259d9106970d70dd9215ff0c382f83a147c0928fb4",
+      "role": "primary_focus_paper_figure_download",
+      "source_url": "https://arxiv.org/html/2602.23008v2/figure/motivation3.png"
+    },
+    {
+      "path": "figures/papers/empo2_modes_v2.png",
+      "sha256": "2b9ec94e720cffa1a0776b05f2f9fb219b63b19207f21eb624fb1bfe553611dd",
+      "role": "primary_focus_paper_figure_download",
+      "source_url": "https://arxiv.org/html/2602.23008v2/figure/EMPO.png"
+    },
+    {
+      "path": "figures/papers/evolver_overview_v3.png",
+      "sha256": "215d2de7e0c3f54a671c020479c7aa8c03bbcac77ca3a62314440161436b0418",
+      "role": "primary_paper_overview_download",
+      "source_url": "https://arxiv.org/html/2510.16079v3/frame.png"
+    },
+    {
+      "path": "figures/papers/lightmem_overview_v4.png",
+      "sha256": "882bb733d810e93fb71ed995206ba8ec19206e5dad7480d73dd7564963aef302",
+      "role": "primary_focus_paper_figure_download",
+      "source_url": "https://arxiv.org/html/2510.18866v4/figure/Lightmem.png"
+    },
+    {
+      "path": "figures/papers/memory_r1_overview_v5.png",
+      "sha256": "92e0ff2ea59f77a5e842de387be98d813d55b2a600910a31075f27e963337b94",
+      "role": "primary_paper_overview_download",
+      "source_url": "https://arxiv.org/html/2508.19828v5/figure2_pipeline.png"
+    },
+    {
+      "path": "figures/papers/memr3_case_v1.png",
+      "sha256": "0be934d3def246505f19391aaa55e14dbcec216ec35cfe06dbf4ff68a3248c46",
+      "role": "primary_focus_paper_figure_download",
+      "source_url": "https://arxiv.org/html/2512.20237v1/motivation_memR3.png"
+    },
+    {
+      "path": "figures/papers/memr3_overview_v1.png",
+      "sha256": "e6c9f8919c815344a4c2c5472b4df10f89f9e733fb2b4817f5960d2805aaec82",
+      "role": "primary_focus_paper_figure_download",
+      "source_url": "https://arxiv.org/html/2512.20237v1/pipeline_memR3_2.png"
+    },
+    {
+      "path": "figures/papers/memt_native_memory_overview_v2.png",
+      "sha256": "b04c4b8d6acc803a983bbd100ad0111f60f55bcca44806a709d8bbfc986ef055",
+      "role": "primary_parametric_outlook_figure",
+      "source_url": "https://arxiv.org/html/2610.26825v2/memt-arc.png",
+      "source_page": "https://arxiv.org/html/2610.26825v2",
+      "figure": 4,
+      "paper_version": "2610.26825v2"
+    },
+    {
+      "path": "figures/papers/ocr_memory_overview_v1.png",
+      "sha256": "b0d7873b8a30ca6f81d217a7dc2a3dba83062c1442a9d02ed0b9aec275116054",
+      "role": "application_screenshot_or_outlook_figure",
+      "source_url": "https://arxiv.org/html/2604.26622v1/OCR_Memory2.png",
+      "source_page": "https://arxiv.org/html/2604.26622v1"
+    },
+    {
+      "path": "figures/papers/rfmem_architecture.png",
+      "sha256": "f177122bda9a040fd6438215cb958cf3bf0f0048212928faf30ef1df84f5f480",
+      "role": "extracted_report_asset"
+    },
+    {
+      "path": "figures/papers/rfmem_intro_figure1.png",
+      "sha256": "74e547bb610a30e61917efd1d0eefaf4d7b3c3dd15c6aca3f1c375d49e6625c2",
+      "role": "primary_paper_overview_download",
+      "source_url": "https://arxiv.org/html/2603.09250v1/Intro.png",
+      "paper_version": "2603.09250v1",
+      "figure": 1
+    },
+    {
+      "path": "figures/papers/rfmem_personamem_case_figure18.png",
+      "sha256": "8e4220c684643a0b9f42f1b4d5d32d01b9adbef36639ba926cf9b22883588461",
+      "role": "extracted_report_asset"
+    },
+    {
+      "path": "figures/papers/rpmem_overview_v2.png",
+      "sha256": "21b77d58e53933565d417ff1ac07c64a1986b1c0abfc996242f8e54acf9b8f7e",
+      "role": "primary_parametric_outlook_figure",
+      "source_url": "https://arxiv.org/html/2609.23466v2/fig1_v22.png",
+      "source_page": "https://arxiv.org/html/2609.23466v2",
+      "figure": 1,
+      "paper_version": "2609.23466v2"
+    },
+    {
+      "path": "figures/papers/survey_age_agents_overview_v2.png",
+      "sha256": "28c64a5676380d4bb4b0ff5863b3f86c1f3c1db9d2314c01423faa6d4cea6ffb",
+      "role": "primary_survey_figure_download",
+      "source_url": "https://raw.githubusercontent.com/Shichun-Liu/Agent-Memory-Paper-List/main/assets/main.png",
+      "paper_version": "2512.13564v2",
+      "figure": 1
+    },
+    {
+      "path": "figures/papers/survey_memory_structures_1d_2d_3d_v2.png",
+      "sha256": "8a9c28a1fa670c198ab08087eb191e5966477d7fa5a06bb2ca534f609f261fc2",
+      "role": "primary_survey_outlook_figure",
+      "source_url": "https://arxiv.org/html/2512.13564v2/sec3-3.1.png",
+      "source_page": "https://arxiv.org/html/2512.13564v2",
+      "figure": 3,
+      "paper_version": "2512.13564v2"
+    },
+    {
+      "path": "figures/papers/survey_second_half_operations_v4.png",
+      "sha256": "51a9cbd8486729fc57c300d3b190473eca16d5faeb2f95a557f617a360d9158f",
+      "role": "primary_survey_figure_download",
+      "source_url": "https://arxiv.org/html/2602.06052v4/Operation.png",
+      "paper_version": "2602.06052v4",
+      "figure": 6
+    },
+    {
+      "path": "figures/papers/survey_second_half_policies_v4.png",
+      "sha256": "66d335a954c99b6f3ed4c6035d0c3364ed7c05907ea1eea44cc957a5d42daf93",
+      "role": "primary_survey_figure_download",
+      "source_url": "https://arxiv.org/html/2602.06052v4/learned_policy.png",
+      "paper_version": "2602.06052v4",
+      "figure": 7
+    },
+    {
+      "path": "figures/papers/survey_second_half_taxonomy_v4.png",
+      "sha256": "985e8798d0a613a52ee198596a0ac95790ea2216b99f6f87a83dd6785ffd7d2f",
+      "role": "primary_survey_figure_download",
+      "source_url": "https://arxiv.org/html/2602.06052v4/memory_main.png",
+      "paper_version": "2602.06052v4",
+      "figure": 2
+    },
+    {
+      "path": "report_sources.json",
+      "sha256": "995ad8630b80e37b126399bc496e980d8c6b87cbd9a130313c8fa037b308657d"
+    },
+    {
+      "path": "sources/focus_method_evidence.json",
+      "sha256": "b3a06fe01ce5d6d933fba9e6d6ca3702f021cc4c03bf00c03f6c74c695218a26"
+    },
+    {
+      "path": "sources/lecture_asset_audit.json",
+      "sha256": "6c4d94bdcf870535ff71420550700b6ca4eac09296b5297183a2dfdd9bbc7825"
+    },
+    {
+      "path": "sources/publication_status_recheck.json",
+      "sha256": "de3df808d65ebe23ec7c36541698b7a6cd4b09fcdac0d8d78a37373d2ebbdd7e"
+    }
+  ]
+}

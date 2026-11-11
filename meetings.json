@@ -1,0 +1,11 @@
+[
+  {
+    "date": "2026-11-08",
+    "slug": "agent-memory",
+    "title": "Agent Memory 与经验学习",
+    "description": "从 Agent、Harness 与三类记忆出发，讨论检索、维护、策略学习与记忆载体。",
+    "updated": "2026-11-11",
+    "path": "meetings/2026-11-08-agent-memory/index.html",
+    "source_html_sha256": "2ddad93af5d862303b56d2819efe937cf57ec9a045fc5975a62bafdb747f03d7"
+  }
+]

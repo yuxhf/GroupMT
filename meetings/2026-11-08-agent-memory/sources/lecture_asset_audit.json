@@ -1,0 +1,102 @@
+{
+  "checked_on": "2026-11-08",
+  "git_commit": "not_available",
+  "formal_experiment_ran": false,
+  "records": [
+    {
+      "source_id": "ccf-lecture-opening-20261108",
+      "checked_on": "2026-11-08",
+      "evidence_class": "human_photographs_and_lecture_reports_with_labeled_synthesis",
+      "source_urls": [
+        "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md",
+        "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/03_harness/report.md",
+        "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/06_memory_rsi_agi/report.md"
+      ],
+      "source_commit": "2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb",
+      "assets": [
+        {
+          "file": "chatgpt_memory_yux.png",
+          "url": "human_attachment:codex-clipboard-ef42a582-121c-432c-a3c7-77c18e57ae9f.png",
+          "page": "figures/lecture/chatgpt_memory_yux.png",
+          "status": "human_supplied_product_screenshot",
+          "note": "Unmodified ChatGPT web personalization screenshot supplied by Human; illustrates visible memory controls, not internal architecture or measured retention."
+        },
+        {
+          "file": "brain_memory_yux.png",
+          "url": "human_attachment:codex-clipboard-cb30ccd9-6658-4da1-85c4-2997ec723c01.png",
+          "page": "figures/lecture/brain_memory_yux.png",
+          "status": "human_supplied_clean_figure",
+          "note": "Human supplied clear version of the brain-memory lecture slide; original PNG bytes preserved. Replaces photo IMG_5987 on the displayed page; photograph retained for provenance. Embedded quotes and anatomical labels are not independently verified."
+        },
+        {
+          "file": "method_loci_frontiers_figure1.webp",
+          "url": "https://www.frontiersin.org/files/Articles/612681/xml-images/fpsyg-12-612681-g0001.webp",
+          "page": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.612681/full",
+          "status": "related_supplement_not_verified_slide_original",
+          "note": "Similar four-panel layout, but objects and artwork differ from photographed slide. Supplement only; not verified as its original source."
+        },
+        {
+          "file": "memory_palace_grocery.png",
+          "url": "https://www.memletics.com/images/malm/method-loci-grocery-list.png",
+          "page": "https://www.memletics.com/techniques-association-method-loci-mnemonic",
+          "status": "recovered_matching_artwork",
+          "note": "Six locations and grocery associations visually match the lecture slide. Public matching source; no claim to establish earliest authorship."
+        },
+        {
+          "file": "IMG_5987.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/photos/preview/IMG_5987.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "brain structure; unmodified photo; no matching original slide deck verified"
+        },
+        {
+          "file": "IMG_5989.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/photos/preview/IMG_5989.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "palace source comparison; unmodified photo; no matching original slide deck verified"
+        },
+        {
+          "file": "IMG_5991.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/photos/preview/IMG_5991.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "three memory roles; unmodified photo; no matching original slide deck verified"
+        },
+        {
+          "file": "IMG_5992.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/photos/preview/IMG_5992.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "embodied compression; unmodified photo; no matching original slide deck verified"
+        },
+        {
+          "file": "IMG_5864.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/photos/preview/IMG_5864.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/03_harness/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "checkpoint; unmodified photo; no matching original slide deck verified"
+        },
+        {
+          "file": "IMG_5894.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/photos_afternoon/preview/IMG_5894.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/06_memory_rsi_agi/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "when where how; unmodified photo; no matching original slide deck verified"
+        }
+      ],
+      "scope": "VLA introduction ~04:30–10:50; Harness checkpoint ~15:00–18:00; continual learning ~16:00–18:00 and ~23:30–27:00",
+      "boundary_note": "ASR is not manually verified verbatim. Brain illustration is a lecture source, not independently verified neuroscience evidence. Agent/Harness task example and cross-paper mapping are authored synthesis; no biological equivalence, formal experiment or registry promotion."
+    },
+    {
+      "source_id": "method-of-loci-artwork",
+      "year": 2021,
+      "venue": "Frontiers in Psychology",
+      "title": "A Feasibility Study on the Use of the Method of Loci for Improving Episodic Memory Performance in Schizophrenia and Non-clinical Subjects",
+      "source_url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.612681/full",
+      "figure": 1,
+      "scope": "Figure 1 and caption only, not clinical results",
+      "canonical_stage": "not_promoted"
+    }
+  ]
+}

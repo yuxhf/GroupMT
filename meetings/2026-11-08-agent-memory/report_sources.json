@@ -1,0 +1,833 @@
+{
+  "schema": "yux-report-source-bundle/v1",
+  "records": [
+    {
+      "paper_id": "hu2026_memoryagentbench",
+      "title": "Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions",
+      "canonical_stage": "finalized",
+      "evidence_class": "paper_evidence",
+      "admission": "existing_mechanism_and_bounded_results",
+      "source_url": "https://arxiv.org/abs/2507.05257",
+      "boundary_note": "Original selected results retained; no new benchmark or inference run."
+    },
+    {
+      "paper_id": "zhang2026_rfmem",
+      "title": "Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval",
+      "canonical_stage": "finalized",
+      "evidence_class": "paper_evidence",
+      "admission": "existing_mechanism_and_bounded_results",
+      "source_url": "https://arxiv.org/abs/2603.09250",
+      "boundary_note": "Original selected results retained; no new benchmark or inference run."
+    },
+    {
+      "paper_id": "doi:10.48550/arXiv.2607.25380",
+      "title": "Memory for Large Language Models",
+      "canonical_stage": "quicklook_done",
+      "evidence_class": "paper_evidence",
+      "admission": "taxonomy_only",
+      "source_url": "https://arxiv.org/abs/2607.25380",
+      "boundary_note": "Original selected results retained; no new benchmark or inference run."
+    },
+    {
+      "source_id": "knowledge",
+      "evidence_class": "source_backed_synthesis_and_unvalidated_project_proposals",
+      "checked_on": "2026-10-24"
+    },
+    {
+      "source_id": "original-report",
+      "section_ids": [
+        "benchmark-focus",
+        "rfmem-focus",
+        "rfmem-case"
+      ],
+      "evidence_class": "legacy_report_extract",
+      "source_bundle": "sources/original_report_sources.json"
+    },
+    {
+      "paper_id": "arxiv:2605.01293",
+      "canonical_stage": "not_registered_in_existing_notes",
+      "admission": "bounded_method_reference_from_existing_figure_note",
+      "source_url": "https://arxiv.org/html/2605.01293v1",
+      "evidence_class": "existing_section_4_5_check",
+      "boundary_note": "No registry promotion, independent performance claim, or FPM result."
+    },
+    {
+      "source_id": "human-pptx",
+      "sha256": "85c7c8798e6ed34ddae1809edb4c0583641e6e3f4e6a6657504236b664a3255a",
+      "slide_count": 25,
+      "coverage": "sources/pptx/coverage.json",
+      "notes_alignment": "raw notes retained; shifted notes not used as factual alignment"
+    },
+    {
+      "paper_id": "arxiv:2502.14802",
+      "title": "HippoRAG 2",
+      "source_url": "https://arxiv.org/html/2502.14802v2",
+      "checked_on": "2026-11-08",
+      "canonical_stage": "existing_registry_not_promoted",
+      "admission": "bounded_external_source_check_for_requested_pptx_integration",
+      "scope": "Figure 2, Section 3, Tables 2–3",
+      "evidence_class": "primary_source_checked_teaching_reconstruction",
+      "boundary_note": "Report-local evidence only; no new registry status or FPM result."
+    },
+    {
+      "paper_id": "arxiv:2510.16079",
+      "title": "EvolveR",
+      "source_url": "https://arxiv.org/html/2510.16079v3",
+      "checked_on": "2026-11-08",
+      "canonical_stage": "existing_registry_not_promoted",
+      "admission": "bounded_external_source_check_for_requested_pptx_integration",
+      "scope": "Figure 2, Section 3, Tables 3–4",
+      "evidence_class": "primary_source_checked_teaching_reconstruction",
+      "boundary_note": "Report-local evidence only; no new registry status or FPM result."
+    },
+    {
+      "paper_id": "arxiv:2508.19828",
+      "title": "Memory-R1",
+      "source_url": "https://arxiv.org/html/2508.19828v5",
+      "checked_on": "2026-11-08",
+      "canonical_stage": "existing_registry_not_promoted",
+      "admission": "bounded_external_source_check_for_requested_pptx_integration",
+      "scope": "Section 3, Tables 1–2",
+      "evidence_class": "primary_source_checked_teaching_reconstruction",
+      "boundary_note": "Report-local evidence only; no new registry status or FPM result."
+    },
+    {
+      "paper_id": "arxiv:2602.06052v4",
+      "title": "A Survey of Agent Memory in the Second Half",
+      "source_url": "https://arxiv.org/html/2602.06052v4",
+      "checked_on": "2026-11-08",
+      "canonical_stage": "not_promoted",
+      "scope": "Published figures and adjacent captions only",
+      "figures": [
+        2,
+        6,
+        7
+      ],
+      "evidence_class": "primary_survey_artwork",
+      "boundary_note": "Report-local figure integration; no registry or Research Memory changes."
+    },
+    {
+      "paper_id": "arxiv:2512.13564v2",
+      "title": "Memory in the Age of AI Agents",
+      "source_url": "https://arxiv.org/html/2512.13564v2",
+      "checked_on": "2026-11-08",
+      "canonical_stage": "not_promoted",
+      "scope": "Published figures and adjacent captions only",
+      "figures": [
+        1
+      ],
+      "evidence_class": "primary_survey_artwork",
+      "boundary_note": "Report-local figure integration; no registry or Research Memory changes."
+    },
+    {
+      "paper_id": "arxiv:2510.18866",
+      "title": "LightMem",
+      "canonical_stage": "not_linked_in_registry",
+      "report_evidence_stage": "deep_reading_selected_mechanism",
+      "admission": "overview_grounded_walkthrough",
+      "source_url": "https://arxiv.org/html/2510.18866v4",
+      "scope": "Figure 2; §3.1–3.3; §5.3–5.6",
+      "mechanism_trace": [
+        "压缩与话题分段进入 sensory buffer；不是直接将所有对话写成长期记忆。",
+        "STM 达阈值后按话题总结，保留 topic、summary 和来源 turn。",
+        "LTM 在线先插入；更新队列按相似度及时间约束选候选，sleep-time 并行更新。"
+      ],
+      "boundary_note": "压缩和分段仍会丢失信息；离线巩固不是免费操作，不能把在线低延迟当作总成本为零。",
+      "reading_gate": {
+        "method_traced": true,
+        "source_anchors_retained": true,
+        "limitations_checked": true,
+        "canonical_registry_modified": false
+      },
+      "checked_on": "2026-10-25"
+    },
+    {
+      "paper_id": "arxiv:2512.20237",
+      "title": "MemR³",
+      "canonical_stage": "not_linked_in_registry",
+      "report_evidence_stage": "deep_reading_selected_mechanism",
+      "admission": "overview_grounded_walkthrough",
+      "source_url": "https://arxiv.org/html/2512.20237v1",
+      "scope": "Figures 1–3; §3.2–3.5; Algorithm 1; Appendix B.4",
+      "mechanism_trace": [
+        "全局状态区分当前 evidence 与尚缺 gap，由 router 决定 Retrieve / Reflect / Answer。",
+        "细化 query 后取新片段，已检索 ID 屏蔽；Reflect 重整当前证据与缺口。",
+        "预算耗尽可强制回答；空 gap 不等于真实证据完整，理想化保证不直接适用于 LLM 摘要。"
+      ],
+      "boundary_note": "反思和证据摘要可能出错；提前停止与预算强制停止不同，不能将 Answer 动作解释为正确性保证。",
+      "reading_gate": {
+        "method_traced": true,
+        "source_anchors_retained": true,
+        "limitations_checked": true,
+        "canonical_registry_modified": false
+      },
+      "checked_on": "2026-10-25"
+    },
+    {
+      "paper_id": "arxiv:2603.17621",
+      "title": "Complementary RL",
+      "canonical_stage": "finalized",
+      "report_evidence_stage": "deep_reading_selected_mechanism",
+      "admission": "overview_grounded_walkthrough",
+      "source_url": "https://arxiv.org/html/2603.17621v2",
+      "scope": "Figure 2; §2.2–2.3; §3.2–3.3; Appendix B.2",
+      "mechanism_trace": [
+        "Extractor 从目标、轨迹和结果提出 Add / Update / Return；经验库定期 Merge。",
+        "Actor 以带经验／无经验两子组训练，组内分别计算优势；两模型异步独立调度优化。",
+        "经验奖励来自后续被引导 episode 的成败，多次使用按经验项聚合；不是严格反事实因果贡献。"
+      ],
+      "boundary_note": "经验奖励与 actor 本身能力及任务难度混杂；不能直接把后续成功归因于某条经验。",
+      "reading_gate": {
+        "method_traced": true,
+        "source_anchors_retained": true,
+        "limitations_checked": true,
+        "canonical_registry_modified": false
+      },
+      "checked_on": "2026-10-25"
+    },
+    {
+      "paper_id": "arxiv:2602.23008",
+      "title": "EMPO²",
+      "canonical_stage": "quicklook_done",
+      "report_evidence_stage": "deep_reading_selected_mechanism",
+      "admission": "overview_grounded_walkthrough",
+      "source_url": "https://arxiv.org/html/2602.23008v2",
+      "scope": "Figures 4–5; §4.1–4.2; Algorithm 1; Appendix F.1 / G.2",
+      "mechanism_trace": [
+        "同一策略从自身轨迹生成 tips；tips 用于引导之后的探索。",
+        "§4.2 以 p 定义有 memory rollout 概率；有 memory 轨迹以 q 选择 off-policy 更新。",
+        "三模式：无 tips→无 tips；有 tips→有 tips；有 tips→去 tips。最后一种是奖励引导的行为学习。"
+      ],
+      "boundary_note": "正文、算法及附录存在概率符号口径差异；演示仅采用 §4.2 的 p/q 定义，不宣称统一默认比例或精确复现。",
+      "reading_gate": {
+        "method_traced": true,
+        "source_anchors_retained": true,
+        "limitations_checked": true,
+        "canonical_registry_modified": false
+      },
+      "checked_on": "2026-10-25"
+    },
+    {
+      "paper_id": "arxiv:2608.21946",
+      "title": "EDGE",
+      "canonical_stage": "not_linked_in_registry",
+      "report_evidence_stage": "deep_reading_selected_mechanism",
+      "admission": "overview_grounded_walkthrough",
+      "source_url": "https://arxiv.org/html/2608.21946v2",
+      "scope": "Figure 1; §3.1–3.3; §4.3; Appendix A.1 / A.4",
+      "mechanism_trace": [
+        "同一策略、同任务组等分 teacher（带经验）与 student（无经验）rollouts，估计收益差 Δe。",
+        "Δe>0 才启用蒸馏；Δe≤0 排除 teacher 对 RL 组基线的影响。",
+        "在 student 自采样 token 上对照 teacher 分布作 reverse-KL；经验库按失败模式扩展并按 EMA 效用裁剪。"
+      ],
+      "boundary_note": "有限 rollout 的收益差有噪声；同组比较不是对每条经验长期、全任务有效性的证明。",
+      "reading_gate": {
+        "method_traced": true,
+        "source_anchors_retained": true,
+        "limitations_checked": true,
+        "canonical_registry_modified": false
+      },
+      "checked_on": "2026-10-25"
+    },
+    {
+      "source_id": "memory-forms-structures-outlook",
+      "paper_id": "arxiv:2512.13564",
+      "evidence_class": "primary_survey_figure_and_bounded_taxonomy",
+      "checked_on": "2026-11-05",
+      "source_url": "https://arxiv.org/html/2512.13564v2",
+      "scope": "Figure 3 caption; section 3 forms and section 3.1 topology taxonomy",
+      "figure": 3,
+      "version": "v2",
+      "canonical_stage": "not_promoted",
+      "boundary_note": "1D/2D/3D describe token-level organization, not embedding dimension, spatial coordinates or a universal performance ranking. Figure kept complete; named methods in it are not newly admitted reading topics."
+    },
+    {
+      "source_id": "opening-human-redrawn-frameworks",
+      "evidence_class": "human_supplied_conceptual_illustrations",
+      "checked_on": "2026-11-05",
+      "assets": [
+        {
+          "report_path": "figures/papers/rag_workflow_yux_redraw.png",
+          "attachment": "human_attachment:codex-clipboard-068a35dd-4d58-4a0c-aeb7-b7095eef4362.png",
+          "label": "RAG：离线构建与在线检索"
+        },
+        {
+          "report_path": "figures/papers/memory_agent_architecture_yux_redraw.png",
+          "attachment": "human_attachment:codex-clipboard-3f583770-a9fc-4846-a2b9-e4852f4eda61.png",
+          "label": "Memory-aware Agent：记忆与行为控制"
+        }
+      ],
+      "boundary_note": "Exact supplied PNGs, unchanged. Embedded sample metadata/quotations are illustration content, not independently verified paper evidence. Original note images remain in the source bundle.",
+      "display_status": "archived_not_rendered_after_20261108"
+    },
+    {
+      "source_id": "summary-vs-reference-compaction",
+      "evidence_class": "existing_notes_plus_labeled_teaching_example",
+      "checked_on": "2026-11-05",
+      "scope": "Original note lines 55–63; expanded note section 3; travel example authored for teaching",
+      "boundary_note": "Note-specific terminology: ID-based retrieval is not asserted to be the implementation of Codex or Claude compaction.",
+      "display_status": "archived_not_rendered_after_20261108"
+    },
+    {
+      "source_id": "application-compaction-screenshots",
+      "evidence_class": "human_session_screenshot",
+      "checked_on": "2026-11-08",
+      "sources": [
+        "figures/papers/codex_compaction_yux_session.png"
+      ],
+      "boundary_note": "Codex screenshot supplied by Yux, unchanged, now nested under Working Memory. Claude screenshot and source link removed from display. UI does not establish implementation or performance."
+    },
+    {
+      "paper_id": "arxiv:2604.26622",
+      "title": "OCR-Memory: Optical Context Retrieval for Long-Horizon Agent Memory",
+      "canonical_stage": "not_promoted",
+      "admission": "bounded_overview_outlook",
+      "source_url": "https://arxiv.org/html/2604.26622v1",
+      "checked_on": "2026-11-05",
+      "scope": "Figure 1 and abstract; static overview only",
+      "boundary_note": "Not MemOCR or AgentOCR; no quantitative gain or complete reading claim."
+    },
+    {
+      "source_id": "personal-agent-outlook",
+      "evidence_class": "presentation_synthesis_not_validated",
+      "boundary_note": "Illustrative future application, not an implemented system or a paper result."
+    },
+    {
+      "paper_id": "arxiv:2609.23466",
+      "source_url": "https://arxiv.org/html/2609.23466v2",
+      "figure": 1,
+      "version": "v2",
+      "checked_on": "2026-11-05",
+      "scope": "Abstract; Figure 1; section 2: two-stage training and inference",
+      "mechanism_trace": [
+        "Session encoder compiles a session into fixed-shape latent memory.",
+        "Task-trained recurrent gate consolidates old and new session memories.",
+        "Backbone-specific decoder generates LoRA parameters from consolidated memory; learned modules are frozen at inference."
+      ],
+      "boundary_note": "Forward-generated adapters are not per-session SGD. Backbone replacement requires an adapted decoder, not direct reuse of identical LoRA weights.",
+      "evidence_class": "primary_figure_and_selected_architecture_reading",
+      "admission": "bounded_outlook_not_full_paper_review",
+      "canonical_stage": "not_promoted",
+      "canonical_registry_modified": false
+    },
+    {
+      "paper_id": "arxiv:2610.26825",
+      "source_url": "https://arxiv.org/html/2610.26825v2",
+      "figure": 4,
+      "version": "v2",
+      "checked_on": "2026-11-05",
+      "scope": "Abstract; Figure 4; sections 2.1 and 2.2: local/hyper memory, storage and utilization",
+      "mechanism_trace": [
+        "Selected Transformer blocks combine original attention and memory attention.",
+        "Dynamic local memory is updated token-wise at turn end; hyper-memory parameters are trained offline and fixed online.",
+        "Memory queries read accumulated local states during generation. A new trajectory initializes local memory to zero."
+      ],
+      "boundary_note": "Native state memory, not a LoRA adapter method. Persistence requires retaining the state; it does not imply unbounded memory or guaranteed user-level correction/deletion.",
+      "evidence_class": "primary_figure_and_selected_architecture_reading",
+      "admission": "bounded_outlook_not_full_paper_review",
+      "canonical_stage": "not_promoted",
+      "canonical_registry_modified": false
+    },
+    {
+      "source_id": "ccf-lecture-opening-20261108",
+      "checked_on": "2026-11-08",
+      "evidence_class": "human_photographs_and_lecture_reports_with_labeled_synthesis",
+      "source_urls": [
+        "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md",
+        "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/03_harness/report.md",
+        "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/06_memory_rsi_agi/report.md"
+      ],
+      "source_commit": "2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb",
+      "assets": [
+        {
+          "file": "chatgpt_memory_yux.png",
+          "url": "human_attachment:codex-clipboard-ef42a582-121c-432c-a3c7-77c18e57ae9f.png",
+          "page": "figures/lecture/chatgpt_memory_yux.png",
+          "status": "human_supplied_product_screenshot",
+          "note": "Unmodified ChatGPT web personalization screenshot supplied by Human; illustrates visible memory controls, not internal architecture or measured retention."
+        },
+        {
+          "file": "brain_memory_yux.png",
+          "url": "human_attachment:codex-clipboard-cb30ccd9-6658-4da1-85c4-2997ec723c01.png",
+          "page": "figures/lecture/brain_memory_yux.png",
+          "status": "human_supplied_clean_figure",
+          "note": "Human supplied clear version of the brain-memory lecture slide; original PNG bytes preserved. Replaces photo IMG_5987 on the displayed page; photograph retained for provenance. Embedded quotes and anatomical labels are not independently verified."
+        },
+        {
+          "file": "method_loci_frontiers_figure1.webp",
+          "url": "https://www.frontiersin.org/files/Articles/612681/xml-images/fpsyg-12-612681-g0001.webp",
+          "page": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.612681/full",
+          "status": "related_supplement_not_verified_slide_original",
+          "note": "Similar four-panel layout, but objects and artwork differ from photographed slide. Supplement only; not verified as its original source."
+        },
+        {
+          "file": "memory_palace_grocery.png",
+          "url": "https://www.memletics.com/images/malm/method-loci-grocery-list.png",
+          "page": "https://www.memletics.com/techniques-association-method-loci-mnemonic",
+          "status": "recovered_matching_artwork",
+          "note": "Six locations and grocery associations visually match the lecture slide. Public matching source; no claim to establish earliest authorship."
+        },
+        {
+          "file": "IMG_5987.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/photos/preview/IMG_5987.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "brain structure; unmodified photo; no matching original slide deck verified"
+        },
+        {
+          "file": "IMG_5989.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/photos/preview/IMG_5989.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "palace source comparison; unmodified photo; no matching original slide deck verified"
+        },
+        {
+          "file": "IMG_5991.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/photos/preview/IMG_5991.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "three memory roles; unmodified photo; no matching original slide deck verified"
+        },
+        {
+          "file": "IMG_5992.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/photos/preview/IMG_5992.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-08/01_vla_memory/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "embodied compression; unmodified photo; no matching original slide deck verified"
+        },
+        {
+          "file": "IMG_5864.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/photos/preview/IMG_5864.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/03_harness/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "checkpoint; unmodified photo; no matching original slide deck verified"
+        },
+        {
+          "file": "IMG_5894.jpg",
+          "url": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/photos_afternoon/preview/IMG_5894.jpg",
+          "page": "https://github.com/yuxhf/CCFTianj/blob/2dd6ba40a1f264df7f17ee1e9eab899cfa32bdfb/2026-11-06/06_memory_rsi_agi/report.md",
+          "status": "human_photo_original_slide_file_unavailable",
+          "note": "when where how; unmodified photo; no matching original slide deck verified"
+        }
+      ],
+      "scope": "VLA introduction ~04:30–10:50; Harness checkpoint ~15:00–18:00; continual learning ~16:00–18:00 and ~23:30–27:00",
+      "boundary_note": "ASR is not manually verified verbatim. Brain illustration is a lecture source, not independently verified neuroscience evidence. Agent/Harness task example and cross-paper mapping are authored synthesis; no biological equivalence, formal experiment or registry promotion."
+    },
+    {
+      "source_id": "method-of-loci-artwork",
+      "year": 2021,
+      "venue": "Frontiers in Psychology",
+      "title": "A Feasibility Study on the Use of the Method of Loci for Improving Episodic Memory Performance in Schizophrenia and Non-clinical Subjects",
+      "source_url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.612681/full",
+      "figure": 1,
+      "scope": "Figure 1 and caption only, not clinical results",
+      "canonical_stage": "not_promoted"
+    },
+    {
+      "paper_id": "arxiv:2507.05257",
+      "year": 2026,
+      "venue": "ICLR",
+      "title": "Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions",
+      "venue_evidence_url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/fd1eff9dd295df50a41f2521942fa31d-Abstract-Conference.html",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_or_published",
+      "canonical_registry_modified": false,
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2502.14802",
+      "year": 2025,
+      "venue": "ICML",
+      "title": "From RAG to Memory: Non-Parametric Continual Learning for Large Language Models",
+      "venue_evidence_url": "https://arxiv.org/abs/2502.14802",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_or_published",
+      "canonical_registry_modified": false,
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2603.09250",
+      "year": 2026,
+      "venue": "ICLR",
+      "title": "Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval",
+      "venue_evidence_url": "https://arxiv.org/abs/2603.09250",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_or_published",
+      "canonical_registry_modified": false,
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2510.16079",
+      "year": 2026,
+      "venue": "ICML",
+      "title": "EvolveR: Self-Evolving LLM Agents through an Experience-Driven Lifecycle",
+      "venue_evidence_url": "https://arxiv.org/abs/2510.16079",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_or_published",
+      "canonical_registry_modified": false,
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2508.19828",
+      "year": 2026,
+      "venue": "ACL",
+      "title": "Memory-R1: Enhancing Large Language Model Agents to Manage and Utilize Memories via Reinforcement Learning",
+      "venue_evidence_url": "https://aclanthology.org/2026.acl-long.583/",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_or_published",
+      "canonical_registry_modified": false,
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2510.18866",
+      "year": 2026,
+      "venue": "ICLR",
+      "title": "LightMem: Lightweight and Efficient Memory-Augmented Generation",
+      "venue_evidence_url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/a05b72653ec5b473732129829ae04195-Abstract-Conference.html",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_or_published",
+      "canonical_registry_modified": false,
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2512.20237",
+      "year": 2026,
+      "venue": "NeurIPS（Poster；会议版）",
+      "title": "Knowing What is Missing: Efficient Conversational Memory via Explicit Evidence-Gap Tracking",
+      "venue_evidence_url": "https://neurips.cc/virtual/2026/poster/149691",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_poster",
+      "canonical_registry_modified": false,
+      "author_identity_evidence": "https://deepopo.github.io/#publications",
+      "source_version_title": "MemR³: Memory Retrieval via Reflective Reasoning for LLM Agents",
+      "source_version": "2512.20237v1",
+      "boundary_note": "Conference title/venue confirmed; existing figures and walkthrough remain based on preprint v1, not a verified final conference manuscript.",
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2603.17621",
+      "year": 2026,
+      "venue": "arXiv 预印本（录用／在投未公开核实）",
+      "title": "Complementary RL: Towards Efficient Experience-Driven Agent Learning",
+      "venue_evidence_url": "https://arxiv.org/abs/2603.17621",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "preprint_acceptance_and_submission_not_publicly_verified",
+      "canonical_registry_modified": false,
+      "boundary_note": "No verified public acceptance or submission statement found; this does not establish that the work was never submitted.",
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2602.23008",
+      "year": 2026,
+      "venue": "ICLR",
+      "title": "Exploratory Memory-Augmented LLM Agent via Hybrid On- and Off-Policy Optimization",
+      "venue_evidence_url": "https://arxiv.org/abs/2602.23008",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_or_published",
+      "canonical_registry_modified": false,
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2608.21946",
+      "year": 2026,
+      "venue": "EMNLP",
+      "title": "EDGE: Experience-Distillation for Guided Exploration in Agentic Reinforcement Learning",
+      "venue_evidence_url": "https://arxiv.org/abs/2608.21946",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_or_published",
+      "canonical_registry_modified": false,
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2602.06052",
+      "year": 2026,
+      "venue": "TMLR",
+      "title": "A Survey of Agent Memory in the Second Half: Towards Self-Evolving and Long-Horizon Agents",
+      "venue_evidence_url": "https://arxiv.org/abs/2602.06052",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_or_published",
+      "canonical_registry_modified": false,
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2512.13564",
+      "year": 2025,
+      "venue": "arXiv 预印本（录用／在投未公开核实）",
+      "title": "Memory in the Age of AI Agents",
+      "venue_evidence_url": "https://arxiv.org/abs/2512.13564",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "preprint_acceptance_and_submission_not_publicly_verified",
+      "canonical_registry_modified": false,
+      "boundary_note": "No verified public acceptance or submission statement found; this does not establish that the work was never submitted.",
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2604.26622",
+      "year": 2026,
+      "venue": "ACL",
+      "title": "OCR-Memory: Optical Context Retrieval for Long-Horizon Agent Memory",
+      "venue_evidence_url": "https://aclanthology.org/2026.acl-long.474/",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "accepted_or_published",
+      "canonical_registry_modified": false,
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2609.23466",
+      "year": 2026,
+      "venue": "arXiv 预印本（录用／在投未公开核实）",
+      "title": "RPMem: Learning Long-Term Recurrent Parametric Memory Across Sessions for LLM Agents",
+      "venue_evidence_url": "https://arxiv.org/abs/2609.23466",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "preprint_acceptance_and_submission_not_publicly_verified",
+      "canonical_registry_modified": false,
+      "boundary_note": "No verified public acceptance or submission statement found; this does not establish that the work was never submitted.",
+      "publication_check_scope": "arXiv comments and metadata; official author repository README; exact-title public web search with acceptance/submission terms",
+      "official_repository": "https://github.com/Quark-Medical/RPMem",
+      "arxiv_comments": "38 pages, 7 figures. Code link; no venue statement",
+      "evidence_class": "report_local_publication_metadata"
+    },
+    {
+      "paper_id": "arxiv:2610.26825",
+      "year": 2026,
+      "venue": "arXiv 预印本（录用／在投未公开核实）",
+      "title": "MemT-1.0: Towards Memory-Native Evolution",
+      "venue_evidence_url": "https://arxiv.org/abs/2610.26825",
+      "checked_on": "2026-11-05",
+      "year_policy": "conference/journal year if verified; otherwise first preprint year",
+      "publication_status": "preprint_acceptance_and_submission_not_publicly_verified",
+      "canonical_registry_modified": false,
+      "boundary_note": "No verified public acceptance or submission statement found; this does not establish that the work was never submitted.",
+      "publication_check_scope": "arXiv comments and metadata; official author repository README; exact-title public web search with acceptance/submission terms",
+      "official_repository": "https://github.com/MemTensor/MemT-1.0",
+      "arxiv_comments": "66 pages, 15 figures, 16 tables; no venue statement",
+      "evidence_class": "report_local_publication_metadata"
+    }
+  ],
+  "sections": [
+    {
+      "number": 1,
+      "id": "agent-intro",
+      "title": "从 Agent 开始：围绕目标持续行动",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 2,
+      "id": "harness-intro",
+      "title": "Harness：让 Agent 能执行、能恢复、能检查",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 3,
+      "id": "human-memory-intro",
+      "title": "从人类记忆获得启发，也区分实现机制",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 4,
+      "id": "memory-palace",
+      "title": "记忆宫殿：组织信息，也组织回忆路径",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 5,
+      "id": "three-memory-roles",
+      "title": "Agent 的三类记忆：当前使用、长期保留与经验复用",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 6,
+      "id": "benchmark-focus",
+      "title": "MemoryAgentBench：分数如何产生",
+      "speaker_note": "保留原报告的机制、数值与边界；结合该页来源讲解。",
+      "origin": "extracted_original"
+    },
+    {
+      "number": 7,
+      "id": "research-question",
+      "title": "什么是好的 Memory：从 Benchmark 看能力与代价",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 8,
+      "id": "lifecycle-map",
+      "title": "Query：找什么、怎么找、什么时候继续找",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 9,
+      "id": "hippo-focus",
+      "title": "HippoRAG 2：通过关联结构检索分散信息",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 10,
+      "id": "rfmem-focus",
+      "title": "RF-Mem：一次 Recollection 如何逐轮形成 Top-10",
+      "speaker_note": "保留原报告的机制、数值与边界；结合该页来源讲解。",
+      "origin": "extracted_original"
+    },
+    {
+      "number": 11,
+      "id": "rfmem-case",
+      "title": "RF-Mem Figure 18：检索案例分析",
+      "speaker_note": "保留原报告的机制、数值与边界；结合该页来源讲解。",
+      "origin": "extracted_original"
+    },
+    {
+      "number": 12,
+      "id": "memr3-focus",
+      "title": "MemR³：围绕信息缺口主动检索",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 13,
+      "id": "readwrite-focus",
+      "title": "增删改：让记忆反映变化，而不是只会追加",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 14,
+      "id": "lightmem-focus",
+      "title": "LightMem：分阶段整理与离线巩固",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 15,
+      "id": "memory-r1-focus",
+      "title": "Memory-R1：以任务反馈学习记忆操作",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 16,
+      "id": "evolver-focus",
+      "title": "EvolveR：从交互轨迹提炼经验原则",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 17,
+      "id": "complementary-rl-focus",
+      "title": "Complementary RL：经验提取器与 Actor 共同演化",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 18,
+      "id": "empo2-focus",
+      "title": "EMPO²：概率混合三种采样与更新模式",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 19,
+      "id": "edge-focus",
+      "title": "EDGE：按经验增益决定是否蒸馏",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 20,
+      "id": "method-synthesis",
+      "title": "方法对照：记忆库更新不等于策略学习",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 21,
+      "id": "survey-taxonomy",
+      "title": "总结：从具体方法回到记忆系统的设计空间",
+      "speaker_note": "读图顺序：Memory Substrate → Cognitive Mechanism → Memory Subject。后面的方法可以同时落在多个维度上，不是互斥的类别。",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 22,
+      "id": "survey-forms-functions",
+      "title": "Agent Memory：形式、功能与动态过程",
+      "speaker_note": "读图只抓 Forms / Functions / Dynamics 三条主轴，不逐一展开图中所有论文。它与前一篇分类互补，不强行建立一一对应关系。",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 23,
+      "id": "survey-operations",
+      "title": "记忆操作：从存储、检索到更新与遗忘",
+      "speaker_note": "重点看单 Agent 的五类操作：存储与索引、加载与检索、更新与刷新、压缩与总结、遗忘与保留。多 Agent 部分只作背景，不展开新的支线。",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 24,
+      "id": "survey-policies",
+      "title": "记忆策略：从提示控制到可学习的管理",
+      "speaker_note": "沿原图比较 Prompting、Fine-Tuning 与 Reinforcement Learning。关注决策依据和训练信号，不在这里展开优化公式。",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 25,
+      "id": "memory-forms-structures",
+      "title": "记忆的载体与组织结构",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 26,
+      "id": "ocr-memory-focus",
+      "title": "OCR-Memory：视觉历史与原文回取",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 27,
+      "id": "rpmem-focus",
+      "title": "RPMem：跨会话记忆与 LoRA 适配",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 28,
+      "id": "memt-focus",
+      "title": "MemT-1.0：模型内生记忆",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 29,
+      "id": "personal-agent",
+      "title": "Personal Agent：长期协作中的记忆管理",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    },
+    {
+      "number": 30,
+      "id": "sources",
+      "title": "主要来源",
+      "speaker_note": "",
+      "origin": "authored_seminar"
+    }
+  ]
+}

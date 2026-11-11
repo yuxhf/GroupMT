@@ -1,0 +1,130 @@
+{
+  "checked_on": "2026-11-05",
+  "timezone": "Asia/Shanghai",
+  "scope": "Recheck the three previously unconfirmed report citations; no canonical registry changes",
+  "git_commit": "not_available",
+  "formal_experiment_ran": false,
+  "final_check": {
+    "checked_at": "2026-11-05T10:47:42+08:00",
+    "visible_unconfirmed_paper_ids": [
+      "arxiv:2603.17621",
+      "arxiv:2512.13564"
+    ],
+    "result": "unchanged; no publicly verified acceptance or submission statement found for either paper",
+    "checks": [
+      {
+        "source": "https://arxiv.org/abs/2603.17621",
+        "result": "Still v2, 2026-06-27, with no venue/review-status announcement."
+      },
+      {
+        "source": "https://arxiv.org/abs/2512.13564",
+        "result": "Still v2, 2026-01-13, with no venue/review-status announcement."
+      },
+      {
+        "source": "https://api.github.com/repos/pUmpKin-Co/ComplementaryRL/issues?state=all&per_page=100",
+        "result": "Checked all 3 returned issue/PR entries and current README; no identified venue/submission announcement. README accept/refine/reject describes an algorithm, not a publication decision."
+      },
+      {
+        "source": "https://api.github.com/repos/Shichun-Liu/Agent-Memory-Paper-List/issues?state=all&per_page=100",
+        "result": "Checked 33 returned issue/PR entries and current README; no identified venue/submission announcement. The keyword hit in issue 34 is a contributed project description, not an acceptance statement."
+      },
+      {
+        "source": "https://api2.openreview.net/notes/search",
+        "result": "Exact Complementary RL query returned 0. Expanded title returned an unrelated ICLR 2027 Dyad submission; experience extractor returned an unrelated ACL Industry R3 paper. Neither establishes the target paper's venue."
+      },
+      {
+        "source": "https://api2.openreview.net/notes/search?term=%22Memory%20in%20the%20Age%20of%20AI%20Agents%22&limit=100",
+        "result": "Still two matching records: DBLP CoRR import qib07gvCOu and Archive Direct_Upload 0eTbcRNlfq. Neither is a conference submission/acceptance record. Individual-note endpoints returned HTTP 403; search metadata was readable."
+      },
+      {
+        "source": "https://neurips.cc/Downloads/2026",
+        "result": "Neither target's checked title/alternate Complementary Reinforcement Learning title appears in the official program. This does not exclude an unlinked renamed submission."
+      },
+      {
+        "source": "https://icml.cc/Downloads/2026",
+        "result": "Neither target's checked title/alternate Complementary Reinforcement Learning title appears in the official program. This does not exclude an unlinked renamed submission."
+      }
+    ],
+    "report_action": "Keep existing HTML labels unchanged: arXiv preprint, acceptance/submission not publicly verified. Only refresh this audit record.",
+    "limitation": "Private or anonymous submissions and renamings without a public identity link cannot be ruled out. No claim of non-submission is made."
+  },
+  "records": [
+    {
+      "paper_id": "arxiv:2512.20237",
+      "result": "accepted_poster",
+      "venue": "NeurIPS 2026",
+      "conference_title": "Knowing What is Missing: Efficient Conversational Memory via Explicit Evidence-Gap Tracking",
+      "preprint_title": "MemR³: Memory Retrieval via Reflective Reasoning for LLM Agents",
+      "evidence": [
+        {
+          "url": "https://neurips.cc/virtual/2026/poster/149691",
+          "finding": "Official NeurIPS Poster page gives the conference title, NeurIPS 2026 and five authors. Its structured metadata gives datePublished 2026-09-25 and dateModified 2026-10-30; these are page metadata, not asserted notification dates."
+        },
+        {
+          "url": "https://neurips.cc/Downloads/2026",
+          "finding": "Official program lists the new title as a Poster linking to 149691."
+        },
+        {
+          "url": "https://deepopo.github.io/#publications",
+          "finding": "First author labels the new title MemR³ / NeurIPS 2026 and directly links it to arXiv:2512.20237."
+        },
+        {
+          "url": "https://arxiv.org/abs/2512.20237",
+          "finding": "arXiv still displays the old title and v1 dated 2025-12-23, without a venue comment."
+        }
+      ],
+      "openreview_link_from_official_page": "https://openreview.net/forum?id=o9MB6dPOa4",
+      "access_limit": "OpenReview detail/API request was blocked; acceptance is supported by the official NeurIPS program and author identity link, not an inferred OpenReview decision.",
+      "report_action": "Use 2026 NeurIPS Poster and conference title, explicitly retain old-title preprint v1 as the figure/mechanism source. Do not claim the final conference manuscript was read."
+    },
+    {
+      "paper_id": "arxiv:2603.17621",
+      "title": "Complementary RL: Towards Efficient Experience-Driven Agent Learning",
+      "result": "acceptance_and_submission_not_publicly_verified",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2603.17621",
+          "finding": "Current abstract page lists v2 dated 2026-06-27; comments only describe pages/figures, without a conference or review status."
+        },
+        {
+          "url": "https://github.com/pUmpKin-Co/ComplementaryRL",
+          "finding": "Author-linked repository README has no acceptance or submission announcement."
+        },
+        {
+          "url": "https://ling-pan.github.io/publications/",
+          "finding": "Coauthor publication list checked; no matching Complementary title found. Absence is not evidence of non-submission."
+        },
+        {
+          "url": "https://api2.openreview.net/notes/search?term=%22Complementary%20RL%22&limit=100",
+          "finding": "Exact phrase search returned no record; expanded-title queries did not yield an identifiable matching submission. Anonymous or renamed submissions cannot be excluded."
+        }
+      ],
+      "report_action": "Keep arXiv preprint, state acceptance/submission not publicly verified, and do not invent a target conference."
+    },
+    {
+      "paper_id": "arxiv:2512.13564",
+      "title": "Memory in the Age of AI Agents",
+      "result": "acceptance_and_submission_not_publicly_verified",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2512.13564",
+          "finding": "Current v2 dated 2026-01-13 has no public acceptance/submission comment."
+        },
+        {
+          "url": "https://github.com/Shichun-Liu/Agent-Memory-Paper-List",
+          "finding": "Author repository news announces the survey release/update and repository milestones; no verified acceptance/submission announcement found."
+        },
+        {
+          "url": "https://openreview.net/forum?id=0eTbcRNlfq",
+          "finding": "Public API reports venueid OpenReview.net/Archive and invitation OpenReview.net/Archive/-/Direct_Upload, not a conference submission invitation."
+        },
+        {
+          "url": "https://openreview.net/forum?id=qib07gvCOu",
+          "finding": "Other matching OpenReview API record is DBLP-imported CoRR 2025, not a peer-reviewed conference acceptance."
+        }
+      ],
+      "report_action": "Keep 2025 first-preprint year and v2 locator. Explain that OpenReview Archive and CoRR indexing do not establish submission or acceptance."
+    }
+  ],
+  "search_boundary": "Public sources only. A missing announcement or search hit cannot prove that no private/anonymous submission exists. Search snippets saying under review were rejected when that phrase belonged to another paper citing the target."
+}
