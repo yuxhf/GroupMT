@@ -1,0 +1,10 @@
+{
+  "source_report": "2026-10-25_agent_memory_seminar/index.html",
+  "source_sha256": "2ddad93af5d862303b56d2819efe937cf57ec9a045fc5975a62bafdb747f03d7",
+  "git_commit": "not_available",
+  "generated": "2026-11-11",
+  "steps": 7,
+  "scene": "Original RF-Mem Figure 18 task reconstruction; separated overlapping branch labels; intermediate bag placeholders distinguished from final state.",
+  "formal_report_modified": false,
+  "formal_experiment_ran": false
+}
