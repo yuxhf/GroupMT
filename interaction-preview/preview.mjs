@@ -4,18 +4,22 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const workbench = $('#workbench');
 const diagram = $('.diagram');
-const steps = JSON.parse($('#step-spec').textContent).steps;
+const spec = JSON.parse($('#step-spec').textContent);
+const steps = spec.steps;
+const memories = new Map(spec.memories.map(item => [item.id,item]));
+const memory = id => memories.get(id) || {id,...spec.other[String(id)]};
 const labels = $$('[data-jump]').map(button => button.textContent);
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
-const groups = ['.rf18-route', '.rf18-fast-box', '.rf18-r0', '.rf18-centroids', '.rf18-pruning', '.rf18-rounds', '.rf18-bag'];
 let currentView = 'demo', previousStep = -1, figure = '2', activeAnimations = [];
 const figures = {
   '2': {src:'../meetings/2026-11-08-agent-memory/figures/papers/rfmem_architecture.png', alt:'RF-Mem Figure 2：Familiarity 与 Recollection 双路径总体架构', width:1115, height:650},
-  '1': {src:'../meetings/2026-11-08-agent-memory/figures/papers/rfmem_intro_figure1.png', alt:'RF-Mem Figure 1：一次检索与逐步回忆的对比', width:789, height:405}
+  '1': {src:'../meetings/2026-11-08-agent-memory/figures/papers/rfmem_intro_figure1.png', alt:'RF-Mem Figure 1：一次检索与逐步回忆的对比', width:789, height:405},
+  '18': {src:'../meetings/2026-11-08-agent-memory/figures/papers/rfmem_personamem_case_figure18.png', alt:'RF-Mem Figure 18：四轮检索分支与 Top-10 结果', width:1390, height:1430}
 };
 function settleMotion() {
   activeAnimations.forEach(animation => animation.cancel());
   activeAnimations = [];
+  $$('[data-transfer-id]',diagram).forEach(token=>{token.hidden=true;token.setAttribute('hidden','');});
 }
 const player = createPlayer({count:steps.length, interval:4500, reduced:motion.matches, onChange:render});
 function render({index, playing}) {
@@ -24,6 +28,7 @@ function render({index, playing}) {
   if (changed) {
     settleMotion();
     diagram.dataset.step = String(index);
+    diagram.dataset.mode = item.mode || 'recollection';
     $$('[data-show]', diagram).forEach(node => {
       const visible = node.getAttribute('data-show').split(',').map(Number).includes(index);
       node.classList.toggle('is-visible', visible);
@@ -32,17 +37,37 @@ function render({index, playing}) {
       node.setAttribute('aria-hidden', String(!visible));
     });
     $$('[data-focus-now]',diagram).forEach(node => node.removeAttribute('data-focus-now'));
-    const focus = $(groups[index],diagram);
+    const focus = $(`.${item.focus}`,diagram);
     focus?.setAttribute('data-focus-now','');
     // A single change cue on the actual object, rather than an ornamental loop.
     if (previousStep !== -1 && !motion.matches && focus?.animate) {
       activeAnimations.push(focus.animate([{opacity:.25},{opacity:1}], {duration:550,easing:'ease-out'}));
-      if (index === 4) {
-        const token = $('.rf18-moving-hit',diagram);
-        activeAnimations.push(token.animate([{offsetDistance:'0%'},{offsetDistance:'100%'}],{duration:900,easing:'ease-in-out'}));
-      }
+      item.added.forEach((id,order)=>{
+        const token=$(`[data-transfer-id="${id}"]`,diagram);
+        token.hidden=false;token.removeAttribute('hidden');
+        const from=`translate(${token.dataset.fromX}px,${token.dataset.fromY}px)`;
+        const to=`translate(${token.dataset.toX}px,${token.dataset.toY}px)`;
+        token.style.transform=from;
+        const animation=token.animate([{transform:from,opacity:.85},{transform:to,opacity:1}],{duration:850,delay:order*160,fill:'both',easing:'ease-in-out'});
+        animation.finished.then(()=>{token.hidden=true;token.setAttribute('hidden','');}).catch(()=>{});
+        activeAnimations.push(animation);
+      });
     }
-    $('[data-bag-caption]').textContent = index === 6 ? 'unique IDs' : '累计中（槽位示意）';
+    $('[data-bag-title]').textContent=item.mode==='fast'?'Familiarity':'ResultBag';
+    $('[data-bag-count]').textContent=`${item.bag.length} / 10`;
+    $('[data-bag-caption]').textContent=item.mode==='fast'?'一次检索 · 原图上半部分':item.final?'按轮次展示 · 非排名':'保留分支累计 · 按 ID 去重';
+    $$('[data-result-slot]',diagram).forEach((row,i)=>{
+      const id=item.bag[i],m=id===undefined?null:memory(id);
+      row.classList.toggle('is-collected',!!m);
+      row.classList.toggle('is-new',item.added.includes(id));
+      row.classList.toggle('is-complementary',!!item.final && memories.get(id)?.round>=2);
+      $('[data-result-label]',row).textContent=m?`${id} · ${m.label}`:'待补充';
+      $('[data-result-round]',row).textContent=m && item.mode!=='fast'?`r${m.round}`:'';
+    });
+    $('[data-result-count]').textContent=String(item.bag.length);
+    const list=$('[data-result-list]');list.replaceChildren();
+    if (!item.bag.length){const li=document.createElement('li');li.textContent='尚未检索。';list.append(li);}
+    item.bag.forEach(id=>{const m=memory(id),li=document.createElement('li');li.textContent=`ID ${id} · ${m.label}：${m.meaning}`;list.append(li);});
     $('[data-counter]').textContent = `${index + 1} / ${steps.length} · ${labels[index]}`;
     $('[data-title]').textContent = item.title;
     $('[data-description]').textContent = item.description;
@@ -155,8 +180,8 @@ function openImage(item,trigger){
   imageDialog.showModal();$('.image-scroll',imageDialog).scrollTop=0;
 }
 $('[data-image-open]').addEventListener('click',event=>openImage(figures[figure],event.currentTarget));
-$('[data-thumbnail]').addEventListener('click',event=>openImage(figures['2'],event.currentTarget));
-$('[data-thumbnail]').addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openImage(figures['2'],event.currentTarget);}});
+$('[data-thumbnail]').addEventListener('click',event=>openImage(figures['18'],event.currentTarget));
+$('[data-thumbnail]').addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openImage(figures['18'],event.currentTarget);}});
 $('[data-image-close]').addEventListener('click',()=>imageDialog.close());
 $('[data-image-zoom]').addEventListener('click',event=>{
   const image=$('[data-large-image]'),zoom=event.currentTarget.getAttribute('aria-pressed')!=='true';

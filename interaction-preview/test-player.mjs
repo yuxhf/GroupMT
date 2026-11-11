@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {createPlayer} from './player-state.mjs';
+import {readFileSync} from 'node:fs';
 let clock=0,id=0,emitted=[],pending=new Map();
 const schedule=(fn,delay)=>{const handle=++id;pending.set(handle,{fn,at:clock+delay});return handle;};
 const cancel=handle=>pending.delete(handle);
@@ -36,4 +37,13 @@ p.reduced(false);p.go(4);p.toggle();assert.equal(p.state().playing,true);p.toggl
 const single=createPlayer({count:1,schedule,cancel});single.play();assert.equal(single.state().playing,false);
 assert.throws(()=>createPlayer({count:0}));
 assert.deepEqual(emitted.at(-1),p.state());
+const fixture=JSON.parse(readFileSync(new URL('./rfmem-case.json',import.meta.url),'utf8'));
+const totals=[];
+const casePlayer=createPlayer({count:fixture.steps.length,interval:4500,schedule,cancel,onChange:s=>totals.push(fixture.steps[s.index].bag.length)});
+casePlayer.play();tick(4500*(fixture.steps.length-1));
+assert.equal(casePlayer.state().index,fixture.steps.length-1);
+assert.equal(casePlayer.state().playing,false);
+assert.equal(pending.size,0);
+assert.deepEqual(totals,[0,10,4,4,6,9,10,10]);
+casePlayer.go(0);assert.equal(fixture.steps[casePlayer.state().index].bag.length,0);
 console.log('Playback checks passed: bounds, repeat clicks, pause, final-frame stop, replay, speed, reset, reduced motion.');

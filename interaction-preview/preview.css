@@ -5,4 +5,50 @@
 @media(max-width:1000px){.workspace-body,.focus-dialog .workspace-body{grid-template-columns:minmax(0,1fr) 260px;gap:20px}.step-copy{padding-left:18px}.step-copy h2{font-size:18px}.page{padding:20px}.site-bar{padding:15px 20px}.keyboard-note{display:none}.workspace-body{min-height:0}.diagram .rf18-map{min-width:610px}}
 @media(max-width:760px){.workspace-body,.focus-dialog .workspace-body{grid-template-columns:1fr;gap:17px}.step-copy{border-left:0;border-top:1px solid var(--line);padding:17px 0 0}.step-copy h2{font-size:20px;margin-bottom:10px}.step-copy p{margin-bottom:10px}.step-copy .takeaway{margin-top:12px}.step-position{margin-bottom:6px}.page-heading{align-items:start}.site-bar nav{gap:12px}.site-bar{font-size:12px}.page{padding:20px 16px}.page-heading .quiet-button{font-size:12px}.view-meta{display:none}.transport label{margin-left:0}.playback-status{margin-left:auto}.step-list button{flex:0 0 25%;min-width:0;font-size:11px}.page-footer{display:block}.page-footer a{display:inline-block;margin-top:10px}.focus-dialog{padding:12px;width:calc(100vw - 12px);height:calc(100dvh - 12px)}.focus-dialog .workspace-top{top:-12px}.diagram .rf18-map,.focus-dialog .diagram .rf18-map{height:auto;min-height:0;max-height:none}.reference-panel{min-height:0}.comparison{margin-top:12px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Short SVG labels keep every memory inside its object; prose wraps in HTML. */
+.page-heading>div,.canvas-column,.step-copy,.step-copy>*{min-width:0;max-width:100%}
+.page-heading h1,.subtitle,.step-copy h2,.step-copy p,.step-copy summary,.step-copy code,.reference-figure figcaption,.page-footer,.memory-list li{overflow-wrap:anywhere;word-break:normal}
+.comparison img{max-width:100%;height:auto}
+.figure-choice{flex-wrap:wrap;gap:8px 18px}
+.diagram-frame{max-width:100%;min-width:0;overflow-x:auto}
+.diagram .rf-scene{min-width:820px;height:clamp(355px,52dvh,490px)}
+.task-query{display:flex;flex-wrap:wrap;gap:4px 18px;margin:0 0 12px;color:var(--ink);font-size:13px;overflow-wrap:anywhere}
+.task-query span{margin-left:auto;color:var(--muted);font-size:12px}
+.rf-scene text{font-family:inherit;text-anchor:middle;fill:var(--ink)}
+.rf-scene .query-node{fill:#eaf2fc;stroke:var(--blue);stroke-width:2}
+.rf-scene .query-label{font-size:10px;font-weight:650}
+.rf-scene .round-header text{font-size:14px;font-weight:650;fill:var(--blue)}
+.rf-scene .round-header .budget-label{font-size:10px;font-weight:400;fill:var(--muted)}
+.rf-scene .branch-edge{fill:none;stroke:#8496aa;stroke-width:1.7;marker-end:url(#case-arrow)}
+.rf-scene .cluster-outline{fill:#eaf2fc;fill-opacity:.5;stroke:#8baed5;stroke-width:1.3;stroke-dasharray:4 3}
+.rf-scene .cluster-outline.secondary{fill:#f2eff9;stroke:#b5a5cd}
+.rf-scene .cluster-label{font-size:11px;fill:var(--muted)}
+.rf-scene .memory-node circle{fill:#fff;stroke:#b78c52;stroke-width:1.6}
+.rf-scene .memory-id{font-size:12px;font-weight:700}
+.rf-scene .node-label{font-size:9px;fill:#5a6b7e}
+.rf-scene .node-note{font-size:9px;fill:#7e8996}
+.rf-scene .discarded{opacity:.45}
+.rf-scene .memory-node.discarded circle{stroke:#9ba6b3;stroke-dasharray:3 3;fill:#f5f7fa}
+.rf-scene .branch-edge.discarded{stroke-dasharray:4 4;stroke:#9ba6b3}
+.rf-scene .query-direction{font-size:12px;font-weight:650;fill:var(--blue)}
+.rf-scene .result-background{fill:#f8fbfe;stroke:#d7e4f1;stroke-width:1}
+.rf-scene .bag-heading{font-size:13px;font-weight:650;text-anchor:start;fill:var(--blue)}
+.rf-scene .bag-count{font-size:12px;font-weight:650;text-anchor:end;fill:var(--blue)}
+.rf-scene .result-row rect{fill:#fff;stroke:#e0e7ef;stroke-width:.6}
+.rf-scene .slot-number{font-size:9px;fill:#9aa7b5;text-anchor:start}
+.rf-scene .slot-label{font-size:10px;fill:#a4afbd;text-anchor:start}
+.rf-scene .slot-round{font-size:9px;fill:#8b9daf;text-anchor:end}
+.rf-scene .result-row.is-collected rect{fill:#edf5f0;stroke:#d3e3d9}
+.rf-scene .result-row.is-collected .slot-label{fill:#396650}
+.rf-scene .result-row.is-new rect,.rf-scene .result-row.is-complementary rect{fill:#eaf2fc;stroke:#a5c2e2}
+.rf-scene .result-row.is-new .slot-label,.rf-scene .result-row.is-complementary .slot-label{fill:var(--blue);font-weight:650}
+.rf-scene .result-caption{font-size:10px;fill:var(--muted)}
+.rf-scene .transfer-token{pointer-events:none}
+.rf-scene .transfer-token circle{fill:var(--blue);stroke:#fff;stroke-width:2}
+.rf-scene .transfer-token text{font-size:10px;fill:#fff;font-weight:650}
+.diagram[data-mode=fast] .rf18-route{opacity:.45}
+.memory-list ol{padding-left:19px;line-height:1.9}
+.memory-list li{margin:10px 0}
+.step-list button{min-width:90px}
+@media(max-width:760px){.diagram .rf-scene{height:auto;min-width:820px}.page-heading{flex-wrap:wrap;gap:12px}.page-heading .quiet-button{align-self:flex-start}.task-query span{margin-left:0}.step-list button{min-width:0;flex-basis:25%}}
 @media print{.site-bar,.transport,.view-tabs,.quiet-button,.keyboard-note,.figure-choice,.step-list{display:none!important}.page{padding:0;max-width:none}.workspace-body{display:block}.diagram .rf18-map{min-width:0}.reference-panel[hidden],.static-transcript[hidden]{display:block!important}.static-transcript>ol{display:block}.step-copy{border:0;padding:10px 0}.focus-dialog{position:static;width:100%;height:auto}.workbench{break-inside:avoid}}

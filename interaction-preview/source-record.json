@@ -3,8 +3,29 @@
   "source_sha256": "2ddad93af5d862303b56d2819efe937cf57ec9a045fc5975a62bafdb747f03d7",
   "git_commit": "not_available",
   "generated": "2026-11-11",
-  "steps": 7,
-  "scene": "Original RF-Mem Figure 18 task reconstruction; separated overlapping branch labels; intermediate bag placeholders distinguished from final state.",
+  "steps": 8,
+  "scene": "RF-Mem Figure 18: real IDs, round-wise selection, pruning and K=10 stop; no invented scores.",
+  "case_data": "rfmem-case.json",
+  "case_data_sha256": "d323dd66af1d12fd85c202c99dbe982d4d40730cecc46b7cf9071ae6d15654b9",
+  "final_ids": [
+    47,
+    7,
+    70,
+    36,
+    69,
+    9,
+    4,
+    44,
+    45,
+    41
+  ],
+  "round_totals": [
+    4,
+    6,
+    9,
+    10
+  ],
+  "boundary": "依据 Figure 18 的实色／虚线分支、ID 与 K=10 停止标注重构；中文为内容概括。列表按图中轮次和版面顺序展示，不代表全局相似度名次；不虚构原图未公布的分支分数。",
   "formal_report_modified": false,
   "formal_experiment_ran": false
 }
