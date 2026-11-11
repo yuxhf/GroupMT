@@ -256,6 +256,45 @@
       "checked_on": "2026-10-25"
     },
     {
+      "source_id": "task-reader-hippo",
+      "source_url": "https://arxiv.org/html/2502.14802v2",
+      "scope": "Overview and source task illustration; report-local teaching reconstruction",
+      "figures": [
+        "Figure 2 · 总体架构",
+        "Figure 5 · 原文检索案例"
+      ],
+      "boundary_note": "依据 Figures 2 / 5 与 §3 重构。实体关系按原段落概括，不是导出的完整知识图谱；不编造 PPR 传播分数或时序。原图返回列表仍有无关段落。",
+      "checked_on": "2026-11-11",
+      "canonical_stage": "not_promoted",
+      "formal_experiment_ran": false
+    },
+    {
+      "source_id": "task-reader-memr3",
+      "source_url": "https://arxiv.org/html/2512.20237v1",
+      "scope": "Overview and source task illustration; report-local teaching reconstruction",
+      "figures": [
+        "Figure 2 · 总体架构",
+        "Figure 1 · 原文领养案例"
+      ],
+      "boundary_note": "按 v1 Figures 1 / 2 重构，会议版与旧题的对应沿用已核对记录。10/19 是消息和命名日期，并非已确认的 Buddy 精确领养日；原图最终给出 3 months，精确日期缺口仍在。",
+      "checked_on": "2026-11-11",
+      "canonical_stage": "not_promoted",
+      "formal_experiment_ran": false
+    },
+    {
+      "source_id": "task-reader-memory-r1",
+      "source_url": "https://arxiv.org/html/2508.19828v5",
+      "scope": "Overview and source task illustration; report-local teaching reconstruction",
+      "figures": [
+        "Figure 2 · 两阶段架构",
+        "Figure 1 · 原文两只狗案例"
+      ],
+      "boundary_note": "依据 Figures 1 / 2 与附录 A.1 重构，记录中文为概括。“60→1”为 Figure 1 的候选选择示意，不给未知候选编造内容或 ID；两个阶段不表示在线同步联合训练。",
+      "checked_on": "2026-11-11",
+      "canonical_stage": "not_promoted",
+      "formal_experiment_ran": false
+    },
+    {
       "source_id": "memory-forms-structures-outlook",
       "paper_id": "arxiv:2512.13564",
       "evidence_class": "primary_survey_figure_and_bounded_taxonomy",
@@ -704,7 +743,7 @@
     {
       "number": 9,
       "id": "hippo-focus",
-      "title": "HippoRAG 2：通过关联结构检索分散信息",
+      "title": "HippoRAG 2：沿关联找到出生地所属的县",
       "speaker_note": "",
       "origin": "authored_seminar"
     },
@@ -725,7 +764,7 @@
     {
       "number": 12,
       "id": "memr3-focus",
-      "title": "MemR³：围绕信息缺口主动检索",
+      "title": "MemR³：围绕领养时间的证据缺口继续检索",
       "speaker_note": "",
       "origin": "authored_seminar"
     },
@@ -746,7 +785,7 @@
     {
       "number": 15,
       "id": "memory-r1-focus",
-      "title": "Memory-R1：以任务反馈学习记忆操作",
+      "title": "Memory-R1：第二只狗不应覆盖第一只狗",
       "speaker_note": "",
       "origin": "authored_seminar"
     },

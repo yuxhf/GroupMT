@@ -96,7 +96,7 @@ function go(index) {
 $('[data-prev]').addEventListener('click',()=>go(player.state().index-1));
 $('[data-next]').addEventListener('click',()=>go(player.state().index+1));
 $('[data-reset]').addEventListener('click',()=>go(0));
-$('[data-play]').addEventListener('click',()=>player.toggle());
+$('[data-play]').addEventListener('click',()=>{if(!player.state().playing)document.dispatchEvent(new CustomEvent('memory:play',{detail:'rfmem'}));player.toggle();});
 $('[data-speed]').addEventListener('change',event=>player.speed(Number(event.target.value)));
 $$('[data-jump]').forEach(button=>button.addEventListener('click',()=>go(Number(button.dataset.jump))));
 
@@ -192,3 +192,5 @@ $('[data-image-zoom]').addEventListener('click',event=>{
 imageDialog.addEventListener('close',()=>{component.append(imageDialog);imageReturn?.focus();});
 component.dataset.ready='true';
 render(player.state());applyReduced();
+
+document.addEventListener('memory:play',event=>{if(event.detail!=='rfmem'){player.stop();settleMotion();}});

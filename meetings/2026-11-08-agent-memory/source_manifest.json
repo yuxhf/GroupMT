@@ -8,6 +8,21 @@
       "sha256": "e4dabdc8a55cd6b027e87a6e9a955261c87fff1b32dddef271b2e29b4ca08873"
     },
     {
+      "path": "assets/reader-shell.css",
+      "sha256": "95548cdab54d585c569effe85ee4114d63dbbe4dc64192564d2f6574412eecfe",
+      "role": "approved_task_reader_or_shell_asset"
+    },
+    {
+      "path": "assets/reader-shell.js",
+      "sha256": "f6df18d5985fdf7bd7025aa7404bf07a36906175ccc48ae6e5af65e1ebdbda96",
+      "role": "approved_task_reader_or_shell_asset"
+    },
+    {
+      "path": "assets/report-qr.png",
+      "sha256": "f0e474953d6ef26fa8af1eb70cfc9406c1ab21c98e9bd5a40d319fc7809f3c38",
+      "role": "approved_task_reader_or_shell_asset"
+    },
+    {
       "path": "assets/report-runtime.js",
       "sha256": "1d4e571e2425fad31373c51d85bd479c6780029b8e0f505f23ed65c97c84ee25",
       "role": "approved_blue_white_renderer"
@@ -29,7 +44,7 @@
     },
     {
       "path": "assets/rfmem-reader.mjs",
-      "sha256": "53321e24bc9198e9f18cb99060c27fb1e2f5c45316389a79ab9cfc9731da634c",
+      "sha256": "98344ba1d86a28b8fdc588373cba5dd2743b8eb5c31cf8f779c2ff3945df5c78",
       "role": "derived_human_approved_rfmem_runtime"
     },
     {
@@ -44,6 +59,16 @@
       "path": "assets/step-animation.js",
       "sha256": "bf13ee95e0a208e654d75ed701518f6a6e9b508f2a1228f637ef7eadc87f3fb4",
       "role": "derived_legacy_runtime_svg_visibility_fix"
+    },
+    {
+      "path": "assets/task-reader.css",
+      "sha256": "56c4bde6ab70f495ca949d5d1170b135140c3a24f046e81ca0a7e8cb44ba131b",
+      "role": "approved_task_reader_or_shell_asset"
+    },
+    {
+      "path": "assets/task-reader.mjs",
+      "sha256": "18127c13ad105cdd50f3e033cc7bd4331d3804f8a091c6f9806a87cb4a0c249f",
+      "role": "approved_task_reader_or_shell_asset"
     },
     {
       "path": "figures/lecture/IMG_5894.jpg",
@@ -125,10 +150,24 @@
       "source_url": "https://arxiv.org/html/2510.16079v3/frame.png"
     },
     {
+      "path": "figures/papers/hipporag2_pipeline_v2.svg",
+      "sha256": "8546f537b8b9937ca6983d3b4fbcfd3831228d4e6d911086fa425f8ee4f8a032",
+      "role": "primary_source_task_case_figure",
+      "source_url": "https://arxiv.org/html/2502.14802v2/pipeline.svg",
+      "figure": "HippoRAG 2 Figure 5"
+    },
+    {
       "path": "figures/papers/lightmem_overview_v4.png",
       "sha256": "882bb733d810e93fb71ed995206ba8ec19206e5dad7480d73dd7564963aef302",
       "role": "primary_focus_paper_figure_download",
       "source_url": "https://arxiv.org/html/2510.18866v4/figure/Lightmem.png"
+    },
+    {
+      "path": "figures/papers/memory_r1_case_v5.png",
+      "sha256": "5ec30d9207803e71d0754ccff953fb67f826085765200a725f3fcef5d00bf904",
+      "role": "primary_source_task_case_figure",
+      "source_url": "https://arxiv.org/html/2508.19828v5/figure1_usecase.png",
+      "figure": "Memory-R1 Figure 1"
     },
     {
       "path": "figures/papers/memory_r1_overview_v5.png",
@@ -231,7 +270,7 @@
     },
     {
       "path": "report_sources.json",
-      "sha256": "a486f5318c2db8d21931ea63a4b31bab3a82bcedd0e0ca59be3e8ed223fd7820"
+      "sha256": "d301ceb69d12f63b0b338b6443a1463bb3bc7c913ef41c2cfceb5cfc09b2d26c"
     },
     {
       "path": "sources/focus_method_evidence.json",

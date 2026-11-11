@@ -1,8 +1,11 @@
 {
   "date": "2026-11-11",
-  "scope": "30 pages: source content, figures and animation-state review; only RF-Mem changes implemented",
+  "scope": "30 pages: source content, figures and animation-state review; RF-Mem and three approved task readers implemented; collapsible navigation and public QR added",
   "implemented_pages": [
-    10
+    9,
+    10,
+    12,
+    15
   ],
   "proposal_only_pages": [
     1,
@@ -13,12 +16,9 @@
     6,
     7,
     8,
-    9,
     11,
-    12,
     13,
     14,
-    15,
     16,
     17,
     18,
@@ -37,8 +37,9 @@
   ],
   "animation_plan": {
     "current": 11,
-    "approved_keep": 1,
-    "task_redesign_proposed": 3,
+    "approved_keep": 4,
+    "task_redesign_implemented": 3,
+    "task_redesign_proposed": 0,
     "remove_autoplay_proposed": 7
   },
   "standards": [
@@ -178,19 +179,19 @@
     {
       "page": 9,
       "id": "hippo-focus",
-      "title": "HippoRAG 2：通过关联结构检索分散信息",
-      "action": "重做任务动画",
+      "title": "HippoRAG 2：沿关联找到出生地所属的县",
+      "action": "已重做任务动画",
       "current_animations": 1,
       "current_steps": [
-        6
+        7
       ],
       "current_images": [
         "assets/pptx/image2.png"
       ],
-      "problem": "现版只是沿 overview 移动标记，没展示关联检索怎样改变证据集合。",
-      "proposal": "保留英文 Figure 2；另做一条可核对的具体查询：片段/实体 → 局部关联 → 检索种子 → 关联扩展 → 取回原始证据。节点须有真实短内容与来源，不能只画模块框。",
-      "boundary": "优先取论文原例；缺少可核对的传播数值时不捏造 PPR 分数。",
-      "status": "待审核",
+      "problem": "已替换原来的 overview 标记动画。",
+      "proposal": "按 Figure 5 的 Erik Hort 查询制作七步：五条候选、两条保留、原文种子权重、关联证据与 Rockland County 答案；Figure 2 与 Figure 5 均可切换和放大。",
+      "boundary": "关系图按返回段落作教学概括，不冒充原始 KG/PPR 执行轨迹。",
+      "status": "已完成",
       "report_link": "../../meetings/2026-11-08-agent-memory/#hippo-focus"
     },
     {
@@ -231,20 +232,19 @@
     {
       "page": 12,
       "id": "memr3-focus",
-      "title": "MemR³：围绕信息缺口主动检索",
-      "action": "重做任务动画",
+      "title": "MemR³：围绕领养时间的证据缺口继续检索",
+      "action": "已重做任务动画",
       "current_animations": 1,
       "current_steps": [
-        5
+        7
       ],
       "current_images": [
-        "figures/papers/memr3_overview_v1.png",
-        "figures/papers/memr3_case_v1.png"
+        "figures/papers/memr3_overview_v1.png"
       ],
-      "problem": "虽有领养案例，但动画仍在系统模块间走线，已知/未知证据没有真正变动。",
-      "proposal": "用原图 Toby/Buddy 的领养事件：先查到什么 → 缺哪次领养时间 → 据缺口改查 → 补到日期 → 计算时间差；证据与缺口同屏更新，原图始终可对照。",
-      "boundary": "只使用原图日期与片段；不能把 Answer 动作当正确性保证。",
-      "status": "待审核",
+      "problem": "已将模块走线替换为 Toby/Buddy 证据与缺口的七步变化。",
+      "proposal": "首次检索 → 识别未知 → 缺口驱动改查 → 补命名线索 → 近似推断 3 months；确切领养日期到最后仍标未知。原 overview 与案例图保留。",
+      "boundary": "10/19 是消息与命名线索，不能改写为确切领养日；原例输出不等于证据完整。",
+      "status": "已完成",
       "report_link": "../../meetings/2026-11-08-agent-memory/#memr3-focus"
     },
     {
@@ -282,19 +282,19 @@
     {
       "page": 15,
       "id": "memory-r1-focus",
-      "title": "Memory-R1：以任务反馈学习记忆操作",
-      "action": "重做任务动画",
+      "title": "Memory-R1：第二只狗不应覆盖第一只狗",
+      "action": "已重做任务动画",
       "current_animations": 1,
       "current_steps": [
-        5
+        8
       ],
       "current_images": [
         "figures/papers/memory_r1_overview_v5.png"
       ],
-      "problem": "现版两阶段只是模块高亮，ADD/UPDATE/DELETE/NOOP 没有展示实际记录变化。",
-      "proposal": "原图与任务模式切换：旧记忆＋新输入 → 选择操作 → 记录真实增删改/不改 → 当前问题检索 → 选用相关记忆。每步给出记录 ID、变更前后与为何改变。",
-      "boundary": "优先采用论文可核对案例；训练反馈留在 overview 解释，不伪造参数学习过程。",
-      "status": "待审核",
+      "problem": "已将两阶段高亮替换为 Buddy 与 Scout 的实际记录变化。",
+      "proposal": "八步呈现错误 DELETE+ADD 与正确 UPDATE 的对照、保留两只狗、检索 60 条后选用 1 条，以及回答 2 dogs；Figure 1/2 原图可切换。",
+      "boundary": "60 个槽位是数量示意；不虚构候选 ID、其他 59 条内容或参数训练轨迹。",
+      "status": "已完成",
       "report_link": "../../meetings/2026-11-08-agent-memory/#memory-r1-focus"
     },
     {
