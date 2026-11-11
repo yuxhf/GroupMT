@@ -6,6 +6,7 @@ import json
 import re
 import shutil
 import subprocess
+from urllib.parse import urlsplit
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -53,7 +54,7 @@ shutil.copytree(HERE, PUBLISH/'interaction-preview', dirs_exist_ok=True, ignore=
 for ref in audit.refs:
     if re.match(r'^(https?:|#|mailto:)', ref):
         continue
-    target = PUBLISH/'interaction-preview'/ref.split('#')[0]
+    target = PUBLISH/'interaction-preview'/urlsplit(ref).path
     if target.is_dir():
         target /= 'index.html'
     assert target.is_file(), ref

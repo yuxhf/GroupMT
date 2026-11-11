@@ -22,7 +22,7 @@ ASSETS = '../meetings/2026-11-08-agent-memory/'
 paper = '2026 · ICLR · Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval'
 template = '''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>RF-Mem · 讲解交互样页</title>
-<link rel="stylesheet" href="__ASSETS__assets/report-theme.css"><link rel="stylesheet" href="preview.css"><script type="module" src="preview.mjs"></script></head><body>
+<link rel="stylesheet" href="__ASSETS__assets/report-theme.css"><link rel="stylesheet" href="preview.css?v=figure18-top10"><script type="module" src="preview.mjs?v=figure18-top10"></script></head><body>
 <header class="site-bar"><a class="brand" href="../">Yux · Reports</a><nav aria-label="预览导航"><a href="../design-preview/">风格候选</a><a href="__ASSETS__#rfmem-focus">对照现版 ↗</a></nav></header>
 <main class="page"><header class="page-heading"><div><p class="eyebrow">AGENT MEMORY / RF-MEM</p><h1>一次检索不够时，怎样逐步回忆？</h1><p class="subtitle">沿同一条医疗建议查询，观察局部候选、分支 Query 与最终上下文。</p></div><button type="button" class="quiet-button js-only" data-focus-open>专注演示 ↗</button></header>
 <noscript><p class="no-js">当前显示静态首帧；完整步骤与十条结果清单在页末。启用 JavaScript 后可操作动画。</p></noscript>
