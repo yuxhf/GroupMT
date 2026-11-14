@@ -1,0 +1,20 @@
+/* Static problem and evidence map before the existing teaching animation. */
+.hippo-problem-intro{margin:22px 0 28px;padding:20px 0 22px;border-top:1px solid #dce5ee;border-bottom:1px solid #dce5ee;color:#233b52}
+.hippo-problem-intro .hippo-intro-label{margin:0 0 7px;color:#60758a;font-size:11px;letter-spacing:.04em}
+.hippo-problem-intro h3{margin:0 0 12px;font-size:20px;line-height:1.5;font-weight:650;color:#263f57}
+.hippo-problem-intro p{font-size:14px;line-height:1.85;margin:12px 0}
+.hippo-problem-intro .hippo-intro-question{font-size:15px;margin:0 0 16px}
+.hippo-problem-intro .hippo-intro-table{width:100%;min-width:0;border-collapse:collapse;table-layout:fixed;margin:0 0 15px;font-size:13px}
+.hippo-intro-table th,.hippo-intro-table td{padding:10px 12px;border:0;border-bottom:1px solid #e2eaf2;text-align:left;line-height:1.75;vertical-align:top;background:#fff}
+.hippo-intro-table th{font-weight:600;color:#4c6885;background:#f4f7fb}.hippo-intro-table th:first-child{width:57%}.hippo-intro-table td b{margin-right:9px;color:#285f9d;font-weight:650}
+.hippo-intro-figure{margin:12px 0 16px}.hippo-intro-scroll{overflow-x:auto;overscroll-behavior-x:contain;padding:4px 0}
+.hippo-intro-graph{display:block;width:100%;min-width:680px;height:auto;font-family:inherit}
+.hippo-intro-fact path,.hippo-intro-legend>path{fill:none;stroke:#6b8dad;stroke-width:1.5}.hippo-intro-context{fill:none;stroke:#aab9c7;stroke-width:1.3;stroke-dasharray:5 4}
+.hippo-intro-concept rect{fill:#eaf3fc;stroke:#b9cee1}.hippo-intro-doc rect{fill:#f6f8fb;stroke:#cad5e0}.hippo-intro-rel-label rect{fill:#fff;stroke:#d7e2ed}
+.hippo-intro-graph text{text-anchor:middle;fill:#285f9d;font-size:16px}.hippo-intro-node-text{font-weight:600}.hippo-intro-edge-text text{font-size:13px}.hippo-intro-doc-text text{font-size:14px;fill:#60758a}
+.hippo-intro-legend text{font-size:12px;fill:#71869a;text-anchor:start}.hippo-intro-legend .hippo-intro-context{stroke:#aab9c7;stroke-dasharray:5 4}
+.hippo-intro-figure figcaption{margin:7px 0 0;font-size:11px;color:#738397;line-height:1.8}
+.hippo-problem-intro .hippo-intro-next{border-left:2px solid #91b2d3;padding:3px 0 3px 12px;color:#315e8a;font-size:13px}
+.hippo-problem-intro .hippo-intro-boundary{font-size:11px;color:#738397;margin:12px 0 0}.hippo-intro-scroll:focus-visible{outline:2px solid #94b9df;outline-offset:3px}
+@media(max-width:760px){.hippo-problem-intro{margin:18px 0 22px;padding:17px 0}.hippo-problem-intro h3{font-size:18px}.hippo-problem-intro p{font-size:13px}.hippo-problem-intro .hippo-intro-question{font-size:14px}.hippo-intro-table th,.hippo-intro-table td{padding:9px 7px;font-size:12px}.hippo-intro-figure figcaption:before{content:'关系图可左右滑动。';color:#426e99}.hippo-intro-graph{min-width:740px}}
+@media print{.hippo-problem-intro{break-inside:avoid}.hippo-intro-scroll{overflow:visible}.hippo-intro-graph{min-width:0}}

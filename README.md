@@ -12,4 +12,6 @@ Home 暂为站内 `home.html` 简洁入口；当前尚无 `yuxhf.github.io` 根�
 
 本地工作区完整构建器位于 scripts/build_site.py，原研究报告仍是内容来源。网站只上传 dist 中直接展示所需的文件和维护脚本，不上传原 PPT、原研究目录或凭据。日期暂沿用报告自身的 2026-11-08；更新日期为 2026-11-11。
 
+HippoRAG 动画前的问题导读保存在 `meetings/2026-11-08-agent-memory/sources/hippo_problem_intro.html`；修改后运行 `python tools/update_hippo_intro.py`，更新页面、样式缓存标记与来源清单。若重新导出完整报告，请在导出后再运行此命令保留该导读。
+
 样式借鉴 https://jialuncao.github.io/ 的侧栏、字体层级和列表组织，页面代码为此站编写，未复制其个人内容。未运行正式实验或训练。

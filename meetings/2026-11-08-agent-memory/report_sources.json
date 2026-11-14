@@ -897,5 +897,15 @@
       "speaker_note": "",
       "origin": "authored_seminar"
     }
+  ],
+  "teaching_additions": [
+    {
+      "id": "hippo-problem-intro",
+      "section": "hippo-focus",
+      "editable_source": "sources/hippo_problem_intro.html",
+      "origin": "user_requested_explanatory_diagram",
+      "source_url": "https://arxiv.org/html/2502.14802v2#S3",
+      "boundary_note": "Original fictional Chinese teaching case; evidence topology, not measured retrieval rankings or a PPR trace."
+    }
   ]
 }

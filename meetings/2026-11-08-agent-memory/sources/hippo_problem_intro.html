@@ -1,0 +1,30 @@
+<!-- hippo-problem-intro:start -->
+<div class="hippo-problem-intro" aria-labelledby="hippo-problem-title">
+<p class="hippo-intro-label">先看问题 · 原创中文教学例子</p>
+<h3 id="hippo-problem-title">问题没提到的动物园，怎样成为检索线索？</h3>
+<p class="hippo-intro-question">我们要回答：<strong>小林想看的大熊猫，在哪座城市？</strong></p>
+<table class="hippo-intro-table"><thead><tr><th scope="col">三段原文</th><th scope="col">提供的信息</th></tr></thead><tbody>
+<tr><td><b>A</b> 小林想看熊猫。</td><td>确定小林想看什么</td></tr>
+<tr><td><b>B</b> 大熊猫住在竹园动物园。</td><td>确定熊猫在哪里</td></tr>
+<tr><td><b>C</b> 竹园动物园位于青禾市。</td><td>确定动物园在哪座城市</td></tr>
+</tbody></table>
+<p>关键是找到<strong>“竹园动物园”</strong>这个中间线索。问题里没有动物园名字，原文 C 也没有“小林想看熊猫”的表述；只按问题与段落的直接相似度检索，C 未必排得靠前。</p>
+<figure class="hippo-intro-figure"><div class="hippo-intro-scroll" tabindex="0" role="region" aria-label="三段原文的关联图，窄屏可横向滚动">
+<svg class="hippo-intro-graph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 266" role="img" aria-labelledby="hippo-intro-graph-title hippo-intro-graph-desc">
+<title id="hippo-intro-graph-title">从小林的愿望，经熊猫与动物园，连接到青禾市</title>
+<desc id="hippo-intro-graph-desc">小林想看大熊猫，大熊猫住在竹园动物园，竹园动物园位于青禾市。原文 A 包含小林和大熊猫，原文 B 包含大熊猫和动物园，原文 C 包含动物园和青禾市。实线箭头表示事实关系，虚线表示原文包含相应概念。这是完整证据关系，不是实际检索轨迹。</desc>
+<defs><marker id="hippo-intro-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#6b8dad" stroke-width="1.4"/></marker></defs>
+<g class="hippo-intro-fact" marker-end="url(#hippo-intro-arrow)"><path d="M185 65H332"/><path d="M485 65H632"/><path d="M785 65H932"/></g>
+<g class="hippo-intro-context"><path d="M258 182V126H110V90"/><path d="M258 182V126H410V90"/><path d="M558 182V146H410V90"/><path d="M558 182V146H710V90"/><path d="M858 182V126H710V90"/><path d="M858 182V126H985V90"/></g>
+<g class="hippo-intro-concept"><rect x="35" y="40" width="150" height="50" rx="11"/><rect x="335" y="40" width="150" height="50" rx="11"/><rect x="635" y="40" width="150" height="50" rx="11"/><rect x="935" y="40" width="100" height="50" rx="11"/></g>
+<g class="hippo-intro-rel-label"><rect x="233" y="52" width="52" height="26" rx="13"/><rect x="533" y="52" width="52" height="26" rx="13"/><rect x="833" y="52" width="52" height="26" rx="13"/></g>
+<g class="hippo-intro-doc"><rect x="203" y="182" width="110" height="42" rx="8"/><rect x="503" y="182" width="110" height="42" rx="8"/><rect x="803" y="182" width="110" height="42" rx="8"/></g>
+<g class="hippo-intro-node-text"><text x="110" y="71">小林</text><text x="410" y="71">大熊猫</text><text x="710" y="71">竹园动物园</text><text x="985" y="71">青禾市</text></g>
+<g class="hippo-intro-edge-text"><text x="259" y="70">想看</text><text x="559" y="70">住在</text><text x="859" y="70">位于</text></g>
+<g class="hippo-intro-doc-text"><text x="258" y="209">原文 A</text><text x="558" y="209">原文 B</text><text x="858" y="209">原文 C</text></g>
+<g class="hippo-intro-legend"><path d="M34 250H65" marker-end="url(#hippo-intro-arrow)"/><text x="75" y="254">事实关系</text><path class="hippo-intro-context" d="M190 250H221"/><text x="231" y="254">原文包含的概念</text></g>
+</svg></div><figcaption>提问前，系统先把原文与概念组织成图。这里展示完整证据关系；“熊猫 / 大熊猫”的同义连接在下方动画中展开。</figcaption></figure>
+<p class="hippo-intro-next"><strong>接下来看动画：</strong>怎样从问题找到入口，经图上的关联取回原文 C，再结合证据回答？亮线用于讲解关联，不代表系统预先知道正确路线。</p>
+<p class="hippo-intro-boundary">教学示意 · 人名与地名为虚构，无实测检索分数。机制依据 <a href="https://arxiv.org/html/2502.14802v2#S3">HippoRAG 2 Figure 2 与 §3</a>。</p>
+</div>
+<!-- hippo-problem-intro:end -->

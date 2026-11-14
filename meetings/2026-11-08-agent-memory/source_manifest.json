@@ -287,7 +287,7 @@
     },
     {
       "path": "report_sources.json",
-      "sha256": "be2e5d83999b5f9cff025c9b24b3bc1ea754a2087e8e88d33678b80acc178743"
+      "sha256": "bb34fedd4feb2efb69c32154a3b54a50a9447af148a13e0d44183e0abf994eac"
     },
     {
       "path": "sources/focus_method_evidence.json",
@@ -300,6 +300,21 @@
     {
       "path": "sources/publication_status_recheck.json",
       "sha256": "de3df808d65ebe23ec7c36541698b7a6cd4b09fcdac0d8d78a37373d2ebbdd7e"
+    },
+    {
+      "path": "index.html",
+      "role": "authored_teaching_introduction",
+      "sha256": "ac405e8ee671e302c969689b5dedd2d2887d7c6cd70aae53c059b1515e6bf44f"
+    },
+    {
+      "path": "assets/hippo-problem-intro.css",
+      "role": "authored_teaching_introduction",
+      "sha256": "823f3cbb6d813883fe34aa8be6298fb85b48f4e8cd81038cdb7f4f7053292c4e"
+    },
+    {
+      "path": "sources/hippo_problem_intro.html",
+      "role": "authored_teaching_introduction",
+      "sha256": "704ad78c9328fc85e51005e773467ebcba38f6830ba36da7c984216a65b7df39"
     }
   ]
 }
