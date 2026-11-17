@@ -1,3 +1,4 @@
+import {installFocusPresentation} from './focus-presentation.mjs';
 import {createPlayer} from './rfmem-player-state.mjs';
 
 const component = document.querySelector('[data-rfmem-reader]');
@@ -154,21 +155,7 @@ function applyReduced(){
 }
 
 const focusDialog=$('[data-focus-dialog]');
-const placeholder=document.createComment('workbench position');
-workbench.before(placeholder);
-let focusReturn=null,bodyOverflow='';
-$('[data-focus-open]').addEventListener('click',event=>{
-  player.stop();settleMotion();focusReturn=event.currentTarget;
-  bodyOverflow=document.body.style.overflow;document.body.style.overflow='hidden';
-  focusDialog.append(workbench);$('[data-focus-close]').hidden=false;
-  focusDialog.showModal();$('[data-focus-close]').focus();
-});
-$('[data-focus-close]').addEventListener('click',()=>focusDialog.close());
-focusDialog.addEventListener('close',()=>{
-  player.stop();settleMotion();placeholder.after(workbench);
-  $('[data-focus-close]').hidden=true;document.body.style.overflow=bodyOverflow;
-  focusReturn?.focus();
-});
+installFocusPresentation({root:component,dialog:focusDialog,workbench,openButton:$('[data-focus-open]'),closeButton:$('[data-focus-close]'),pause:()=>{player.stop();settleMotion();}});
 
 const imageDialog=$('[data-image-dialog]');
 let imageReturn=null;

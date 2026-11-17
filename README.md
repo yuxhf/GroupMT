@@ -24,4 +24,8 @@ HippoRAG 动画前的问题导读保存在 `meetings/2026-11-08-agent-memory/sou
 - 动画：复用 RF-Mem、HippoRAG、MemR³、Memory-R1 的原播放器；展开后适配横竖屏，播放按钮保持可见，图可放大并局部滚动，详细说明可展开。旋转和退出保留步骤；打开原图会暂停播放。
 - 不依赖自动旋转或浏览器全屏接口。无 JavaScript 时，原文、原图链接和静态动画首帧仍可阅读。修改适配资源后，更新 `index.html` 中对应的 `?v=` 缓存标记。
 
+iPhone Safari：手机展开由 `assets/focus-presentation.mjs` 管理，保留整个播放器根节点，以独立页面层展示，不依赖原生 `showModal()`。按实际可视高度适配地址栏和横竖屏；关闭后恢复页面位置与焦点。动画默认使用清晰字号并允许局部滑动，提供“全图／清晰”切换。前两个动画去掉 SVG 文字描边及焦点滤镜，使用明确的中文字体回退，并提供“查看本步图中文字”的 HTML 备用视图。尺寸监听仅在宽度变化时更新，避免 Safari 的 ResizeObserver 反复触发。
+
+Safari 引擎复查可设置 `BROWSER_ENGINE=webkit`，并先安装 Playwright 的 WebKit 浏览器。检查包含禁止原生演示弹窗后仍可展开、退出与恢复播放器的情况；这是引擎模拟验证，不是 iPhone 实机测试。
+
 验证：先在仓库根目录运行 `python -m http.server 8765 --bind 127.0.0.1`，再用安装了 Playwright 的 Node 环境执行 `node tools/check_mobile.cjs`。`PLAYWRIGHT_MODULE` 可指定已有 Playwright 安装路径；`BASELINE_HTML` 可指定修改前报告用于桌面截图对比；`REVIEW_OUTPUT` 可指定截图与检查结果目录。检查覆盖六种手机尺寸、四类播放器全部步骤、横竖屏状态、原图双指缩放与嵌套窗口、播放暂停及减少动态效果。浏览器模拟检查不能代替 iPhone Safari 和 Android 手机实机验收。

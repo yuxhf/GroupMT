@@ -1,6 +1,15 @@
 /* Deliberately scoped to small screens, including wide, short phone landscapes. */
 .mobile-only,.mobile-image-viewer{display:none}
 @media(max-width:760px), (max-width:1100px) and (max-height:600px) and (pointer:coarse){
+  .rfmem-reader{container-type:normal;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  .rfmem-reader.mobile-focus-active{position:fixed;inset:0;z-index:10000;margin:0;background:#fff;container-type:normal;contain:none}
+  .rfmem-reader.mobile-focus-active> :not(.focus-dialog){display:none!important}
+  .rfmem-reader.mobile-focus-active .focus-dialog[open]{position:fixed;left:0;top:var(--presentation-top,0px);height:var(--presentation-height,100dvh);z-index:10001;box-sizing:border-box;background:#fff}
+  .rfmem-reader .diagram svg text{font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif!important;stroke:none!important;paint-order:normal;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  .rfmem-reader .diagram [data-focus-now]{filter:none}
+  .mobile-scene-transcript{margin:10px 0;font-size:14px;line-height:1.8;color:#294c6c}
+  .mobile-scene-transcript summary{min-height:44px;display:flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
+  .mobile-scene-transcript p{font-size:14px;overflow-wrap:anywhere}
   html{scroll-padding-top:65px}
   html.reader-shell-ready .layout{padding:14px 12px 28px}
   .toc-handle{top:auto;bottom:18px;left:auto;right:12px;width:auto;min-height:44px;padding:10px 14px;letter-spacing:0;box-shadow:0 2px 12px #233f5720}
@@ -29,6 +38,7 @@
   .rfmem-reader .step-copy h2,.rfmem-reader .step-copy h3{font-size:20px}
   .rfmem-reader .transport{gap:6px}
   .rfmem-reader .transport label{margin-left:0}
+  .rfmem-reader .transport select{font-size:16px}
   .rfmem-reader .playback-status{font-size:13px;margin:0}
   .rfmem-reader .step-list{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain}
   .rfmem-reader .step-list button{flex:0 0 auto;min-width:84px;min-height:44px;font-size:13px;padding:8px}

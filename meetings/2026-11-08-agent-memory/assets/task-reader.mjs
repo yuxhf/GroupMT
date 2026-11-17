@@ -1,3 +1,4 @@
+import {installFocusPresentation} from './focus-presentation.mjs';
 import {createPlayer} from './rfmem-player-state.mjs';
 
 document.querySelectorAll('[data-task-reader]').forEach(root=>{
@@ -112,14 +113,8 @@ document.querySelectorAll('[data-task-reader]').forEach(root=>{
     if(actions[event.key]){event.preventDefault();actions[event.key]();}
     if(event.key===' '&&!event.target.closest('button')){event.preventDefault();play();}
   });
-  const dialog=$('[data-case-dialog]'),placeholder=document.createComment(spec.key+' workbench');workbench.before(placeholder);
-  let returnFocus=null,savedOverflow='';
-  $('[data-case-focus]').addEventListener('click',event=>{
-    player.stop();settle();returnFocus=event.currentTarget;savedOverflow=document.body.style.overflow;document.body.style.overflow='hidden';
-    dialog.append(workbench);$('[data-case-exit]').hidden=false;dialog.showModal();$('[data-case-exit]').focus();
-  });
-  $('[data-case-exit]').addEventListener('click',()=>dialog.close());
-  dialog.addEventListener('close',()=>{player.stop();settle();placeholder.after(workbench);$('[data-case-exit]').hidden=true;document.body.style.overflow=savedOverflow;returnFocus?.focus();});
+  const dialog=$('[data-case-dialog]');
+  installFocusPresentation({root,dialog,workbench,openButton:$('[data-case-focus]'),closeButton:$('[data-case-exit]'),pause:()=>{player.stop();settle();}});
   const imageDialog=$('[data-case-image-dialog]');let imageFocus=null;
   $('[data-case-image-open]').addEventListener('click',event=>{
     player.stop();settle();imageFocus=event.currentTarget;

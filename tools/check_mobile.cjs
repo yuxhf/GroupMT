@@ -1,5 +1,5 @@
 /* Run against a local server; PLAYWRIGHT_MODULE can point to an existing install. */
-const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs/promises');
 const path=require('node:path');
@@ -38,14 +38,18 @@ async function check(browser,{url,output,baseline}){
     // Let ResizeObserver apply the diagram width after the viewport changes.
     await p.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
     const layout=await p.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,
-      diagramsFit:[...document.querySelectorAll('[data-mobile-diagram]')].every(e=>e.getBoundingClientRect().width<=e.parentElement.clientWidth+1)}));
-    results.sizes.push({width,height,...layout});assert(!layout.overflow&&layout.diagramsFit);
+      diagramsContained:[...document.querySelectorAll('[data-mobile-diagram]')].every(e=>e.parentElement.clientWidth<=innerWidth&&getComputedStyle(e.parentElement).overflowX==='auto')}));
+    results.sizes.push({width,height,...layout});assert(!layout.overflow&&layout.diagramsContained);
   }
   for(const key of ['hippo','rfmem','memr3','memory-r1']){
     await p.setViewportSize({width:390,height:844});
     const rf=key==='rfmem',root=p.locator(rf?'[data-rfmem-reader]':`[data-task-reader="${key}"]`);
     const next=root.locator(rf?'[data-next]':'[data-case-next]');
     const counter=root.locator(rf?'[data-counter]':'[data-case-counter]');
+    // Mobile presentation must work even when native modal opening is unavailable.
+    await root.locator('.focus-dialog').evaluate(e=>{e.showModal=()=>{throw new Error('native modal intentionally unavailable');};});
+    // Mobile presentation must work even when native modal opening is unavailable.
+    await root.locator('.focus-dialog').evaluate(e=>{e.showModal=()=>{throw new Error('native modal intentionally unavailable');};});
     await root.locator(rf?'[data-focus-open]':'[data-case-focus]').click();await next.click();
     const state=await counter.innerText();
     await p.setViewportSize({width:844,height:390});assert.equal(await counter.innerText(),state);
@@ -58,10 +62,20 @@ async function check(browser,{url,output,baseline}){
     await root.locator('.mobile-copy-toggle').click();assert.equal(await root.locator('.step-copy').getAttribute('data-mobile-copy'),'full');
     await root.locator('.mobile-copy-toggle').click();
     let count=1;while(!await next.isDisabled()){await next.click();count++;assert(count<30);}
+    if(key==='hippo'||key==='rfmem'){
+      await root.locator('.mobile-scene-transcript summary').click();
+      assert((await root.locator('.mobile-scene-transcript p').innerText()).length>30);
+      await root.locator('.mobile-scene-transcript summary').click();
+      await p.screenshot({path:path.join(output,`${key}-final-landscape.png`)});
+    }
     await root.locator(rf?'[data-reset]':'[data-case-reset]').click();await next.click();
     assert.equal(await counter.innerText(),state);
     if(key==='memr3')await p.screenshot({path:path.join(output,'memr3-landscape.png')});
     await root.locator(rf?'[data-focus-close]':'[data-case-exit]').click();assert.equal(await counter.innerText(),state);
+    assert.equal(await root.evaluate(e=>e.classList.contains('mobile-focus-active')),false);
+    assert.equal(await p.evaluate(()=>document.body.style.position),'');
+    assert.equal(await root.evaluate(e=>e.classList.contains('mobile-focus-active')),false);
+    assert.equal(await p.evaluate(()=>document.body.style.position),'');
     results.players.push({key,stepsChecked:count+1,rotationPreserved:true,controlsVisible:true,zoom:true,exitPreserved:true});
   }
   await p.setViewportSize({width:390,height:844});
@@ -70,18 +84,23 @@ async function check(browser,{url,output,baseline}){
   const img=p.locator('.mobile-image-viewport img');
   const scale=()=>img.evaluate(e=>new DOMMatrix(getComputedStyle(e).transform).a);
   await p.locator('.mobile-image-toolbar button').nth(1).click();assert(await scale()>1);
-  const cdp=await context.newCDPSession(p),rect=await p.locator('.mobile-image-viewport').boundingBox();
+  const rect=await p.locator('.mobile-image-viewport').boundingBox();
   const x=rect.x+rect.width/2,y=rect.y+rect.height/2,beforePinch=await scale();
-  await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:x-30,y,id:0},{x:x+30,y,id:1}]});
-  await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x-70,y,id:0},{x:x+70,y,id:1}]});
-  await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});assert(await scale()>beforePinch);
+  if(browser.browserType().name()==='chromium'){
+    const cdp=await context.newCDPSession(p);
+    await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:x-30,y,id:0},{x:x+30,y,id:1}]});
+    await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x-70,y,id:0},{x:x+70,y,id:1}]});
+    await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});assert(await scale()>beforePinch);
+  }else{
+    await p.touchscreen.tap(x,y);await p.touchscreen.tap(x,y);assert.notEqual(await scale(),beforePinch);
+  }
   await p.locator('.mobile-image-toolbar button').nth(2).click();
   await p.screenshot({path:path.join(output,'overview-portrait.png')});
   await p.setViewportSize({width:844,height:390});
   await p.screenshot({path:path.join(output,'overview-landscape.png')});
   await p.keyboard.press('Escape');assert.equal(await p.locator('.mobile-image-viewer').evaluate(e=>e.open),false);
   assert(await p.evaluate(()=>document.activeElement.matches('#rpmem-focus [data-survey-open]')));
-  results.images.push({entry:'paper figure',pinch:true,fit:true,rotation:true,focusRestored:true});
+  results.images.push({entry:'paper figure',gesture:browser.browserType().name()==='chromium'?'pinch':'double tap',fit:true,rotation:true,focusRestored:true});
   for(const key of ['hippo','rfmem']){
     const rf=key==='rfmem',root=p.locator(rf?'[data-rfmem-reader]':`[data-task-reader="${key}"]`);
     await root.locator(rf?'[data-focus-open]':'[data-case-focus]').click();
@@ -89,7 +108,9 @@ async function check(browser,{url,output,baseline}){
     await root.locator(rf?'[data-image-open]':'[data-case-image-open]').click();
     await p.waitForFunction(()=>document.querySelector('.mobile-image-viewport img').naturalWidth>0);
     assert(await p.locator('.mobile-image-viewer').evaluate(e=>e.closest('.focus-dialog')?.open));
-    await p.keyboard.press('Escape');assert(await root.locator('.focus-dialog').evaluate(e=>e.open));
+    assert.equal(await p.locator('.mobile-image-viewer').evaluate(e=>e.inert),false);
+    await p.locator('.mobile-image-toolbar button').nth(1).click();
+    await p.locator('.mobile-image-viewer header button').click();assert(await root.locator('.focus-dialog').evaluate(e=>e.open));
     await root.locator(rf?'[data-view="demo"]':'[data-case-view="demo"]').click();
     await root.locator(rf?'[data-focus-close]':'[data-case-exit]').click();
     results.images.push({entry:key,nestedModal:true,exitRestoresPlayer:true});
@@ -111,7 +132,7 @@ async function check(browser,{url,output,baseline}){
 }
 module.exports={check};
 if(require.main===module)(async()=>{
-  const browser=process.env.CHROME_CDP?await chromium.connectOverCDP(process.env.CHROME_CDP):await chromium.launch({channel:'chrome',headless:true});
+  const browser=process.env.CHROME_CDP?await chromium.connectOverCDP(process.env.CHROME_CDP):process.env.BROWSER_ENGINE==='webkit'?await webkit.launch({headless:true}):await chromium.launch({channel:'chrome',headless:true});
   try{console.log(JSON.stringify(await check(browser,{
     url:process.env.REPORT_URL||'http://127.0.0.1:8765/meetings/2026-11-08-agent-memory/',
     output:process.env.REVIEW_OUTPUT||'review/mobile-check',baseline:process.env.BASELINE_HTML

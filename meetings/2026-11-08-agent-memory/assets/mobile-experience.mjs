@@ -143,8 +143,8 @@ document.querySelectorAll('.rfmem-reader').forEach(root=>{
   if(!frame||!diagram||!svg||!focusDialog||!openButton||!copy)return;
   const originalLabel=openButton.textContent;
   const controls=document.createElement('div');controls.className='mobile-only mobile-diagram-tools';
-  const hint=document.createElement('span');hint.textContent='全图预览 · 放大后可滑动';
-  const out=button('−','缩小机制图'),into=button('+','放大机制图'),reset=button('复位','显示完整机制图');
+  const hint=document.createElement('span');hint.textContent='清晰视图 · 左右滑动查看';
+  const out=button('−','缩小机制图'),into=button('+','放大机制图'),reset=button('全图','显示完整机制图');
   controls.append(hint,out,into,reset);frame.before(controls);
   const orientation=document.createElement('p');orientation.className='mobile-only mobile-orientation-hint';orientation.textContent='建议横屏展开演示，图和播放按钮会一起适配。';
   orientation.style.cssText='font-size:13px;color:#62788e;margin:8px 0';openButton.after(orientation);
@@ -154,26 +154,53 @@ document.querySelectorAll('.rfmem-reader').forEach(root=>{
     const expanded=details.getAttribute('aria-expanded')!=='true';
     details.setAttribute('aria-expanded',String(expanded));details.textContent=expanded?'收起详细解释':'展开详细解释';copy.dataset.mobileCopy=expanded?'full':'compact';
   });
-  let scale=1;
+  let scale=1,mode='readable',currentZoom=1,layoutFrame=0,lastFrameWidth=-1;
   function layout(){
     if(!phone.matches){diagram.style.removeProperty('--mobile-diagram-width');diagram.removeAttribute('data-mobile-diagram');openButton.textContent=originalLabel;return;}
     openButton.textContent='展开演示 ↗';diagram.setAttribute('data-mobile-diagram','');
     const box=svg.viewBox.baseVal;
-    let base=frame.clientWidth;
+    let base=Math.max(1,frame.clientWidth);
     // Fit both dimensions in the short landscape viewport; zoom remains available.
     if(focusDialog.open && innerWidth>innerHeight && box.height){
       const maxHeight=parseFloat(getComputedStyle(frame).maxHeight);
       if(Number.isFinite(maxHeight))base=Math.min(base,maxHeight*box.width/box.height);
     }
-    diagram.style.setProperty('--mobile-diagram-width',`${Math.max(1,base)*scale}px`);
-    out.disabled=scale<=1;into.disabled=scale>=4;
+    currentZoom=mode==='readable'?Math.max(1,box.width/base):scale;
+    const nextWidth=`${Math.round(Math.max(1,base)*currentZoom)}px`;
+    if(diagram.style.getPropertyValue('--mobile-diagram-width')!==nextWidth)diagram.style.setProperty('--mobile-diagram-width',nextWidth);
+    out.disabled=currentZoom<=1;into.disabled=currentZoom>=6;
+    reset.textContent=mode==='fit'?'清晰':'全图';
+    reset.setAttribute('aria-label',mode==='fit'?'恢复清晰字号':'显示完整机制图');
+    hint.textContent=mode==='fit'?'全图预览 · 点清晰读文字':'清晰视图 · 左右滑动查看';
   }
-  out.addEventListener('click',()=>{scale=Math.max(1,scale/1.5);layout();});
-  into.addEventListener('click',()=>{scale=Math.min(4,scale*1.5);layout();});
-  reset.addEventListener('click',()=>{scale=1;layout();frame.scrollTo(0,0);});
-  new ResizeObserver(layout).observe(frame);
-  new MutationObserver(()=>{layout();if(!focusDialog.open&&phone.matches)pause();}).observe(focusDialog,{attributes:true,attributeFilter:['open']});
-  cleanups.push(layout);layout();
+  function requestLayout(){if(!layoutFrame)layoutFrame=requestAnimationFrame(()=>{layoutFrame=0;layout();});}
+  out.addEventListener('click',()=>{scale=Math.max(1,currentZoom/1.5);mode='custom';layout();});
+  into.addEventListener('click',()=>{scale=Math.min(6,currentZoom*1.5);mode='custom';layout();});
+  reset.addEventListener('click',()=>{mode=mode==='fit'?'readable':'fit';scale=1;layout();frame.scrollTo(0,0);});
+  new ResizeObserver(entries=>{
+    const width=entries[0].contentRect.width;
+    if(Math.abs(width-lastFrameWidth)>.5){lastFrameWidth=width;requestLayout();}
+  }).observe(frame);
+  new MutationObserver(()=>{requestLayout();if(!focusDialog.open&&phone.matches)pause();}).observe(focusDialog,{attributes:true,attributeFilter:['open']});
+  workbench.addEventListener('presentation:resize',requestLayout);
+  // An HTML transcript remains legible even if an older iOS SVG renderer misses a glyph.
+  if(root.matches('[data-rfmem-reader],[data-task-reader="hippo"]')){
+    const transcript=document.createElement('details');transcript.className='mobile-only mobile-scene-transcript';
+    const summary=document.createElement('summary');summary.textContent='查看本步图中文字';
+    const content=document.createElement('p');transcript.append(summary,content);frame.after(transcript);
+    function syncText(){
+      const labels=[...svg.querySelectorAll('text')].filter(node=>{
+        if(node.closest('[hidden]'))return false;
+        for(let n=node;n&&n!==svg;n=n.parentElement){const style=getComputedStyle(n);if(style.display==='none'||style.visibility==='hidden'||Number(style.opacity)===0)return false;}
+        return true;
+      }).map(node=>node.textContent.trim()).filter(Boolean);
+      content.textContent=[...new Set(labels)].join(' · ');
+    }
+    transcript.addEventListener('toggle',()=>{if(transcript.open)syncText();});
+    summary.addEventListener('click',syncText);
+    new MutationObserver(()=>{if(transcript.open)syncText();}).observe(diagram,{attributes:true,attributeFilter:['data-step']});
+  }
+  cleanups.push(requestLayout);layout();
 });
 function update(){
   if(!phone.matches&&viewer.open)viewer.close();
