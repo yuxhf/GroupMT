@@ -35,6 +35,8 @@ async function check(browser,{url,output,baseline}){
   await p.goto(url);await p.bringToFront();
   for(const [width,height]of [[320,740],[360,800],[390,844],[430,932],[844,390],[932,430]]){
     await p.setViewportSize({width,height});
+    // Let ResizeObserver apply the diagram width after the viewport changes.
+    await p.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
     const layout=await p.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,
       diagramsFit:[...document.querySelectorAll('[data-mobile-diagram]')].every(e=>e.getBoundingClientRect().width<=e.parentElement.clientWidth+1)}));
     results.sizes.push({width,height,...layout});assert(!layout.overflow&&layout.diagramsFit);
