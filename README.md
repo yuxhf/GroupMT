@@ -15,3 +15,13 @@ Home 暂为站内 `home.html` 简洁入口；当前尚无 `yuxhf.github.io` 根�
 HippoRAG 动画前的问题导读保存在 `meetings/2026-11-08-agent-memory/sources/hippo_problem_intro.html`；修改后运行 `python tools/update_hippo_intro.py`，更新页面、样式缓存标记与来源清单。若重新导出完整报告，请在导出后再运行此命令保留该导读。
 
 样式借鉴 https://jialuncao.github.io/ 的侧栏、字体层级和列表组织，页面代码为此站编写，未复制其个人内容。未运行正式实验或训练。
+
+## 手机阅读与横屏演示
+
+手机适配位于报告的 `assets/mobile-experience.css` 和 `assets/mobile-experience.mjs`，在原有样式、播放器之后加载。覆盖窄屏及宽度不超过 1100px、高度不超过 600px 的触摸横屏窗口；桌面继续使用原来的布局和图片窗口。
+
+- 原图：手机点击原图或放大按钮，在独立查看层中双指缩放、双击放大、拖动；提供缩放、适应屏幕和原尺寸按钮，关闭后恢复焦点与阅读位置。
+- 动画：复用 RF-Mem、HippoRAG、MemR³、Memory-R1 的原播放器；展开后适配横竖屏，播放按钮保持可见，图可放大并局部滚动，详细说明可展开。旋转和退出保留步骤；打开原图会暂停播放。
+- 不依赖自动旋转或浏览器全屏接口。无 JavaScript 时，原文、原图链接和静态动画首帧仍可阅读。修改适配资源后，更新 `index.html` 中对应的 `?v=` 缓存标记。
+
+验证：先在仓库根目录运行 `python -m http.server 8765 --bind 127.0.0.1`，再用安装了 Playwright 的 Node 环境执行 `node tools/check_mobile.cjs`。`PLAYWRIGHT_MODULE` 可指定已有 Playwright 安装路径；`BASELINE_HTML` 可指定修改前报告用于桌面截图对比；`REVIEW_OUTPUT` 可指定截图与检查结果目录。检查覆盖六种手机尺寸、四类播放器全部步骤、横竖屏状态、原图双指缩放与嵌套窗口、播放暂停及减少动态效果。浏览器模拟检查不能代替 iPhone Safari 和 Android 手机实机验收。

@@ -1,0 +1,77 @@
+/* Deliberately scoped to small screens, including wide, short phone landscapes. */
+.mobile-only,.mobile-image-viewer{display:none}
+@media(max-width:760px), (max-width:1100px) and (max-height:600px) and (pointer:coarse){
+  html{scroll-padding-top:65px}
+  html.reader-shell-ready .layout{padding:14px 12px 28px}
+  .toc-handle{top:auto;bottom:18px;left:auto;right:12px;width:auto;min-height:44px;padding:10px 14px;letter-spacing:0;box-shadow:0 2px 12px #233f5720}
+  .report-section{padding:22px 16px!important}
+  .hero{padding:24px 16px!important}
+  .report-section>p,.report-section>.lead,.insight-list dd,.reading-notes dd,.survey-reading{font-size:16px;line-height:1.85}
+  .report-section .section-heading h2{font-size:22px;line-height:1.5;text-wrap:pretty}
+  .insight-list>div,.reading-notes>div{display:block;padding:12px 0}
+  .insight-list dt,.reading-notes dt{font-size:15px;margin:0 0 5px}
+  .report-section>.boundary-note,.report-section>.deck-source,.survey-paper-figure figcaption,.survey-figure-tools>span{font-size:13px;line-height:1.75}
+  .overview-reading-layout{grid-template-columns:minmax(0,1fr);gap:16px}
+  .overview-reading-layout .figure-guide{padding:0;border:0}
+  .survey-figure-tools{flex-wrap:wrap;gap:8px}
+  .survey-figure-tools button,.rfmem-reader .quiet-button,.rfmem-reader .transport button,.rfmem-reader .transport select,.rfmem-reader .view-tabs button,.rfmem-reader .figure-choice button{min-height:44px;font-size:14px}
+  .survey-paper-figure img{max-height:none}
+  .mobile-only{display:block}
+  .mobile-diagram-tools{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:8px 0;color:#62788e;font-size:13px}
+  .mobile-diagram-tools button,.mobile-copy-toggle{min-height:44px;border:1px solid #d6e2ee;border-radius:4px;padding:6px 12px;background:white;color:#315e8a;font:inherit}
+  .mobile-diagram-tools span{margin-right:auto}
+  .rfmem-reader .workspace-body{grid-template-columns:minmax(0,1fr);gap:16px}
+  .rfmem-reader .workspace-top{gap:8px}
+  .rfmem-reader .view-tabs{gap:16px}
+  .rfmem-reader .view-meta,.rfmem-reader .keyboard-note{display:none}
+  .rfmem-reader .step-copy{padding:14px 0 0;border-left:0;border-top:1px solid #dfe7f0}
+  .rfmem-reader .step-copy p{font-size:16px;line-height:1.8}
+  .rfmem-reader .step-copy h2,.rfmem-reader .step-copy h3{font-size:20px}
+  .rfmem-reader .transport{gap:6px}
+  .rfmem-reader .transport label{margin-left:0}
+  .rfmem-reader .playback-status{font-size:13px;margin:0}
+  .rfmem-reader .step-list{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain}
+  .rfmem-reader .step-list button{flex:0 0 auto;min-width:84px;min-height:44px;font-size:13px;padding:8px}
+  .rfmem-reader .diagram-frame,.task-reader .case-stage-scroll{overflow:auto;overscroll-behavior-x:contain;max-width:100%}
+  .rfmem-reader .diagram[data-mobile-diagram]{width:var(--mobile-diagram-width,100%);max-width:none}
+  .rfmem-reader .diagram[data-mobile-diagram] .case-stage{min-width:0;min-height:0;padding:0}
+  .rfmem-reader .diagram[data-mobile-diagram] svg.rf-scene,.rfmem-reader .diagram[data-mobile-diagram] svg.hippo-mechanism,.rfmem-reader .diagram[data-mobile-diagram] svg.pipeline-mechanism{display:block;width:100%;min-width:0;height:auto;min-height:0;max-height:none}
+  .mobile-copy-toggle{display:none;margin:8px 0;font-size:14px}
+  .rfmem-reader .focus-dialog .mobile-copy-toggle{display:inline-block}
+  .rfmem-reader .focus-dialog[open]{width:100%;height:100dvh;max-width:none;max-height:none;margin:0;border-radius:0;padding:max(6px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));overflow:hidden}
+  .rfmem-reader .focus-dialog>.workbench{height:100%;display:flex;flex-direction:column;min-height:0}
+  .rfmem-reader .focus-dialog .workspace-top{position:static;flex-shrink:0}
+  .rfmem-reader .focus-dialog .workspace-body,.rfmem-reader.task-reader .focus-dialog .workspace-body{flex:1;min-height:0;display:block;overflow:auto;padding:8px 0}
+  .rfmem-reader .focus-dialog .control-zone{flex-shrink:0;background:#fff;padding:6px 0 0;border-top:1px solid #dfe7f0}
+  .rfmem-reader .focus-dialog .step-list{padding:4px 0 0}
+  .rfmem-reader .focus-dialog .step-list button{min-height:34px;padding:5px 8px}
+  .rfmem-reader .focus-dialog .diagram-frame,.rfmem-reader .focus-dialog .case-stage-scroll{max-height:calc(100dvh - 210px);min-height:100px}
+  .rfmem-reader .focus-dialog .diagram[data-mobile-diagram]{margin-inline:auto}
+  .rfmem-reader .focus-dialog .comparison,.rfmem-reader .focus-dialog .diagram-note,.rfmem-reader .focus-dialog .case-scroll-hint{display:none}
+  .rfmem-reader .focus-dialog .task-query{font-size:13px;margin:0 0 5px}
+  .rfmem-reader .focus-dialog .step-copy{display:block;padding:8px 0;margin:0}
+  .rfmem-reader .focus-dialog .step-copy h2,.rfmem-reader .focus-dialog .step-copy h3{font-size:17px;margin:3px 0}
+  .rfmem-reader .focus-dialog .step-position{margin:0}
+  .rfmem-reader .focus-dialog .step-copy p{font-size:14px;margin:5px 0;line-height:1.7}
+  .rfmem-reader .focus-dialog .step-copy[data-mobile-copy="compact"]>p:not(.takeaway),.rfmem-reader .focus-dialog .step-copy[data-mobile-copy="compact"]>details{display:none}
+  .mobile-image-viewer[open]{display:flex;flex-direction:column;width:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:max(8px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));border:0;border-radius:0;background:#f6f8fb;color:#263f57;box-sizing:border-box}
+  .mobile-image-viewer::backdrop{background:#172c46cc}
+  .mobile-image-viewer header{display:flex;gap:10px;align-items:center;flex-shrink:0}
+  .mobile-image-viewer header strong{flex:1;min-width:0;font:600 14px/1.5 -apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif;overflow-wrap:anywhere;max-height:4.5em;overflow:auto}
+  .mobile-image-viewer button{min-height:44px;min-width:44px;padding:7px 12px;border:1px solid #cbd9e8;border-radius:4px;background:white;color:#315e8a;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif;touch-action:manipulation}
+  .mobile-image-viewport{position:relative;flex:1;min-height:0;overflow:hidden;touch-action:none;overscroll-behavior:contain;margin:8px 0;background:white}
+  .mobile-image-viewport img{position:absolute;top:0;left:0;max-width:none!important;max-height:none!important;margin:0;transform-origin:0 0;user-select:none;-webkit-user-select:none;pointer-events:none}
+  .mobile-image-toolbar{display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap;flex-shrink:0}
+  .mobile-image-hint{font:13px/1.6 -apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif;color:#62788e;text-align:center;margin:7px 0 0;flex-shrink:0}
+}
+@media(max-width:1100px) and (max-height:500px) and (orientation:landscape) and (pointer:coarse){
+  .rfmem-reader .focus-dialog .workspace-body,.rfmem-reader.task-reader .focus-dialog .workspace-body{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:12px}
+  .rfmem-reader .focus-dialog .step-copy{border-top:0;border-left:1px solid #dfe7f0;padding:0 0 0 12px}
+  .rfmem-reader .focus-dialog .mobile-diagram-tools{margin:0 0 4px;font-size:12px}
+  .rfmem-reader .focus-dialog .mobile-diagram-tools button{min-height:36px;padding:4px 10px}
+  .rfmem-reader .focus-dialog .diagram-frame,.rfmem-reader .focus-dialog .case-stage-scroll{max-height:calc(100dvh - 195px)}
+  .rfmem-reader .focus-dialog .step-list{display:none}
+  .rfmem-reader .focus-dialog .mobile-orientation-hint{display:none}
+  .mobile-image-hint{margin:3px 0 0}
+}
+@media print{.mobile-only,.mobile-image-viewer{display:none!important}}

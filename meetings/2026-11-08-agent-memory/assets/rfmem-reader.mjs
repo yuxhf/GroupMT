@@ -139,6 +139,7 @@ workbench.addEventListener('keydown',event=>{
   if (event.key==='End') {event.preventDefault();go(steps.length-1);}
   if (event.key===' ' && !event.target.closest('button')) {event.preventDefault();player.toggle();}
 });
+document.addEventListener('memory:mobile-pause',()=>{player.stop();settleMotion();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){player.stop();settleMotion();}});
 // Keep the same observed element when moved into the native modal.
 if ('IntersectionObserver' in window) new IntersectionObserver(entries=>{

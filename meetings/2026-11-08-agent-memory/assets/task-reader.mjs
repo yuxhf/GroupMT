@@ -128,7 +128,8 @@ document.querySelectorAll('[data-task-reader]').forEach(root=>{
   });
   $('[data-case-image-close]').addEventListener('click',()=>imageDialog.close());
   imageDialog.addEventListener('close',()=>{root.append(imageDialog);imageFocus?.focus();});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){player.stop();settle();}});
+  document.addEventListener('memory:mobile-pause',()=>{player.stop();settle();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){player.stop();settle();}});
   document.addEventListener('memory:play',event=>{if(event.detail!==spec.key){player.stop();settle();}});
   if('IntersectionObserver'in window)new IntersectionObserver(entries=>{if(entries.some(e=>!e.isIntersecting)){player.stop();settle();}},{threshold:0}).observe(workbench);
   function reduced(){settle();player.reduced(motion.matches);$('[data-case-play]').disabled=motion.matches;$('[data-case-speed]').disabled=motion.matches;}
