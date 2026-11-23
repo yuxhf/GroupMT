@@ -1,0 +1,72 @@
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0}
+body.lesson-page{height:100dvh;min-height:0;overflow:hidden;display:grid;grid-template-rows:48px minmax(0,1fr);background:#f3f4f8;color:#252a3b;font-family:Inter,-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.lesson-topbar{min-width:0;display:flex;align-items:center;gap:20px;padding:0 18px;background:#fff;border-bottom:1px solid #e2e5ec;z-index:5}
+.lesson-topbar a{font-size:11px;color:#454b60;text-decoration:none;white-space:nowrap}
+.lesson-topbar a:hover{color:#2525a8}
+.back-link{font-weight:650;margin-right:auto}
+.lesson-brand{display:flex;align-items:center;gap:9px;color:#858ca0;font-size:11px;white-space:nowrap}
+.lesson-brand strong{color:#252a3b;font-size:12px;font-weight:650}
+.brand-divider{color:#c4c8d2}
+.lesson-layout{width:100%;height:100%;min-height:0;min-width:0;display:grid;grid-template-columns:minmax(0,74fr) minmax(360px,26fr);gap:0;align-items:stretch}
+.slide-panel{height:100%;min-height:0;min-width:0;display:grid;grid-template-rows:32px minmax(0,1fr);background:#17191f;overflow:hidden}
+.slide-panel-head{display:flex;align-items:center;justify-content:space-between;padding:0 14px;color:#e5e7ed;font-size:10px;letter-spacing:.35px;background:#202229;border-bottom:1px solid #343741}
+.slide-panel-head span{color:#b3b9c8;font-size:10px;font-variant-numeric:tabular-nums}
+.slide-frame{display:block;width:100%;height:100%;min-width:0;min-height:0;border:0;background:#202127}
+.notes-panel{height:100%;min-height:0;min-width:0;overflow-y:auto;overscroll-behavior:contain;background:#fff;border-left:1px solid #dfe3eb;padding:25px 27px 26px}
+.notes-top{position:sticky;top:-25px;z-index:2;background:rgba(255,255,255,.98);padding:0 0 16px;border-bottom:1px solid #eceef3;backdrop-filter:blur(8px)}
+.slide-count{font-size:11px;letter-spacing:1.15px;color:#7c8499;font-variant-numeric:tabular-nums}
+.slide-title{font-size:27px;line-height:1.35;letter-spacing:-.45px;margin:8px 0 0;color:#1d2233;font-weight:700}
+.progress-track{height:3px;background:#eceef4;margin-top:15px;border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:#3030a9;transition:width .18s}
+.note-section{padding:22px 0 0}
+.note-label{font-size:12px;letter-spacing:1.1px;font-weight:750;color:#7c8499;margin:0 0 11px}
+.note-zh{font-size:20px;font-weight:650;color:#30364b;margin:0;line-height:1.8}
+.note-body{font-size:18px;line-height:1.95;color:#42495d;margin:0;white-space:pre-line}
+.note-key{font-size:17px;line-height:1.9;color:#42495d;margin:0}
+.note-takeaway{margin-top:22px;padding:15px 17px;background:#f4f5fa;border-left:3px solid #3434ad;border-radius:3px;color:#303650;font-size:16px;line-height:1.9}
+.note-takeaway strong{display:block;font-size:12px;letter-spacing:.4px;color:#555d76;margin-bottom:5px}
+.slide-select-row{display:flex;align-items:center;gap:12px;margin-top:24px}
+.slide-select-row label{font-size:13px;color:#747d92;white-space:nowrap}
+.slide-select-row select{width:100%;min-width:0;padding:11px 12px;border:1px solid #dce0e9;border-radius:6px;background:#fff;color:#343b50;font:inherit;font-size:14px}
+.slide-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.slide-nav button{border:1px solid #dce0e9;background:#fff;border-radius:6px;padding:13px 15px;color:#32394d;font-size:14px;cursor:pointer}
+.slide-nav button:hover:not(:disabled){border-color:#b9bfd5;background:#f8f8fc}
+.slide-nav button:disabled{opacity:.35;cursor:not-allowed}
+.lesson-page button:focus-visible,.lesson-page a:focus-visible,.lesson-page select:focus-visible{outline:2px solid #6c7be3;outline-offset:2px}
+.lesson-page select{font-family:inherit}
+@media(max-width:1050px) and (min-width:901px){
+ .lesson-layout{grid-template-columns:minmax(0,1.9fr) minmax(320px,1fr)}
+ .notes-panel{padding:20px 20px}
+ .slide-title{font-size:24px}
+ .note-zh{font-size:18px}
+ .note-body{font-size:16px}
+ .note-key{font-size:16px}
+}
+@media(max-width:900px){
+ html,body{height:auto;min-height:100%}
+ body.lesson-page{height:auto;min-height:100dvh;overflow:auto;display:block}
+ .lesson-topbar{height:46px;min-height:46px;padding:0 12px;gap:12px}
+ .lesson-brand{display:none}
+ .lesson-topbar a{font-size:10px}
+ .lesson-layout{height:auto;min-height:calc(100dvh - 46px);display:flex;flex-direction:column}
+ .slide-panel{height:64vh;min-height:360px;flex:none}
+ .notes-panel{height:auto;min-height:0;overflow:visible;border-left:0;border-top:1px solid #dfe3eb;padding:22px 20px 28px}
+ .notes-top{position:static;padding-bottom:14px}
+ .slide-title{font-size:24px}
+ .note-section{padding-top:19px}
+ .note-zh{font-size:18px}
+ .note-body{font-size:16px;line-height:1.9}
+ .note-key{font-size:16px}
+ .note-takeaway{font-size:15px}
+}
+@media(max-width:480px){
+ .slide-panel{height:54vh;min-height:300px}
+ .slide-panel-head{padding:0 10px}
+ .notes-panel{padding:18px 16px 24px}
+ .slide-title{font-size:21px}
+ .note-zh{font-size:16px}
+ .note-body{font-size:15px}
+ .note-key{font-size:15px}
+ .note-takeaway{font-size:15px}
+}
