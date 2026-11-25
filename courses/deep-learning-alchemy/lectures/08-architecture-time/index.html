@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Architecture 1 · 时间信号传播：英文课件与中文专题讲解">
+<title>Architecture 1 · 时间信号传播 | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>Architecture 1 · 时间信号传播</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/lecture_08.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 56</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/lecture_08.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 56</div>
+      <h1 class="slide-title" id="slide-title">Retention, mixing, capacity</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a4/index.html">相关作业 A4 →</a> · <a href="../../index.html">返回全部课程</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/lecture_08.pdf","sections":[{"start":1,"end":10,"en":"Retention, mixing, capacity","zh":"时间传播","body":"用 ∂yₜ/∂xₛ 研究过去输入对当前输出的影响。Retention 关心距离，mixing 关心选择，capacity 关心信息量。","key":"时间维与网络深度不同。","q":"能长程传播就能准确检索吗？"},{"start":11,"end":13,"en":"RNN and LSTM","zh":"递归梯度","body":"普通 RNN 的长程梯度为多步 Jacobian 乘积，易消失或爆炸；LSTM 的加法状态路径缓解这一问题。","key":"裁剪不能恢复消失梯度。","q":"forget gate 接近 1 会怎样？"},{"start":14,"end":24,"en":"Gated memory","zh":"门控记忆","body":"门控控制历史状态保留和新输入写入。存在长程通路不表示门控参数一定学得好。","key":"用不同延迟与序列长度测试。","q":"如何区分容量不足与传播失败？"},{"start":25,"end":30,"en":"Attention mixing","zh":"注意力混合","body":"因果注意力对过去 value 加权求和，提供直接访问；head 可以检索、平均或近似无操作。","key":"权重不等于实际贡献。","q":"为何 head 会关注看似无用的 token？"},{"start":31,"end":35,"en":"Attention sinks","zh":"注意力汇聚","body":"softmax 强制权重和为 1，即使不想读取信息也必须分配权重；sink、额外槽或门控提供不同解法。","key":"结合 value 大小、权重与 loss。","q":"移除首 token KV 会如何影响模型？"},{"start":36,"end":38,"en":"Linear attention and SSM","zh":"线性注意力","body":"利用结合律将 QKᵀV 写为 Q(KᵀV)，因果版本累积状态；选择性门控允许历史衰减。","key":"可有并行训练与递归推理形式。","q":"为何它不等价于 softmax attention？"},{"start":39,"end":46,"en":"Recurrent updates","zh":"状态更新","body":"矩阵状态可存储 key-value，纠错式或门控更新可减少写入干扰。","key":"分开分析写入、读取与状态规模。","q":"如何修正已有记忆？"},{"start":47,"end":50,"en":"Memory capacity","zh":"容量和读出干扰","body":"向量状态、矩阵状态、KV cache 开销不同。外积记忆读出时其他 key 的内积引入干扰，非线性读出可改变容量。","key":"容量由状态和读取方式共同决定。","q":"状态翻倍检索容量必然翻倍吗？"},{"start":51,"end":53,"en":"MQAR probes","zh":"关联回忆探针","body":"合成探针可比较架构，但搜索过粗可能错过稳定区，且单一探针不代表自然语言。","key":"充分调参再比较准确率。","q":"探针失败是容量还是优化问题？"},{"start":54,"end":56,"en":"Hybrid models","zh":"混合结构","body":"注意力与递归模型可组合，权衡检索、计算及缓存成本。有限的混合比例实验不支持普适最优比例。","key":"观察性能—成本前沿。","q":"如何等 FLOPs 比较混合比例？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>

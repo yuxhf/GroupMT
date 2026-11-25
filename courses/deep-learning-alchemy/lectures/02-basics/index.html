@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Basics · 实验基础：英文课件与中文专题讲解">
+<title>Basics · 实验基础 | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>Basics · 实验基础</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/lecture_02.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 57</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/lecture_02.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 57</div>
+      <h1 class="slide-title" id="slide-title">Experimental science</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a1/index.html">相关作业 A1 →</a> · <a href="../../index.html">返回全部课程</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/lecture_02.pdf","sections":[{"start":1,"end":5,"en":"Experimental science","zh":"实验方法","body":"先写出可检验的预测，再改变变量并观察结果；实验的意义不是盲目试错，而是缩小对训练机制的解释范围。","key":"记录基线、干预、结果和不确定性。","q":"怎样用最小实验区分两个假设？"},{"start":6,"end":8,"en":"Hyperparameters","zh":"超参数","body":"失败的训练只说明当前配置不合适，不等价于模型或方法无效。学习率、批大小、训练长度和模型尺寸相互作用。","key":"改变模型后要重新搜索超参数。","q":"发散时先检查哪些变量？"},{"start":9,"end":12,"en":"Tuning case studies","zh":"调参改变研究结论","body":"DP-SGD、重复数据和优化器的比较说明，沿用旧方法的最佳超参数会使新方法被低估。应分别找到合理最佳配置，并披露搜索预算。","key":"区分固定配方比较和充分调参比较。","q":"怎样检验性能差距是否只是调参不足？"},{"start":13,"end":17,"en":"Learning rate × batch size","zh":"联合搜索","body":"将验证损失绘制在 log LR 与 batch size 平面上；最低点和低损失区域的宽度都重要。模型规模变化可能移动最优区域。","key":"对数网格粗搜，再局部细搜。","q":"固定学习率是否会改变方法排序？"},{"start":18,"end":20,"en":"Efficient sweeps","zh":"高效搜索","body":"小模型上的并行计算可摊薄实验开销，vmap 可帮助批量执行相似计算。但代理实验必须检查目标机制在大规模上是否保留。","key":"分配预算给覆盖范围、重复实验和规模验证。","q":"哪些干预最适合先用小模型筛选？"},{"start":21,"end":25,"en":"Scaling as proxy","zh":"缩放代理","body":"通过参数规模、数据量与计算预算的阶梯实验观察趋势，再谨慎外推；模型族和训练配方应一致。","key":"同时记录 N、D、FLOPs 与配方。","q":"如何验证小模型是可靠代理？"},{"start":26,"end":29,"en":"Power laws","zh":"幂律","body":"损失可用含下限的幂函数近似，例如 L=A N^(-α)+B D^(-β)+C。模型和数据各自可能成为瓶颈。","key":"渐近项不等于可直接测量的不可约损失。","q":"固定预算应优先扩大哪一项？"},{"start":30,"end":33,"en":"Scaling pitfalls","zh":"缩放陷阱","body":"不一致的参数/FLOP 定义、未随尺寸调整的学习率，会导致看似违反幂律的曲线。","key":"先校准配方再解释性能变化。","q":"为什么固定 LR 的 scaling curve 可能误导？"},{"start":34,"end":38,"en":"Randomness","zh":"随机性","body":"初始化、数据顺序及随机训练干预会影响轨迹。分离种子来源，比较同一组配对条件，而不是把所有变化归因于架构。","key":"报告多个 seed 及其分布。","q":"仅改变数据种子能检验什么？"},{"start":39,"end":44,"en":"Chaos and significance","zh":"混沌与统计检验","body":"微小扰动可被训练动态放大。配对实验对每对结果的差值 d 求均值及 SE=sd(d)/√n，小样本可用 t 区间。","key":"两组均值误差条重叠不代表配对差异不显著。","q":"如何区分随机波动和真实改善？"},{"start":45,"end":49,"en":"Diagnostics","zh":"训练诊断","body":"Loss 曲线是症状，不是机制。对齐学习率调度与损失异常时刻，查看梯度、激活和参数统计。","key":"记录异常开始的时间和层。","q":"停滞和发散的诊断信号有何不同？"},{"start":50,"end":52,"en":"Activation and gradient norms","zh":"范数诊断","body":"逐层检查 RMS、注意力分数及梯度。QK norm 前后比较可揭示 logits 的尺度变化；尺度不变的参数需另外解释。","key":"范数大不必然表示贡献大。","q":"某层梯度很小是否代表没有学习？"},{"start":53,"end":57,"en":"Debugging workflow","zh":"系统调试","body":"从可复现的正常配置出发逐步插值到故障设置。Marin 案例启发我们联合观察权重范数和门控激活。","key":"每次只改变一项，保存失败运行。","q":"若 weight decay 恢复训练，如何验证原因？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>

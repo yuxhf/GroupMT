@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Architecture 2 · 表达能力：英文课件与中文专题讲解">
+<title>Architecture 2 · 表达能力 | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>Architecture 2 · 表达能力</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/lecture_09.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 51</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/lecture_09.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 51</div>
+      <h1 class="slide-title" id="slide-title">Universal approximation</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a5/index.html">相关作业 A5 →</a> · <a href="../../index.html">返回全部课程</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/lecture_09.pdf","sections":[{"start":1,"end":8,"en":"Universal approximation","zh":"通用逼近","body":"宽网络可以逼近许多连续函数，但所需神经元数可能巨大，且定理不保证训练找到相应参数。","key":"区分存在性、效率和可学习性。","q":"通用逼近能否推出深度没用？"},{"start":9,"end":14,"en":"Depth separation","zh":"深度分离","body":"反复复合 ReLU 折线函数可指数增加线性区域，浅层网络可能需指数宽度模拟。结论依赖构造函数。","key":"最坏情形不代表典型任务。","q":"复合为何能指数增加区域？"},{"start":15,"end":18,"en":"Depth versus width","zh":"深宽权衡","body":"真实任务还受总参数、FLOPs、设备延迟及共享参数影响。固定参数并不等于固定计算成本。","key":"明确对比资源轴。","q":"同参数深宽模型 FLOPs 一定相同吗？"},{"start":19,"end":23,"en":"Mixture of experts","zh":"MoE","body":"每 token 仅激活部分专家，增加存储参数而相对控制活跃计算。路由不均衡可能损害吞吐和专家利用。","key":"记录总参数、激活参数、FLOPs 和负载。","q":"路由集中会怎样？"},{"start":24,"end":31,"en":"Realized expressivity","zh":"实际表达复杂度","body":"精心构造的锯齿函数对扰动敏感；典型网络线切片上的区域数可能更接近神经元数。","key":"理论上限和训练结果应分开。","q":"怎样实测线性区域数？"},{"start":32,"end":35,"en":"Transformer bottlenecks","zh":"秩瓶颈","body":"QKᵀ 的秩不超过 head_dim，线性输出 logits 秩受隐藏宽度约束。但 softmax 后不一定仍保持相同秩。","key":"跟踪矩阵形状和实际利用。","q":"扩大 head_dim 有什么表达收益？"},{"start":36,"end":43,"en":"Softmax bottleneck","zh":"输出瓶颈","body":"单一线性 readout 难以表达某些条件分布集合；改变结构可缓解秩约束，但满秩也不保证更低 loss。","key":"同时测试计算成本和性能。","q":"词表扩大如何影响输出限制？"},{"start":44,"end":48,"en":"Sequential shortcuts","zh":"序列捷径","body":"有限状态转移可利用结合律树形组合，让 Transformer 学到低深度捷径，但长度外推未必成立。","key":"分别测分布内与长序列。","q":"增加训练长度怎样影响外推？"},{"start":49,"end":51,"en":"Complexity and CoT","zh":"复杂度与推理步","body":"固定深度、精度及长度限制可计算函数；生成额外 token 可提供串行计算步骤。理论层级依赖模型假设。","key":"推理 token 也是计算资源。","q":"如何用自动机任务测 CoT？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>

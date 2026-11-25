@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Optimization 2 · 损失地形 I：英文课件与中文专题讲解">
+<title>Optimization 2 · 损失地形 I | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>Optimization 2 · 损失地形 I</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/lecture_05.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 65</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/lecture_05.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 65</div>
+      <h1 class="slide-title" id="slide-title">Three mental models</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a3/index.html">相关作业 A3 →</a> · <a href="../../index.html">返回全部课程</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/lecture_05.pdf","sections":[{"start":1,"end":10,"en":"Three mental models","zh":"三个地形模型","body":"盆地描述模型连接，河谷描述振荡与推进，临界点描述优化何时受阻。它们是不同视角，不是高维地形的完整图景。","key":"不能把二维示意当真实全貌。","q":"哪个视角解释退火？"},{"start":11,"end":13,"en":"Mode connectivity","zh":"模式连接","body":"沿 θ(α)=(1−α)θA+αθB 插值，测整条 loss 曲线。两个低损失端点不保证中间也低损失。","key":"区分线性连接与弯曲路径。","q":"参数平均为何不等于预测集成？"},{"start":14,"end":23,"en":"Fine-tuning and averaging","zh":"微调权重平均","body":"共享初始化的微调模型可能具有较好的权重兼容性。平均可缓解某些任务偏移，但需检查起点与训练设置。","key":"Model soups 无需增加推理模型数。","q":"两个共享起点的模型一定能平均吗？"},{"start":24,"end":30,"en":"Pre-training and forks","zh":"预训练分叉","body":"独立模型可能存在神经元置换等对称性。对齐或共享早期 checkpoint 的分叉可用于研究低损失盆地何时形成。","key":"扫描分叉时间与插值障碍。","q":"晚分叉会让平均更容易吗？"},{"start":31,"end":38,"en":"Hessian and Gauss–Newton","zh":"曲率","body":"Hessian 的特征值描述局部曲率；Gauss–Newton 在常见凸输出损失下可半正定。严格局部极小点不应有负曲率。","key":"区分原 Hessian 与近似矩阵。","q":"直接求逆不定 Hessian 有什么风险？"},{"start":39,"end":43,"en":"River valley","zh":"河谷模型","body":"高曲率方向限制稳定步长，而低曲率方向仍能缓慢推进。大学习率下振荡可能掩盖沿谷底的真实进步。","key":"时间平均轨迹不同于单步 loss。","q":"怎样用短退火测量隐藏进展？"},{"start":44,"end":47,"en":"Annealing and averaging","zh":"退火与平均","body":"下降学习率可减小横向振荡，EMA 或 Polyak 平均可抵消部分振荡，但会混合不同时期的参数。","key":"对比同一轨迹的末端和平均值。","q":"过长平均窗口会有什么偏差？"},{"start":48,"end":53,"en":"Multiple horizons","zh":"共享训练预算","body":"从长期稳定训练分叉做不同长度衰减可节省重复计算。但各 horizon 的最佳峰值 LR 可能不同。","key":"共享结果不等于各预算独立最优。","q":"如何估计共享训练的遗憾？"},{"start":54,"end":59,"en":"Critical points","zh":"高维临界点","body":"零梯度位置可能同时存在正负曲率。随机场的临界点统计提供启发，但真实网络并不等价于随机场。","key":"梯度小不表示局部最优。","q":"如何检测鞍点？"},{"start":60,"end":65,"en":"Saddles","zh":"逃离鞍点","body":"某些简化模型不存在坏的局部极小点；严格鞍点在特定条件下可被梯度算法避开，但逃离速度仍可能很慢。","key":"理论依赖明确假设。","q":"如何区分慢下降和临界点停滞？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>

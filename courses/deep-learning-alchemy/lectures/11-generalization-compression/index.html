@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Generalization 2 · 压缩与信息论：英文课件与中文专题讲解">
+<title>Generalization 2 · 压缩与信息论 | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>Generalization 2 · 压缩与信息论</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/lecture_11.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 104</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/lecture_11.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 104</div>
+      <h1 class="slide-title" id="slide-title">Compression perspective</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a6/index.html">相关作业 A6 →</a> · <a href="../../index.html">返回全部课程</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/lecture_11.pdf","sections":[{"start":1,"end":8,"en":"Compression perspective","zh":"压缩与泛化","body":"信息论和算法复杂度提供理解数据受限泛化的视角：较短的规律描述可能帮助预测新样本。不是普适等价定理。","key":"区分数据编码与程序描述。","q":"参数多等于描述长度长吗？"},{"start":9,"end":19,"en":"Entropy and coding","zh":"熵与编码","body":"高概率符号用短码可降低平均成本。概率 1/2、1/4、1/8、1/8 配码长 1、2、3、3 时平均为 1.75 bit。","key":"H(P)=−Σp log₂p。","q":"四个等概率符号的熵是多少？"},{"start":20,"end":23,"en":"Cross-entropy and KL","zh":"交叉熵与 KL","body":"用 Q 编码 P 的样本，H(P,Q)−H(P)=D_KL(P‖Q)。固定真实分布时最小化交叉熵等价于最小化 KL。","key":"对数底决定 bit 或 nat。","q":"为什么训练不需显式知道 H(P)？"},{"start":24,"end":41,"en":"Algorithmic complexity","zh":"算法复杂度","body":"Kolmogorov complexity 用生成对象的最短程序长度刻画规律，依赖描述语言且一般不可计算。","key":"统计熵是分布属性，程序长度针对对象。","q":"重复串与随机串的描述方式有何不同？"},{"start":42,"end":48,"en":"Solomonoff and MDL","zh":"归纳与最小描述长度","body":"Solomonoff 以短程序先验整合候选预测，是理想化不可计算规则。MDL 结合模型描述成本与数据编码成本。","key":"注意编码单位及样本归一化。","q":"单独最小训练 loss 为何可能记忆数据？"},{"start":49,"end":54,"en":"Runtime and description","zh":"运行时间与描述","body":"同一程序重复执行可用少量描述实现更多计算。参数量、运行时间和编码长度不是同一资源。","key":"区分存储与计算。","q":"重复一层八次和八个独立层有什么差别？"},{"start":55,"end":61,"en":"Looping and MoE","zh":"参数复用与专家","body":"Looping 复用参数增加计算深度；MoE 在相近活跃计算下扩大存储。单遍和固定数据多遍训练可能有不同排序。","key":"报告数据条件及 FLOPs。","q":"A5 排序为何可能在 A6 改变？"},{"start":62,"end":65,"en":"Tokenization and CoT","zh":"序列计算","body":"更细的 token、pause token 和 CoT 会改变计算步数与描述预算。部分预训练设计仍是开放问题。","key":"区分信息量与计算位置。","q":"缩小词表会怎样改变序列长度？"},{"start":66,"end":74,"en":"Flatness and compression","zh":"平坦与压缩","body":"若参数小扰动不明显损害 loss，较低精度也可能保留能力，从而连接平坦性和描述长度。参数化仍会影响曲率。","key":"相同参数化下比较量化和 loss。","q":"为何低精度可减小编码成本？"},{"start":75,"end":80,"en":"Sharpness interventions","zh":"锐度干预","body":"batch、LR 和 SAM 可改变曲率，也同时改变训练轨迹。不能把所有泛化改善自动归因于锐度。","key":"用多种测量和控制实验。","q":"曲率下降但验证变差如何解释？"},{"start":81,"end":86,"en":"Filtering and information","zh":"数据过滤","body":"确定性变换 Z=f(X) 满足 I(Y;Z)≤I(Y;X)。过滤可能丢失有用信息，虽然有限学习器可能更易利用剩余数据。","key":"信息利用率不是增加原始互信息。","q":"为何过滤在不同预算下效果不同？"},{"start":87,"end":94,"en":"Augmentation and invariance","zh":"数据增强","body":"有效增强编码任务先验，例如保持标签的变换。虽然没有凭空增加原样本信息，却可能改善有限模型的归纳。","key":"检查标签保持性。","q":"哪些任务不能随意翻转图像？"},{"start":95,"end":104,"en":"Contrastive learning and spectral clustering","zh":"对比学习与谱结构","body":"共同增强定义数据的相似关系；低维表示可视作相似图的低秩结构。特定谱对比损失下存在理论联系。","key":"增强定义关系，不只增加样本数。","q":"改变增强分布会怎样改变表示？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>

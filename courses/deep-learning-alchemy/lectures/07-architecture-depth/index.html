@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Architecture 1 · 深度信号传播：英文课件与中文专题讲解">
+<title>Architecture 1 · 深度信号传播 | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>Architecture 1 · 深度信号传播</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/lecture_07.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 59</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/lecture_07.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 59</div>
+      <h1 class="slide-title" id="slide-title">Why residuals?</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a4/index.html">相关作业 A4 →</a> · <a href="../../index.html">返回全部课程</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/lecture_07.pdf","sections":[{"start":1,"end":9,"en":"Why residuals?","zh":"深层训练困难","body":"普通网络加深可能连训练误差都恶化，说明增加容量不等于降低优化难度。残差通路给信号提供直达路径。","key":"区分训练困难与泛化失败。","q":"训练误差升高先检查什么？"},{"start":10,"end":13,"en":"Identity shortcuts","zh":"恒等捷径","body":"xₗ₊₁=xₗ+Fₗ(xₗ)。若捷径每层乘 λ，跨 L 层直接贡献为 λ^L。恒等捷径避免这种指数衰减。","key":"区分 shortcut 与 residual branch。","q":"每层捷径缩半会怎样？"},{"start":14,"end":18,"en":"Short paths","zh":"短路径与层利用率","body":"残差网络有不同长度路径。稳定训练并不保证各层同样重要，删除个别层可能影响很小。","key":"结合分支输出、梯度和消融。","q":"为何深度增加却不一定利用所有层？"},{"start":19,"end":24,"en":"Signal propagation","zh":"信号传播","body":"除方差外，观察两个输入的表示相关性和 Jacobian。ordered/chaotic 区域提供信号差异传播距离的直觉。","key":"方差稳定并不保证输入可区分。","q":"表示越来越相似有什么后果？"},{"start":25,"end":28,"en":"Normalization","zh":"归一化","body":"控制残差分支与主流的相对尺度可防止信号指数增长。Pre-LN 保持直接主路径，Post-LN 重复变换它。","key":"RMS 是均方根，不是方差。","q":"归一化位置怎样影响梯度？"},{"start":29,"end":33,"en":"Norm placement and alternatives","zh":"无归一化替代","body":"SkipInit、Fixup、ReZero 通过初始化或缩放使分支初期接近零更新；需检查深度实际利用。","key":"可训练性和表示能力分别验证。","q":"零初始化分支有哪些限制？"},{"start":34,"end":41,"en":"Dynamical isometry","zh":"动力学等距","body":"端到端 Jacobian 奇异值接近 1 时各方向梯度较稳定。正交初始化与合适激活可帮助，但非线性也会破坏性质。","key":"局部等距不保证端到端等距。","q":"正交权重能确保 ReLU 深网稳定吗？"},{"start":42,"end":48,"en":"Skipless transformers","zh":"无残差 Transformer","body":"特殊的注意力与 token 相关性初始化可让无捷径网络学习，但成本可能更高。","key":"比较达到同一 loss 的步数。","q":"训练得动为何不一定实用？"},{"start":49,"end":53,"en":"Hyper-connections","zh":"多残差流","body":"多个残差流进行可学习读写混合，提高结构自由度；跨层混合矩阵乘积也可能造成放大。","key":"分开研究初始化和训练约束。","q":"增加残差流一定提高稳定性吗？"},{"start":54,"end":59,"en":"mHC and attention residuals","zh":"约束混合与注意力残差","body":"双随机混合约束可限制某些放大行为；注意力残差允许跨层选择历史表示。实际收益仍依赖配方。","key":"比较相同计算预算。","q":"怎样区分稳定性和表达能力贡献？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>

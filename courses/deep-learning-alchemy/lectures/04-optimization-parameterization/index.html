@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Optimization 1 · 参数化与 Muon：英文课件与中文专题讲解">
+<title>Optimization 1 · 参数化与 Muon | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>Optimization 1 · 参数化与 Muon</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/lecture_04.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 49</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/lecture_04.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 49</div>
+      <h1 class="slide-title" id="slide-title">Scaling and optimization</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a2/index.html">相关作业 A2 →</a> · <a href="../../index.html">返回全部课程</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/lecture_04.pdf","sections":[{"start":1,"end":8,"en":"Scaling and optimization","zh":"规模变化","body":"宽度扩大后，初始化、梯度和更新引起的激活变化都可能改变尺度。课程目标是找出可跨规模迁移的配方。","key":"同时考虑激活和特征更新。","q":"为何小模型最佳 LR 不一定适合大模型？"},{"start":9,"end":14,"en":"Stable and nontrivial limits","zh":"稳定非平凡极限","body":"宽度趋于无穷时激活应有界，且训练能引起非消失的输出变化。NTK 式稳定极限可能限制特征学习。","key":"稳定不等价于有效学习。","q":"η=0 为什么不是合理方案？"},{"start":15,"end":19,"en":"ABC parameterization","zh":"a、b、c 参数化","body":"用宽度指数刻画输出乘子、初始化和学习率。在课件记号下隐藏层稳定初始化要求 a+b=1/2；首层的输入维度固定，约束不同。","key":"独立内积的典型尺度为 √n。","q":"fan-in 增大时如何调整初始化？"},{"start":20,"end":22,"en":"Gradient scaling","zh":"梯度缩放","body":"反传梯度也随宽度变化。Adam 归一化和 SGD 原始梯度更新不同，学习率指数不能直接互换。","key":"区分参数更新 RMS 和激活更新 RMS。","q":"保持每个权重的更新恒定会怎样？"},{"start":23,"end":29,"en":"Alignment","zh":"对齐与非平凡性","body":"把新激活分解为初始化、权重更新及输入更新项；训练后存在相关性，内积可由 √n 变为 n 量级。限制增长并保留有效变化。","key":"不能始终假定独立性。","q":"怎样测量更新和输入的对齐？"},{"start":30,"end":35,"en":"µP and transfer","zh":"最大更新参数化","body":"µP 使宽模型保持特征学习，同时追求超参数跨宽度迁移。用宽度阶梯和 LR 扫描检验最佳区域是否稳定。","key":"逐层记录更新引起的激活变化。","q":"怎样检验 LR transfer？"},{"start":36,"end":39,"en":"Optimizer geometry","zh":"优化几何","body":"局部线性目标在不同约束球中产生不同最优更新。矩阵谱范数约束下，G=UΣVᵀ 的理想负方向为 −UVᵀ。","key":"谱范数限制最坏方向放大。","q":"与 Frobenius 约束有何区别？"},{"start":40,"end":43,"en":"Newton–Schulz","zh":"矩阵极分解近似","body":"Muon 先使用动量，再用少量 Newton–Schulz 迭代近似矩阵极分解，避免显式 SVD。非矩阵参数通常另用优化器。","key":"有限迭代是成本与效果折中。","q":"迭代次数为何不是越多越好？"},{"start":44,"end":49,"en":"Practical Muon","zh":"工程与证据边界","body":"矩阵形状、更新尺度和 weight decay 影响实际结果。精确奇异值归一化并非唯一可能机制。","key":"比较 loss、有效更新秩和计算开销。","q":"如何区分 Muon 收益与额外算力？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>

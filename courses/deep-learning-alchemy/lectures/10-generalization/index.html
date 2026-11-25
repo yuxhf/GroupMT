@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Generalization 1 · 正则化与微调：英文课件与中文专题讲解">
+<title>Generalization 1 · 正则化与微调 | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>Generalization 1 · 正则化与微调</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/lecture_10.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 116</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/lecture_10.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 116</div>
+      <h1 class="slide-title" id="slide-title">Data-constrained regime</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a6/index.html">相关作业 A6 →</a> · <a href="../../index.html">返回全部课程</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/lecture_10.pdf","sections":[{"start":1,"end":13,"en":"Data-constrained regime","zh":"数据受限","body":"独立样本固定、算力可增加时，单遍训练配方未必最优。目标是从有限数据提取更多可泛化规律。","key":"区分 unique tokens 和累计 exposure。","q":"十个 epoch 等于十倍新数据吗？"},{"start":14,"end":22,"en":"Bias, variance and double descent","zh":"双下降","body":"过参数化线性回归可存在多个插值解，零初始化 GD 在特定条件下选最小范数解，测试风险可能再次下降。","key":"参数数不是复杂度唯一指标。","q":"插值训练集必然测试差吗？"},{"start":23,"end":25,"en":"Ridge regularization","zh":"岭回归","body":"加入 λ‖w‖²，解为 (XᵀX+λI)⁻¹Xᵀy。λ 控制拟合与参数范数的权衡。","key":"最优 λ 依数据和噪声变化。","q":"λ→0 和 λ→∞ 分别怎样？"},{"start":26,"end":33,"en":"Epoching and parameter scaling","zh":"重复数据","body":"固定数据多遍训练可能过拟合，扩大模型也并非总有收益。应分别搜索 epoch 和超参数。","key":"以最佳验证 loss 比较。","q":"训练 loss 降、验证 loss 升说明什么？"},{"start":34,"end":44,"en":"Regularized scaling","zh":"正则化缩放","body":"联合 weight decay、LR 和 epoch 检验更大模型能否恢复清晰缩放趋势。拟合渐近损失可估计极限，但外推不确定。","key":"分离范数优化效应和泛化效应。","q":"如何检验最佳衰减随规模改变？"},{"start":45,"end":53,"en":"Ensembling and dropout","zh":"集成与 dropout","body":"独立模型可能学习不同规律，平均预测可减少个体误差；dropout 使用随机子网络，但不完全等价于独立集成。","key":"记录成员数量与推理成本。","q":"完全相同的成员有集成收益吗？"},{"start":54,"end":60,"en":"Double scaling","zh":"双轴缩放","body":"固定模型大小改变集成成员，再扩大模型。两个资源轴的收益可能互补，需分别估算渐近损失和成本。","key":"比较渐近水平及误差。","q":"如何检验互补性？"},{"start":61,"end":75,"en":"Data-efficiency scaling","zh":"数据效率","body":"分别在多个独立数据规模上调参，比较达到相同验证 loss 所需数据量之比。小数据优势不能直接外推。","key":"从 loss 对数据量曲线比较水平距离。","q":"如何测数据效率倍数？"},{"start":76,"end":85,"en":"Distillation","zh":"蒸馏","body":"教师从原数据学习并生成序列，学生在真实及合成数据上训练。学生保留教师收益可用于检验容量解释。","key":"记录教师成本及真实/生成数据量。","q":"同学生比较不同教师能检验什么？"},{"start":86,"end":90,"en":"OOD and downstream","zh":"分布外评估","body":"部分下游和分布外表现与预训练 loss 相关，但任务或分布变化可能破坏关系。","key":"独立评估优于只用代理指标。","q":"怎样避免评测泄漏？"},{"start":91,"end":98,"en":"Fine-tuning and ICL","zh":"迁移与上下文学习","body":"预训练形成可复用能力；ICL 在上下文中适配，微调直接更新参数。学习能力与识别目标任务的样本需求不同。","key":"比较相同目标数据预算。","q":"如何衡量微调的数据效率？"},{"start":99,"end":107,"en":"Transfer and schedules","zh":"训练阶段衔接","body":"预训练质量影响下游所需数据，但不是唯一决定因素；WSD、warmup 与优化器状态影响后续微调。","key":"分别搜索微调配方。","q":"为何不能总从已衰减 LR 直接继续？"},{"start":108,"end":116,"en":"Forgetting and OOD","zh":"遗忘","body":"微调目标任务可能损害旧能力，重放可缓解；预训练数据多样性也可能有额外作用。","key":"同时测新旧任务。","q":"如何画新旧能力的 Pareto 前沿？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>

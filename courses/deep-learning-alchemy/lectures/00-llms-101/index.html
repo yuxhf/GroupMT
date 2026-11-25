@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="LLMs 101 · 语言模型基础：英文课件与中文专题讲解">
+<title>LLMs 101 · 语言模型基础 | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>LLMs 101 · 语言模型基础</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/llms_101_slides.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 39</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/llms_101_slides.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 39</div>
+      <h1 class="slide-title" id="slide-title">LLM training stack</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a1/index.html">相关作业 A1 →</a> · <a href="../../index.html">返回全部课程</a> · <a href="https://deep-learning-alchemy.github.io/assets/slides/llms_101_handout.pdf">官方 Handout</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/llms_101_slides.pdf","sections":[{"start":1,"end":8,"en":"LLM training stack","zh":"训练框架","body":"理解数据、模型、目标、优化器四要素；追踪一次前向、反向和参数更新再细看每个组件。","key":"默认设置以代码为准。","q":"如何解释一次预训练 step？"},{"start":9,"end":12,"en":"Data and objective","zh":"自回归目标","body":"序列概率分解为条件概率乘积，负对数转成逐 token 损失求和，按有效目标 token 平均。","key":"L=−Σ log p(xᵢ","q":"x＜ᵢ)/T。"},{"start":13,"end":16,"en":"Minibatch and backprop","zh":"小批量反传","body":"小批量估计总体梯度，autograd 按链式法则回传，optimizer.step 更新参数。梯度累积须正确归一化。","key":"epoch 与 step 不同。","q":"batch 翻倍后固定 epoch 的 step 数？"},{"start":17,"end":22,"en":"Optimizer recipe","zh":"优化配方","body":"warmup 与 decay 控制步长，动量聚合历史方向，Adam 用二阶矩调整尺度；衰减和裁剪作用不同。","key":"观察参数、梯度与激活 RMS。","q":"梯度裁剪能替代 decay 吗？"},{"start":23,"end":27,"en":"Embedding and RMSNorm","zh":"嵌入、残差与归一化","body":"Embedding 把 token 映射至 d 维表示，block 保持 B×T×d。残差是直达路径，RMSNorm 按均方根缩放。","key":"Pre-norm 在分支前归一化。","q":"为何 block 保持形状便于堆叠？"},{"start":28,"end":30,"en":"Attention","zh":"因果注意力","body":"QK 点积形成 T×T 分数，mask 阻止关注未来位置，softmax 权重混合 V。多头并行执行不同检索。","key":"追踪 head 数和维度。","q":"为何不能关注未来目标？"},{"start":31,"end":33,"en":"RoPE and QK norm","zh":"位置编码和稳定性","body":"RoPE 旋转 Q/K 使点积包含相对位置信息；QK norm 控制尺度。两者解决不同问题。","key":"因果 mask 本身也提供一定顺序信息。","q":"无显式位置编码是否完全无位置信息？"},{"start":34,"end":36,"en":"MLP and readout","zh":"逐位置变换","body":"SwiGLU 用门控非线性处理每个 token；unembedding 映射至词表 logits，softmax 得到概率。","key":"logits 同时平移不改变概率。","q":"词表扩大如何影响输出形状？"},{"start":37,"end":39,"en":"Initialization and scaling","zh":"初始化与缩放","body":"初始化尺度随 fan-in 变化，模型族还规定宽度、深度、head 和 MLP 关系。规模变化需核对参数和训练预算。","key":"以对应代码版本为准。","q":"深度和宽度同时改变怎样解释结果？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>

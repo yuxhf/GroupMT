@@ -1,0 +1,79 @@
+{
+  "lectures": [
+    {
+      "id": "02",
+      "pages": 57,
+      "sections": 13,
+      "path": "02-basics"
+    },
+    {
+      "id": "03",
+      "pages": 50,
+      "sections": 10,
+      "path": "03-optimization-invariants"
+    },
+    {
+      "id": "04",
+      "pages": 49,
+      "sections": 9,
+      "path": "04-optimization-parameterization"
+    },
+    {
+      "id": "05",
+      "pages": 65,
+      "sections": 10,
+      "path": "05-loss-landscapes"
+    },
+    {
+      "id": "06",
+      "pages": 70,
+      "sections": 10,
+      "path": "06-edge-of-stability"
+    },
+    {
+      "id": "07",
+      "pages": 59,
+      "sections": 10,
+      "path": "07-architecture-depth"
+    },
+    {
+      "id": "08",
+      "pages": 56,
+      "sections": 10,
+      "path": "08-architecture-time"
+    },
+    {
+      "id": "09",
+      "pages": 51,
+      "sections": 9,
+      "path": "09-architecture-capacity"
+    },
+    {
+      "id": "10",
+      "pages": 116,
+      "sections": 13,
+      "path": "10-generalization"
+    },
+    {
+      "id": "11",
+      "pages": 104,
+      "sections": 13,
+      "path": "11-generalization-compression"
+    },
+    {
+      "id": "S",
+      "pages": 39,
+      "sections": 9,
+      "path": "00-llms-101"
+    }
+  ],
+  "slides": 716,
+  "sectionNotes": 116,
+  "assignments": 7,
+  "quizzes": 6,
+  "unreleased": [
+    "Lecture 12",
+    "Quiz 7"
+  ],
+  "noteLevel": "section-level study notes; first lecture unchanged"
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Optimization 1 · 优化器与不变量：英文课件与中文专题讲解">
+<title>Optimization 1 · 优化器与不变量 | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>Optimization 1 · 优化器与不变量</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/lecture_03.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 50</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/lecture_03.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 50</div>
+      <h1 class="slide-title" id="slide-title">First-order optimization</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a2/index.html">相关作业 A2 →</a> · <a href="../../index.html">返回全部课程</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/lecture_03.pdf","sections":[{"start":1,"end":5,"en":"First-order optimization","zh":"一阶优化","body":"SGD 更新 θ←θ−ηg。有限预算内的下降速度取决于步长、batch、动量和预条件，而不只是理论收敛性。","key":"先拆解更新规则。","q":"两个都能收敛的方法为何早期性能不同？"},{"start":6,"end":9,"en":"Preconditioning and momentum","zh":"预条件与动量","body":"预条件改变各方向的更新尺度；动量聚合历史梯度中一致的方向。曲率差异大的方向可能需要不同步长。","key":"区分几何变换与时间平均。","q":"什么时候历史梯度互相抵消？"},{"start":10,"end":15,"en":"AdamW and finite budget","zh":"AdamW","body":"一阶和二阶滑动统计用于调整更新，AdamW 将权重衰减单独施加。非凸有限预算下不宜直接搬用凸优化结论。","key":"测实际更新而不只测梯度。","q":"训练 loss 降得快必然泛化好吗？"},{"start":16,"end":19,"en":"Noisy quadratic model","zh":"带噪二次模型","body":"设 L=½θᵀHθ，随机梯度为 Hθ+ε。独立样本平均 B 次可令噪声协方差变为 C/B；可共同对角化时逐方向分析。","key":"曲率决定稳定性，噪声影响稳态。","q":"H 的最大特征值翻倍会怎样？"},{"start":20,"end":21,"en":"Critical batch","zh":"临界批大小","body":"一维收缩因子为 1−ηh，稳定需 0\u003cηh\u003c2。较大批量降低噪声，但一旦步长接近稳定上限，额外 batch 的收益下降。","key":"按 step 和按 token 衡量效率不同。","q":"batch 翻倍一定节省一半计算吗？"},{"start":22,"end":27,"en":"Momentum in NQM","zh":"动量与批量","body":"大批量中方向较稳定，动量的加速收益可能更大；小批量的随机扰动会改变最佳设置。","key":"联合搜索 LR、batch、momentum。","q":"如何检验 NQM 的预测？"},{"start":28,"end":32,"en":"Preconditioning limits","zh":"预条件的边界","body":"根据 Hessian 调整步长可缩小各方向速度差，但可能放大噪声和改变稳态。非二次函数还可能出现振荡。","key":"理论适用区间需要实验验证。","q":"公平比较 Adam 与 SGD 需控制什么？"},{"start":33,"end":38,"en":"Norm invariance","zh":"尺度不变性","body":"若 L(cw)=L(w)，则梯度与 w 正交。离散切向更新也会增加范数；SGD 的方向有效步长可随 η/‖w‖² 变化。","key":"函数不变不代表训练动态不变。","q":"w 放大两倍后方向更新怎样变化？"},{"start":39,"end":42,"en":"Weight decay","zh":"衰减与范数平衡","body":"衰减的径向收缩和梯度切向更新可形成范数平衡。范数控制有效步长，而非仅仅传统正则化。","key":"嵌入与输出层未必具有尺度不变性。","q":"如何区分优化和泛化效应？"},{"start":43,"end":50,"en":"Hyperball","zh":"直接控制范数","body":"把更新归一化并投影回指定半径，可从结构上控制范数和方向变化。比较普通与包裹优化器时需重新调步长。","key":"用约束干预检验有效 LR 假说。","q":"范数固定后 weight decay 是否仍有效？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>

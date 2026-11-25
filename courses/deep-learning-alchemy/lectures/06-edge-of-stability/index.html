@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Optimization 2 · 损失地形 II：英文课件与中文专题讲解">
+<title>Optimization 2 · 损失地形 II | Deep Learning Alchemy</title>
+<link rel="stylesheet" href="../../shared/reader-v3.css">
+</head>
+<body class="lesson-page">
+<header class="lesson-topbar">
+  <a class="back-link" href="../../index.html">← Deep Learning Alchemy</a>
+  <div class="lesson-brand"><span>CS 312</span><span class="brand-divider">/</span><strong>Optimization 2 · 损失地形 II</strong></div>
+  <a class="official-link" href="https://deep-learning-alchemy.github.io/">Official course ↗</a>
+  <a class="pdf-link" href="https://deep-learning-alchemy.github.io/assets/slides/lecture_06.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+</header>
+<main class="lesson-layout">
+  <section class="slide-panel" aria-label="Official English slides">
+    <div class="slide-panel-head">
+      <strong>ORIGINAL ENGLISH SLIDES</strong>
+      <div class="pdf-toolbar">
+        <span id="pdf-page-label">PDF page 1 / 70</span>
+        <button id="pdf-zoom-out" type="button" aria-label="缩小 PDF">−</button>
+        <button id="pdf-fit" type="button" aria-label="适应宽度">适宽</button>
+        <button id="pdf-zoom-in" type="button" aria-label="放大 PDF">+</button>
+        <span class="pdfjs-credit">PDF.js</span>
+      </div>
+    </div>
+    <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="PDF 页面，可滚动查看完整幻灯片">
+      <div class="pdf-page-wrap" id="pdf-page-wrap">
+        <div class="pdf-loading" id="pdf-loading">正在加载原版 PDF…</div>
+        <canvas id="pdf-canvas" aria-label="当前英文 PPT 页面"></canvas>
+      </div>
+    </div>
+    <div class="pdf-error" id="pdf-error" hidden>
+      PDF 加载失败。你仍然可以
+      <a href="https://deep-learning-alchemy.github.io/assets/slides/lecture_06.pdf" target="_blank" rel="noreferrer">打开官方 PDF</a>。
+    </div>
+  </section>
+  <aside class="notes-panel" aria-label="Chinese explanation">
+    <div class="notes-top">
+      <div class="slide-count" id="slide-count">SLIDE 01 / 70</div>
+      <h1 class="slide-title" id="slide-title">Edge of stability</h1>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="note-range" id="note-range"></div><div class="sync-hint">滚动右侧讲解可同步切换 PPT 页面</div>
+    </div>
+    <section class="note-section">
+      <p class="note-label">本页所属专题 / KEY IDEA</p>
+      <p class="note-zh" id="slide-zh"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">中文专题讲解 / EXPLANATION</p>
+      <p class="note-body" id="slide-note"></p>
+    </section>
+    <section class="note-section">
+      <p class="note-label">重点理解 / KEY POINT</p>
+      <p class="note-key" id="slide-key"></p>
+    </section>
+    <div class="note-takeaway"><strong>思考题</strong><span id="slide-takeaway"></span></div>
+    <div class="slide-select-row">
+      <label for="slide-select">跳转到页面</label>
+      <select id="slide-select" aria-label="选择 PPT 页码"></select>
+    </div>
+    <div class="slide-nav">
+      <button id="prev-slide" type="button">← 上一页</button>
+      <button id="next-slide" type="button">下一页 →</button>
+    </div>
+  <div class="lesson-extra"><a href="../../assignments/a3/index.html">相关作业 A3 →</a> · <a href="../../index.html">返回全部课程</a></div></aside>
+</main>
+<script>window.lessonConfig={"pdf":"https://deep-learning-alchemy.github.io/assets/slides/lecture_06.pdf","sections":[{"start":1,"end":13,"en":"Edge of stability","zh":"稳定性边缘","body":"固定二次模型的 GD 稳定条件是 ηS\u003c2，S 为最大曲率。真实网络曲率变化，可能在阈值附近振荡却仍取得训练进展。","key":"不是所有 AdamW 或随机训练的普适阈值。","q":"η 增大后边缘 S 如何变化？"},{"start":14,"end":16,"en":"Self-stabilization","zh":"自稳定","body":"沿尖锐方向振荡，三阶展开中的平均更新可能降低曲率，形成反馈。固定二次函数没有这种曲率变化。","key":"区分二次模型与非线性地形。","q":"Hessian 固定时自稳定还存在吗？"},{"start":17,"end":24,"en":"Central flows","zh":"中心流","body":"连续梯度流忽略离散振荡，中心流描述平均轨迹及稳定约束产生的修正项。","key":"真实迭代与平均轨迹不同。","q":"如何验证中心流预测？"},{"start":25,"end":33,"en":"Batch and momentum","zh":"批量与动量","body":"噪声改变更新相关性；动量改变离散动力学，不能沿用无动量 2/η 阈值。","key":"按 batch 与 momentum 联合测曲率。","q":"为什么减小 batch 可能改变最佳动量？"},{"start":34,"end":39,"en":"Scalar RMSProp","zh":"标量自适应","body":"以平方梯度统计 ν 缩放步长，实际步长约 η/√ν，振荡会改变 ν 进而改变有效稳定性。","key":"β₂ 控制统计响应速度。","q":"β₂ 增大时对突变的响应如何？"},{"start":40,"end":46,"en":"Adaptive central flow","zh":"自适应中心流","body":"自适应方法既调节步长适应曲率，也可能通过振荡降低曲率。需要区分两个机制。","key":"比较完整模拟与移除修正项的模拟。","q":"为何外部 LR 仍然重要？"},{"start":47,"end":55,"en":"RMSProp","zh":"对角预条件","body":"稳定性取决于预条件后的曲率，不是原 Hessian 最大特征值；平滑总 loss 也可能掩盖内部坐标振荡。","key":"测 effective sharpness 与参数轨迹。","q":"原始曲率相同为何稳定性不同？"},{"start":56,"end":58,"en":"Limits","zh":"适用边界","body":"在交叉熵、随机训练、现代优化器和激进学习率下，简化理论可能不能准确预测。","key":"报告反例而非只挑成功预测。","q":"如何证伪 EoS 假说？"},{"start":59,"end":63,"en":"Sharpness and generalization","zh":"锐度与泛化","body":"尖锐度的相关性受数据条件和参数化影响。同一个函数经尺度重参数化可有不同参数曲率。","key":"不能仅凭 Hessian 断言泛化。","q":"重参数化为何是挑战？"},{"start":64,"end":70,"en":"SAM","zh":"锐度感知优化","body":"SAM 最小化邻域内较坏损失，常用梯度方向近似内层扰动；额外计算及 batch 改变其实际效果。","key":"比较相同计算预算及数据条件。","q":"若训练变慢而验证改善，如何公平评价？"}]};</script><script src="../../shared/reader-v3.js"></script>
+</body>
+</html>
